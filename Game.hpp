@@ -8,24 +8,18 @@
 #include <QGraphicsScene>
 #include "Board.hpp"
 #include "Piece.hpp"
+#include "Player.hpp"
 #pragma pop()
 #include <functional>
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
-class Game : public QGraphicsView {
-	Q_OBJECT
+class Game {
 public:
-	Game(QWidget* parent = 0);
-	int** obtenirPosition() { return position_; };
-public slots:
-
-signals:
-	void changerPosition(int** position);
-	void changerPiece(string piece);
+	void isPieceDead();
+	bool isGameOver();
 private:
-	int** position_;
-	int** positionPrecendente;
-	bool IsCaseSelected;
-	bool IsPieceSelected;
-	string piece_;
+	Board* board_;
+	Player* player1_;
+	Player* player2_;
+	bool gameOver_;
 };

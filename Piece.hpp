@@ -13,12 +13,11 @@
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 
 class Square;
-class Piece : public QGraphicsPixmapItem
+class Piece
 {
 public:
-	Piece(QString colorPlayer = "", QGraphicsItem* parent = 0);
-	void mouseSelectEvent(QGraphicsSceneMouseEvent* event);
-
+	Piece() = default;
+	virtual ~Piece();
 	void setPieceOnSquare(Square* square) {
 		square_ = square;
 	};

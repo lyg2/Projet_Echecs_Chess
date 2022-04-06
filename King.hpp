@@ -19,5 +19,6 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 
 class King : public Piece
 {
-	King(QString colorPlayer = "", QGraphicsItem* parent = 0);
+	King() = default;
 };
+

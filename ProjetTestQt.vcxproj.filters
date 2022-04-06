@@ -45,9 +45,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="Game.hpp">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="ChessWindow.hpp">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -69,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Piece.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

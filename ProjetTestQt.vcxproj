@@ -216,7 +216,7 @@
     <ClInclude Include="Square.hpp" />
     <ClInclude Include="Board.hpp" />
     <ClInclude Include="Piece.hpp" />
-    <QtMoc Include="Game.hpp" />
+    <ClInclude Include="Game.hpp" />
     <QtMoc Include="ChessWindow.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

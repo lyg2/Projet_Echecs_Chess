@@ -4,7 +4,19 @@
 
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QObject>
+#include "Piece.hpp"
+#include <list>
 #pragma pop()
 #include <functional>
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
+class Piece;
+class Player {
+	Player() = default;
+	void createPieces();
+	list<Piece*> getPieces();
+private:
+	string name_;
+	bool IsYourTurn;
+	list<Piece*> listOfPieces_;
+};

@@ -1,7 +1,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
 <Qt_DEFINES_>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CORE_LIB</Qt_DEFINES_>
-<Qt_INCLUDEPATH_>C:\temp\ProjetTestQt\Release\qmake\temp;C:\Qt\5.15.2\msvc2019_64\include;C:\Qt\5.15.2\msvc2019_64\include\QtWidgets;C:\Qt\5.15.2\msvc2019_64\include\QtGui;C:\Qt\5.15.2\msvc2019_64\include\QtANGLE;C:\Qt\5.15.2\msvc2019_64\include\QtCore;C:\temp\ProjetTestQt\Release\qmake\temp;/include;C:\Qt\5.15.2\msvc2019_64\mkspecs\win32-msvc</Qt_INCLUDEPATH_>
+<Qt_INCLUDEPATH_>C:\temp\INF1015_Projet\Release\qmake\temp;C:\Qt\5.15.2\msvc2019_64\include;C:\Qt\5.15.2\msvc2019_64\include\QtWidgets;C:\Qt\5.15.2\msvc2019_64\include\QtGui;C:\Qt\5.15.2\msvc2019_64\include\QtANGLE;C:\Qt\5.15.2\msvc2019_64\include\QtCore;C:\temp\INF1015_Projet\Release\qmake\temp;/include;C:\Qt\5.15.2\msvc2019_64\mkspecs\win32-msvc</Qt_INCLUDEPATH_>
 <Qt_STDCPP_></Qt_STDCPP_>
 <Qt_CL_OPTIONS_>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus</Qt_CL_OPTIONS_>
 <Qt_LIBS_>C:\Qt\5.15.2\msvc2019_64\lib\Qt5Widgets.lib;C:\Qt\5.15.2\msvc2019_64\lib\Qt5Gui.lib;C:\Qt\5.15.2\msvc2019_64\lib\Qt5Core.lib;C:\Qt\5.15.2\msvc2019_64\lib\qtmain.lib;shell32.lib</Qt_LIBS_>
