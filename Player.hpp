@@ -14,10 +14,7 @@ class Piece;
 class Player {
 public:
 	Player() = default;
-	void createPieces();
-	list<Piece*> getPieces();
 private:
 	string name_;
 	bool IsYourTurn;
-	list<Piece*> listOfPieces_;
 };

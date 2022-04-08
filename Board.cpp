@@ -17,6 +17,7 @@
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 void Board::setWhitePieces()
 {
+	//set color
 	Piece* piece;
 	piece = new King;
 	listOfWhite_.push_back(piece);
@@ -32,3 +33,28 @@ void Board::setWhitePieces()
 	piece = new Rook;
 	listOfBlack_.push_back(piece);
 }
+
+void Board::drawBoard()
+{
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			Square* square = new Square;
+			square->setPositionRow(i);
+			square->setPositionColumn(j);
+			if ((i + j) % 2 == 0)
+			{
+				square->setCaseColor("White");
+			}
+			else {
+				square->setCaseColor("Black");
+			}
+			field_[i][j] = square;
+
+		}
+	}
+}
+
+
+

@@ -14,12 +14,11 @@
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 
 class Piece;
-class Square:public QGraphicsRectItem {
+class Square{
 
 public:
 	//Attribute to remember old color
-	Square(QGraphicsItem* parent=0);
-	~Square();
+	Square() = default;
 	void mouseSelectEvent(QGraphicsSceneMouseEvent* event);
 	void setColor(QColor color) {
 		caseColor_ = color;
@@ -35,8 +34,8 @@ public:
 		piece_ = piece;
 	};
 
-	QString getPieceColor() { return pieceColor_; };
-	void setPieceColor(QString pieceColor) {
+	string getPieceColor() { return pieceColor_; };
+	void setPieceColor(string pieceColor) {
 		pieceColor_ = pieceColor;
 	};
 	
@@ -58,7 +57,7 @@ public:
 private:
 	bool hasPiece_;
 	QBrush brush;
-	QString pieceColor_;
+	string pieceColor_;
 	QColor caseColor_;
 	Piece* piece_;
 	int positionRow_;

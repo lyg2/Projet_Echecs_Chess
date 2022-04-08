@@ -16,7 +16,9 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 class Game {
 public:
 	void isPieceDead();
-	bool isGameOver();
+	void setBoard(Board* board) { board_ = board; };
+	Board* getBoard() { return board_; };
+	bool isGameOver() {return gameOver_;};
 private:
 	Board* board_;
 	Player* player1_;

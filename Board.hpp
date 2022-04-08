@@ -24,6 +24,7 @@ public:
 private:
 	list <Piece*> listOfWhite_;
 	list <Piece*> listOfBlack_;
+	Square* field_ [8][8];
 
 };
 //class Calc : public QObject {
