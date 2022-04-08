@@ -1,4 +1,17 @@
 ﻿  Reading Qt configuration (C:/Qt/5.15.2/msvc2019_64/bin/qmake)
+  moc ChessWindow.hpp
+  bibliotheque_cours.cpp
+  verification_allocation.cpp
+  Bishop.cpp
+  Game.cpp
+  ChessWindow.cpp
+  gtest-all.cc
+  King.cpp
   main.cpp
+  Board.cpp
+  Rook.cpp
+  Square.cpp
+  TestCalc.cpp
+  moc_ChessWindow.cpp
      Création de la bibliothèque C:\temp\INF1015_Projet\x64\Debug\ProjetTestQt.lib et de l'objet C:\temp\INF1015_Projet\x64\Debug\ProjetTestQt.exp
   ProjetTestQt.vcxproj -> C:\temp\INF1015_Projet\x64\Debug\ProjetTestQt.exe

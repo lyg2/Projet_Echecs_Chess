@@ -6,6 +6,7 @@
 #include <QGraphicsRectItem>
 #include "Piece.hpp"
 #include "Square.hpp"
+#include <list>
 #include <QObject>
 #pragma pop()
 #include <functional>
@@ -14,15 +15,15 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 
 class Board {
 public:
-	Board();
+	Board()=default;
 	void drawBoard();
 	void setWhitePieces();
 	void setBlackPieces();
 	void addPieceOnBoard(Piece*, Square*);
 
 private:
-	QList <Piece*> listOfWhite_;
-	QList <Piece*> listOfBlack_;
+	list <Piece*> listOfWhite_;
+	list <Piece*> listOfBlack_;
 
 };
 //class Calc : public QObject {

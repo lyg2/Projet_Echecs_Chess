@@ -18,7 +18,9 @@ class Square;
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 
 class King : public Piece
-{
+{public:
 	King() = default;
+	void setPossibleMoves() override;
+	void movePiece() override;
 };
 

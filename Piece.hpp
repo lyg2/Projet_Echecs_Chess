@@ -17,7 +17,7 @@ class Piece
 {
 public:
 	Piece() = default;
-	virtual ~Piece();
+	virtual ~Piece()=default;
 	void setPieceOnSquare(Square* square) {
 		square_ = square;
 	};
@@ -36,9 +36,9 @@ public:
 	QList<Square*> getPossibleMove() {
 		return possibleMoves_;
 	};
-	virtual void setPossibleMoves();
+	virtual void setPossibleMoves()=0;
 
-	virtual void movePiece();
+	virtual void movePiece()=0;
 private:
 	Square* square_;
 	QString color_;

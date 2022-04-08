@@ -203,13 +203,19 @@
   <ItemGroup>
     <ClCompile Include="bibliotheque_cours\bibliotheque_cours.cpp" />
     <ClCompile Include="bibliotheque_cours\verification_allocation.cpp" />
+    <ClCompile Include="Bishop.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="ChessWindow.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
+    <ClCompile Include="King.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Rook.cpp" />
+    <ClCompile Include="Square.cpp" />
     <ClCompile Include="TestCalc.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bishop.hpp" />
     <ClInclude Include="Rook.hpp" />
     <ClInclude Include="King.hpp" />
     <ClInclude Include="Player.hpp" />

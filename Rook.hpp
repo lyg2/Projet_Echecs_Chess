@@ -19,7 +19,10 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 
 class Rook : public Piece
 {
+public:
 	Rook() = default;
+	void setPossibleMoves() override;
+	void movePiece() override;
 };
 
 //class Calc : public QObject {

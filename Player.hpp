@@ -12,6 +12,7 @@
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 class Piece;
 class Player {
+public:
 	Player() = default;
 	void createPieces();
 	list<Piece*> getPieces();
