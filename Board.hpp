@@ -19,7 +19,7 @@ public:
 	void drawBoard();
 	void setWhitePieces();
 	void setBlackPieces();
-	void addPieceOnBoard(Piece*, Square*);
+	void addPieceOnBoard(Piece* piece, Square* square);
 
 private:
 	list <Piece*> listOfWhite_;

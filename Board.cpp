@@ -56,5 +56,11 @@ void Board::drawBoard()
 	}
 }
 
+void Board::addPieceOnBoard(Piece* piece, Square* square)
+{
+	square->putPieceOnSquare(piece);
+	square->setHasPiece(true);
+}
+
 
 
