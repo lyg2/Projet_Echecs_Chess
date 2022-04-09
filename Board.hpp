@@ -17,8 +17,7 @@ class Board {
 public:
 	Board()=default;
 	void drawBoard();
-	void setWhitePieces();
-	void setBlackPieces();
+	void setPieces();
 	void addPieceOnBoard(Piece* piece, Square* square);
 
 private:

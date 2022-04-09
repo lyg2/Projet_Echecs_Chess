@@ -15,7 +15,7 @@
 #include <functional>
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
-void Board::setWhitePieces()
+void Board::setPieces()
 {
 	//set color
 	Piece* piece;
