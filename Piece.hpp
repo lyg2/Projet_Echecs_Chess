@@ -7,6 +7,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
 #include "Square.hpp"
+#include <list>
 #pragma pop()
 #include <functional>
 
@@ -16,42 +17,42 @@ class Square;
 class Piece
 {
 public:
-	Piece(QString colorPlayer = "", QGraphicsItem* parent = 0);
-	void mouseSelectEvent(QGraphicsSceneMouseEvent* event);
-	Piece() = default;
+	Piece() = default;;
 	virtual ~Piece() = default;
-	virtual bool ifMoved(int newPosX, int newPosY) const = 0;
-	virtual bool eatPiece(int newPosX, int newPosY) const = 0;
-	int getPosX() const { return posX; }
-	int getPosY() const { return posY; }
-	string getName() const { return namePiece; }
+	/*bool ifMoved(int newPosX, int newPosY);
+	bool eatPiece(int newPosX, int newPosY);*/
+	int getPosX() const { return posX_; };
+	int getPosY() const { return posY_; };
+	void setPosX(int posX) { posX_ = posX; };
+	void setPosY(int posY) { posY_ = posY; };
+	string getName() const { return namePiece_; }
 	void setPieceOnSquare(Square* square) {
 		square = square;
 	};
 	Square* getSquare() {
-		return square;
+		return square_;
 	};
 
-	void setPieceColor(QString color) { color = color; };
-	QString getPieceColor() { return color; };
+	void setPieceColor(string color) { color = color; };
+	string getPieceColor() { return color_; };
 
 	void setIsOnSquare(bool isOnSquare) {
 		isOnSquare = isOnSquare;
 	}
-	bool getIsOnSquare() { return isOnSquare; };
+	bool getIsOnSquare() { return isOnSquare_; };
 
-	QList<Square*> getPossibleMove() {
-		return possibleMoves;
+	list<Square*> getPossibleMove() {
+		return possibleMoves_;
 	};
 	virtual void setPossibleMoves()=0;
 
 	virtual void movePiece()=0;
 private:
-	int posX;
-	int posY;
-	string namePiece;
-	Square* square;
-	QString color;
-	bool isOnSquare;
-	QList<Square*> possibleMoves;
+	int posX_;
+	int posY_;
+	string namePiece_;
+	Square* square_;
+	string color_;
+	bool isOnSquare_;
+	list<Square*> possibleMoves_;
 };

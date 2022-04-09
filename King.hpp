@@ -22,5 +22,7 @@ class King : public Piece
 	King() = default;
 	void setPossibleMoves() override;
 	void movePiece() override;
+
+
 };
 

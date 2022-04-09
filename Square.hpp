@@ -19,7 +19,6 @@ class Square{
 public:
 	//Attribute to remember old color
 	Square() = default;
-	void mouseSelectEvent(QGraphicsSceneMouseEvent* event);
 	void setColor(QColor color) {
 		caseColor_ = color;
 	}; //??

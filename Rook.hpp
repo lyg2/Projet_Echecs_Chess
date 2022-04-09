@@ -20,13 +20,9 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 class Rook : public Piece
 {
 public:
-	Rook(QString colorPlayer = "", QGraphicsItem* parent = 0);
-	void mouseSelectEvent(QGraphicsSceneMouseEvent* event);
 	Rook() = default;
 	Rook(string color, int x, int y);
 	~Rook() = default;
-	bool ifMoved(int newPosX, int newPosY) const override;
-	bool eatPiece(int newPosX, int newPosY) const override;
 	void setPossibleMoves() override;
 	void movePiece() override;
 };
