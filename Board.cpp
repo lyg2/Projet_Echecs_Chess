@@ -41,8 +41,8 @@ void Board::drawBoard()
 		for (int j = 0; j < 8; j++)
 		{
 			Square* square = new Square;
-			square->setPositionRow(i);
-			square->setPositionColumn(j);
+			square->setPositionColumn(i);
+			square->setPositionRow(j);
 			if ((i + j) % 2 == 0)
 			{
 				square->setCaseColor("White");
@@ -56,10 +56,12 @@ void Board::drawBoard()
 	}
 }
 
-void Board::addPieceOnBoard(Piece* piece, Square* square)
+void Board::addPieceOnBoard(Piece* piece, Square* square, int posX, int posY)
 {
 	square->putPieceOnSquare(piece);
 	square->setHasPiece(true);
+	square->setPositionColumn(posX);
+	square->setPositionRow(posY);
 }
 
 

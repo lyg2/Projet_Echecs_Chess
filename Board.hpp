@@ -18,7 +18,7 @@ public:
 	Board()=default;
 	void drawBoard();
 	void setPieces();
-	void addPieceOnBoard(Piece* piece, Square* square);
+	void addPieceOnBoard(Piece* piece, Square* square, int posX, int posY);
 
 private:
 	list <Piece*> listOfWhite_;
