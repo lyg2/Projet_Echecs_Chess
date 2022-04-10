@@ -211,6 +211,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Piece.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rook.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="TestCalc.cpp" />
