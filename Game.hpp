@@ -9,13 +9,16 @@
 #include "Board.hpp"
 #include "Piece.hpp"
 #include "Player.hpp"
-#pragma pop()
+#include "Square.hpp"
+#include <list>
 #include <functional>
+#pragma pop()
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 class Game {
 public:
 	void isPieceDead();
+	bool checkKing();
 	void setBoard(Board* board) { board_ = board; };
 	Board* getBoard() { return board_; };
 	bool isGameOver() {return gameOver_;};
@@ -27,5 +30,7 @@ private:
 	Board* board_;
 	Player* player1_;
 	Player* player2_;
+	list<Piece*> whiteDead;
+	list<Piece*> blackDead;
 	bool gameOver_;
 };

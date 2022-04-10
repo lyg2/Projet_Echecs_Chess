@@ -8,7 +8,15 @@
 #include <QGraphicsSceneMouseEvent>
 #include "Square.hpp"
 #include "Piece.hpp"
+#include "Square.hpp"
 #include "King.hpp"
 #include "Game.hpp"
 #pragma pop()
 #include <functional>
+
+
+bool Game::checkKing() {
+	
+}
+
+
