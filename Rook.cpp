@@ -39,6 +39,16 @@ void Rook::movePiece(int i, int j) {
 
 }
 
-bool Rook::validationMouvement() {
+bool Rook::validationMouvement(int posXApres, int posYApres) {
+	//Déplacement horizontale
+	if ((abs(posXApres - getPosX()) == 1) && (posYApres - getPosY()) == 0) {
+		return true;
+	}
+
+	//Déplacement verticale
+	else if ((posXApres - getPosX() == 0) && (abs(posYApres - getPosY()) == 1)) {
+		return true;
+	}
+
 	return false;
 }

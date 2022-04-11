@@ -64,9 +64,9 @@ void Board::addPieceOnBoard(Piece* piece, Square* square, int posX, int posY)
 	square->setPositionRow(posY);
 }
 
-int getField(int posX) {
-	return getField(posX);
-}
+//int getField(int posX) {
+//	return getField(posX);
+//}
 
 
 

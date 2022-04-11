@@ -35,6 +35,11 @@ void Bishop::movePiece(int i, int j) {
 	}*/
 }
 
-bool Bishop::validationMouvement() {
+bool Bishop::validationMouvement(int posXApres, int posYApres) {
+	//Déplacement diagonale
+	if ((abs(posXApres - getPosX()) == 1) && (abs(posYApres - getPosY())) == 1) {
+	return true;
+	}
+
 	return false;
 }

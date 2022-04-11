@@ -46,6 +46,21 @@ void King::movePiece(int x1, int y1) {
 //
 }
 
-bool King::validationMouvement() {
+bool King::validationMouvement(int posXApres, int posYApres) {
+	//Déplacement horizontale
+	if ((abs(posXApres - getPosX()) == 1) && (posYApres - getPosY()) == 0) {
+		return true;
+	}
+
+	//Déplacement verticale
+	else if ((posXApres - getPosX() == 0) && (abs(posYApres - getPosY()) == 1)) {
+		return true;
+	}
+
+	//Déplacement diagonale
+	else if ((abs(posXApres - getPosX()) == 1) && (abs(posYApres - getPosY())) == 1) {
+		return true;
+	}
+
 	return false;
 }

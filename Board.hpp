@@ -20,6 +20,8 @@ public:
 	void setPieces();
 	void addPieceOnBoard(Piece* piece, Square* square, int posX, int posY);
 	Square* field_ [8][8];
+	void move();
+	// faire le mouvement ici
 
 private:
 	list <Piece*> listOfWhite_;

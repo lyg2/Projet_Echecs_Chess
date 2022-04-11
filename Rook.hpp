@@ -23,8 +23,7 @@ public:
 	Rook(string color);
 	~Rook() = default;
 	void setPossibleMoves() override;
-	void movePiece(int i, int j) override;
-	bool validationMouvement() override;
+	bool validationMouvement(int posXApres, int posYApres) override;
 
 };
 
