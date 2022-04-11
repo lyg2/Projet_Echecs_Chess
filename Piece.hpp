@@ -17,8 +17,9 @@ class Square;
 class Piece
 {
 public:
-	Piece() = default;;
+	Piece() = default;
 	virtual ~Piece() = default;
+	virtual bool validationMouvement() = 0;
 	/*bool ifMoved(int newPosX, int newPosY);
 	bool eatPiece(int newPosX, int newPosY);*/
 	int getPosX() const { return posX_; };
@@ -44,9 +45,12 @@ public:
 	list<Square*> getPossibleMove() {
 		return possibleMoves_;
 	};
-	virtual void setPossibleMoves(int i, int j) = 0;
+
+
+	virtual void setPossibleMoves() = 0;
 
 	virtual void movePiece(int i, int j) = 0;
+
 private:
 	int posX_;
 	int posY_;

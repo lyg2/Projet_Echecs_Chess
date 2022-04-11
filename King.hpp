@@ -21,8 +21,10 @@ class King : public Piece
 {
 public:
 	King() = default;
-	void setPossibleMoves(int i, int j) override;
+	void setPossibleMoves() override;
 	void movePiece(int i, int j) override;
+	bool validationMouvement() override;
+
 
 };
 

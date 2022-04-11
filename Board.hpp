@@ -19,11 +19,11 @@ public:
 	void drawBoard();
 	void setPieces();
 	void addPieceOnBoard(Piece* piece, Square* square, int posX, int posY);
+	Square* field_ [8][8];
 
 private:
 	list <Piece*> listOfWhite_;
 	list <Piece*> listOfBlack_;
-	Square* field_ [8][8];
 
 };
 //class Calc : public QObject {

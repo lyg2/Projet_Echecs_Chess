@@ -18,6 +18,7 @@ public:
 	void setIsYourTurn(bool turn) { isYourTurn_ = turn; };
 	string getName() { return name_; };
 	void setName(string name) { name_ = name; };
+
 private:
 	string name_;
 	bool isYourTurn_;

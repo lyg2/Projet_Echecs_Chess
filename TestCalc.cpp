@@ -1,71 +1,71 @@
 ﻿// Les test pour le Modèle pour calculatrice simple.
 // Par Francois-R.Boyer@PolyMtl.ca
 
-#include "Chess.hpp"
-#include "Rook.hpp"
-#include "King.hpp"
-#include "Bishop.hpp"
-
-#if __has_include("gtest/gtest.h")
-#include "gtest/gtest.h"
-#endif
-#ifdef TEST
-
-TEST(Rook, simple) {
-	Rook rook;
-	rook.setPossibleMoves(-1, 0);
-	rook.setPossibleMoves(0, -1);
-	rook.setPossibleMoves(1, 0);
-	rook.setPossibleMoves(0, 1);
-	rook.setPossibleMoves(0, 0);
-	//EXPECT_EQ(calc.obtenirValeur(), 143);
-	rook.movePiece(-1, 0);
-	rook.movePiece(0, -1);
-	rook.movePiece(1, 0);
-	rook.movePiece(0, 1);
-	rook.movePiece(0, 0);
-	//EXPECT_EQ(calc.obtenirValeur(), 218);
-}
-
-TEST(King, simple) {
-	King king;
-	king.setPossibleMoves(-1, 0);
-	king.setPossibleMoves(0, -1);
-	king.setPossibleMoves(1, 0);
-	king.setPossibleMoves(0, 1);
-	king.setPossibleMoves(0, 0);
-	king.setPossibleMoves(-1, -1);
-	king.setPossibleMoves(-1, 1);
-	king.setPossibleMoves(1, 1);
-	king.setPossibleMoves(1, -1);
-	//EXPECT_EQ(calc.obtenirValeur(), 143);
-	king.movePiece(-1, 0);
-	king.movePiece(0, -1);
-	king.movePiece(1, 0);
-	king.movePiece(0, 1);
-	king.movePiece(0, 0);
-	king.movePiece(-1, -1);
-	king.movePiece(-1, 1);
-	king.movePiece(1, 1);
-	king.movePiece(1, -1);
-	//EXPECT_EQ(calc.obtenirValeur(), 218);
-}
-
-TEST(Bishop, simple) {
-	Bishop bishop;
-	bishop.setPossibleMoves(0, 0);
-	bishop.setPossibleMoves(-1, -1);
-	bishop.setPossibleMoves(-1, 1);
-	bishop.setPossibleMoves(1, 1);
-	bishop.setPossibleMoves(1, -1);
-	//EXPECT_EQ(calc.obtenirValeur(), 143);
-	bishop.movePiece(0, 0);
-	bishop.movePiece(-1, -1);
-	bishop.movePiece(-1, 1);
-	bishop.movePiece(1, 1);
-	bishop.movePiece(1, -1);
-	//EXPECT_EQ(calc.obtenirValeur(), 218);
-}
+//#include "Chess.hpp"
+//#include "Rook.hpp"
+//#include "King.hpp"
+//#include "Bishop.hpp"
+//
+//#if __has_include("gtest/gtest.h")
+//#include "gtest/gtest.h"
+//#endif
+//#ifdef TEST
+//
+//TEST(Rook, simple) {
+//	Rook rook;
+//	rook.setPossibleMoves(-1, 0);
+//	rook.setPossibleMoves(0, -1);
+//	rook.setPossibleMoves(1, 0);
+//	rook.setPossibleMoves(0, 1);
+//	rook.setPossibleMoves(0, 0);
+//	//EXPECT_EQ(calc.obtenirValeur(), 143);
+//	rook.movePiece(-1, 0);
+//	rook.movePiece(0, -1);
+//	rook.movePiece(1, 0);
+//	rook.movePiece(0, 1);
+//	rook.movePiece(0, 0);
+//	//EXPECT_EQ(calc.obtenirValeur(), 218);
+//}
+//
+//TEST(King, simple) {
+//	King king;
+//	king.setPossibleMoves(-1, 0);
+//	king.setPossibleMoves(0, -1);
+//	king.setPossibleMoves(1, 0);
+//	king.setPossibleMoves(0, 1);
+//	king.setPossibleMoves(0, 0);
+//	king.setPossibleMoves(-1, -1);
+//	king.setPossibleMoves(-1, 1);
+//	king.setPossibleMoves(1, 1);
+//	king.setPossibleMoves(1, -1);
+//	//EXPECT_EQ(calc.obtenirValeur(), 143);
+//	king.movePiece(-1, 0);
+//	king.movePiece(0, -1);
+//	king.movePiece(1, 0);
+//	king.movePiece(0, 1);
+//	king.movePiece(0, 0);
+//	king.movePiece(-1, -1);
+//	king.movePiece(-1, 1);
+//	king.movePiece(1, 1);
+//	king.movePiece(1, -1);
+//	//EXPECT_EQ(calc.obtenirValeur(), 218);
+//}
+//
+//TEST(Bishop, simple) {
+//	Bishop bishop;
+//	bishop.setPossibleMoves(0, 0);
+//	bishop.setPossibleMoves(-1, -1);
+//	bishop.setPossibleMoves(-1, 1);
+//	bishop.setPossibleMoves(1, 1);
+//	bishop.setPossibleMoves(1, -1);
+//	//EXPECT_EQ(calc.obtenirValeur(), 143);
+//	bishop.movePiece(0, 0);
+//	bishop.movePiece(-1, -1);
+//	bishop.movePiece(-1, 1);
+//	bishop.movePiece(1, 1);
+//	bishop.movePiece(1, -1);
+//	//EXPECT_EQ(calc.obtenirValeur(), 218);
+//}
 //
 //TEST(Calc, operations) {
 //	Calc calc;

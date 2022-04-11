@@ -21,7 +21,8 @@ class Bishop : public Piece
 {
 public:
 	Bishop() = default;
-	void setPossibleMoves(int i, int j) override;
+	void setPossibleMoves() override;
 	void movePiece(int i, int j) override;
+	bool validationMouvement() override;
 
 };

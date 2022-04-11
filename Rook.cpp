@@ -13,8 +13,8 @@
 #pragma pop()
 #include <functional>
 
-void Rook::setPossibleMoves(int i, int j) {
-	Piece piece;
+void Rook::setPossibleMoves() {
+	/*Piece piece;
 	Board board;
 
 	for (int i = -1; i <= 1; i++) {
@@ -24,17 +24,21 @@ void Rook::setPossibleMoves(int i, int j) {
 			(piece.possibleMoves_).push_back(movePosX);
 			(piece.possibleMoves_).push_back(movePosY);
 		}
-	}
+	}*/
 }
 
 void Rook::movePiece(int i, int j) {
-	Piece piece;
+	/*Piece piece;
 	Board board;
 	if (i != 0) {
-		int nextPosX = board.field_[piece.getPosX() + i][j];
+		int nextPosX = getField[piece.getPosX() + i][j];
 	}
 	else if (j != 0) {
 		int nextPosY = board.field_[i][piece.getPosY() + j];
-	}
+	}*/
 
+}
+
+bool Rook::validationMouvement() {
+	return false;
 }
