@@ -64,8 +64,214 @@ void Board::addPieceOnBoard(Piece* piece, Square* square, int posX, int posY)
 	square->setPositionY(posY);
 }
 
-void Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
-	
+bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
+	//
+	bool goUp = false;
+	bool goDown = false;
+	bool goLeft = false;
+	bool goRight = false;
+	bool goUpRight = false;
+	bool goUpLeft = false;
+	bool goDownRight = false;
+	bool goDownLeft = false;
+	int posX = square->getPositionX();
+	int posY = square->getPositionY();
+	if (!square->getPiece()->validationMouvement(movePosX, movePosY)) {
+		return false;
+	}
+
+	if ((movePosX - posX >= 1) && (movePosY == posY))
+	{
+		goRight = true;
+	}
+	else if ((movePosX - posX <= -1) && (movePosY == posY))
+	{
+		goLeft = true;
+	}
+
+	else if ((movePosX == posX) && (movePosY- posY>=1)) {
+		goDown = true;
+	}
+	else if ((movePosX == posX) && (movePosY - posY >= -1)) {
+		goUp = true;
+	}
+
+	else if ((movePosX-posX>=1) && (movePosY - posY>=1)) 
+	{
+		goDownRight = true;
+	}
+	else if ((movePosX - posX >= 1) && (movePosY - posY <= -1))
+	{
+		goUpRight = true;
+	}
+
+	else if ((movePosX - posX >= -1) && (movePosY - posY >= 1))
+	{
+		goDownLeft = true;
+	}
+
+	else if ((movePosX - posX <= -1) && (movePosY - posY <= -1))
+	{
+		goUpLeft = true;
+	}
+	if (goRight) 
+	{
+		for (posX; posX < movePosX; posX++)
+		{
+			if (square->getPiece() != nullptr)
+			{
+				return false;
+			}
+		}
+		if (field_[movePosX][movePosY]->getPiece()==nullptr)
+		{
+			return true;
+		}
+		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		{
+			return true;
+		}
+		//check if Piece is Black or White and Player
+	}
+	else if (goLeft)
+	{
+		for (posX; posX > movePosX; posX--)
+		{
+			if (square->getPiece() != nullptr)
+			{
+				return false;
+			}
+		}
+		if (field_[movePosX][movePosY]->getPiece() == nullptr)
+		{
+			return true;
+		}
+		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		{
+			return true;
+		}
+	}
+	else if (goDown) 
+	{
+		for (posY; posY < movePosY; posY++)
+		{
+			if (square->getPiece() != nullptr)
+			{
+				return false;
+			}
+		}
+		if (field_[movePosX][movePosY]->getPiece() == nullptr)
+		{
+			return true;
+		}
+		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		{
+			return true;
+		}
+	}
+
+	else if (goUp) 
+	{
+		for (posY; posY > movePosY; posY--) 
+		{
+			if (square->getPiece() != nullptr)
+			{
+				return false;
+			}
+		}
+		if (field_[movePosX][movePosY]->getPiece() == nullptr)
+		{
+			return true;
+		}
+		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		{
+			return true;
+		}
+	}
+
+	else if (goDownRight)
+	{
+		while (posX != movePosX && posY != movePosY)
+		{
+			if (square->getPiece() != nullptr)
+			{
+				return false;
+			}
+			posX++;
+			posY++;
+		}
+		if (field_[movePosX][movePosY]->getPiece() == nullptr)
+		{
+			return true;
+		}
+		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		{
+			return true;
+		}
+	}
+	else if (goDownLeft)
+	{
+		while (posX != movePosX && posY != movePosY)
+		{
+			if (square->getPiece() != nullptr)
+			{
+				return false;
+			}
+			posX--;
+			posY++;
+		}
+		if (field_[movePosX][movePosY]->getPiece() == nullptr)
+		{
+			return true;
+		}
+		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		{
+			return true;
+		}
+	}
+
+	else if (goUpRight)
+	{
+		while (posX != movePosX && posY != movePosY)
+		{
+			if (square->getPiece() != nullptr)
+			{
+				return false;
+			}
+			posX++;
+			posY--;
+		}
+		if (field_[movePosX][movePosY]->getPiece() == nullptr)
+		{
+			return true;
+		}
+		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		{
+			return true;
+		}
+		//check if Piece is Black or White and Player
+	}
+	else if (goUpLeft) 
+	{
+		while (posX != movePosX && posY != movePosY)
+		{
+			if (square->getPiece() != nullptr)
+			{
+				return false;
+			}
+			posX--;
+			posY--;
+		}
+		if (field_[movePosX][movePosY]->getPiece() == nullptr)
+		{
+			return true;
+		}
+		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 //int getField(int posX) {
