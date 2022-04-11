@@ -27,17 +27,17 @@ void Rook::setPossibleMoves() {
 	}*/
 }
 
-void Rook::movePiece(int i, int j) {
-	/*Piece piece;
-	Board board;
-	if (i != 0) {
-		int nextPosX = getField[piece.getPosX() + i][j];
-	}
-	else if (j != 0) {
-		int nextPosY = board.field_[i][piece.getPosY() + j];
-	}*/
-
-}
+//void Rook::movePiece(int i, int j) {
+//	piece piece;
+//	board board;
+//	if (i != 0) {
+//		int nextposx = getfield[piece.getposx() + i][j];
+//	}
+//	else if (j != 0) {
+//		int nextposy = board.field_[i][piece.getposy() + j];
+//	}
+//
+//}
 
 bool Rook::validationMouvement(int posXApres, int posYApres) {
 	//Déplacement horizontale

@@ -20,6 +20,8 @@ class Game {
 public:
 	void isPieceDead();
 	bool checkKing();
+	void checkObstacle();
+	void movePiece();
 	void setBoard(Board* board) { board_ = board; };
 	Board* getBoard() { return board_; };
 	bool isGameOver() {return gameOver_;};

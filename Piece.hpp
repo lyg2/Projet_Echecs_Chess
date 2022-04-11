@@ -49,7 +49,7 @@ public:
 
 	virtual void setPossibleMoves() = 0;
 
-	virtual void movePiece(int i, int j) = 0;
+	//virtual void movePiece(int i, int j) = 0;
 
 private:
 	int posX_;

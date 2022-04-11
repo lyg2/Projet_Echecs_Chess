@@ -22,7 +22,6 @@ class King : public Piece
 public:
 	King() = default;
 	void setPossibleMoves() override;
-	void movePiece(int i, int j) override;
 	bool validationMouvement(int posXApres, int posYApres) override;
 
 };

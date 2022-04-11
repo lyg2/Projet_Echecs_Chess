@@ -20,7 +20,9 @@ public:
 	void setPieces();
 	void addPieceOnBoard(Piece* piece, Square* square, int posX, int posY);
 	Square* field_ [8][8];
-	void move();
+	void checkObstacle();
+	void checkKing();
+	void movePiece();
 	// faire le mouvement ici
 
 private:

@@ -29,22 +29,22 @@ void King::setPossibleMoves() {
 //	}
 }
 
-void King::movePiece(int x1, int y1) {
-//	Piece piece;
-//	Board board;
+//void King::movePiece(int x1, int y1) {
+//	piece piece;
+//	board board;
 //	if (i != 0) {
-//		//int nextPosX = board.field_[piece.getPosX() + i][j];
-//		int nextPosX = getField[piece.getPosX() + i];
+//		int nextposx = board.field_[piece.getposx() + i][j];
+//		int nextposx = getfield[piece.getposx() + i];
 //
 //	}
 //	else if (j != 0) {
-//		int nextPosY = board.field_[i][piece.getPosY() + j];
+//		int nextposy = board.field_[i][piece.getposy() + j];
 //	}
 //	else if (i != 0 && j != 0) {
-//		int nextPosXY = board.field_[piece.getPosX() + i][piece.getPosY() + j];
+//		int nextposxy = board.field_[piece.getposx() + i][piece.getposy() + j];
 //	}
 //
-}
+//}
 
 bool King::validationMouvement(int posXApres, int posYApres) {
 	//Déplacement horizontale

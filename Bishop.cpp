@@ -27,13 +27,13 @@ void Bishop::setPossibleMoves() {
 	}*/
 }
 
-void Bishop::movePiece(int i, int j) {
-	/*Piece* piece;
-	Board board;
-	if (i != 0 && j != 0) {
-	int nextPosXY = board.field_[piece.getPosX() + i][piece.getPosY() + j];
-	}*/
-}
+//void Bishop::movePiece(int i, int j) {
+//	piece* piece;
+//	board board;
+//	if (i != 0 && j != 0) {
+//	int nextposxy = board.field_[piece.getposx() + i][piece.getposy() + j];
+//	}
+//}
 
 bool Bishop::validationMouvement(int posXApres, int posYApres) {
 	//Déplacement diagonale
