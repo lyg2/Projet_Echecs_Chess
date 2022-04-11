@@ -41,8 +41,8 @@ void Board::drawBoard()
 		for (int j = 0; j < 8; j++)
 		{
 			Square* square = new Square;
-			square->setPositionColumn(i);
-			square->setPositionRow(j);
+			square->setPositionX(i);
+			square->setPositionY(j);
 			if ((i + j) % 2 == 0)
 			{
 				square->setCaseColor("White");
@@ -60,8 +60,12 @@ void Board::addPieceOnBoard(Piece* piece, Square* square, int posX, int posY)
 {
 	square->putPieceOnSquare(piece);
 	square->setHasPiece(true);
-	square->setPositionColumn(posX);
-	square->setPositionRow(posY);
+	square->setPositionX(posX);
+	square->setPositionY(posY);
+}
+
+void Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
+	
 }
 
 //int getField(int posX) {

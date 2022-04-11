@@ -44,13 +44,13 @@ public:
 		piece_=piece;
 	};
 
-	void setPositionRow(int positionRow) {
-		positionRow_ = positionRow; };
-	void setPositionColumn(int positionColumn) {
-		positionColumn_ = positionColumn;};
+	void setPositionX(int positionX) {
+		positionX_ = positionX; };
+	void setPositionY(int positionY) {
+		positionY_ = positionY;};
 
-	int getPositionRow() { return positionRow_; };
-	int getPositionColumn() { return positionColumn_; };
+	int getPositionX() { return positionX_; };
+	int getPositionY() { return positionY_; };
 
 private:
 	bool hasPiece_;
@@ -58,7 +58,7 @@ private:
 	string pieceColor_;
 	string caseColor_;
 	Piece* piece_;
-	int positionRow_;
-	int positionColumn_;
+	int positionX_;
+	int positionY_;
 
 };
