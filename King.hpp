@@ -18,11 +18,11 @@ class Square;
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 
 class King : public Piece
-{public:
+{
+public:
 	King() = default;
-	void setPossibleMoves() override;
-	void movePiece() override;
-
+	void setPossibleMoves(int i, int j) override;
+	void movePiece(int i, int j) override;
 
 };
 

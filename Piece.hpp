@@ -44,9 +44,9 @@ public:
 	list<Square*> getPossibleMove() {
 		return possibleMoves_;
 	};
-	virtual void setPossibleMoves()=0;
+	virtual void setPossibleMoves(int i, int j) = 0;
 
-	virtual void movePiece()=0;
+	virtual void movePiece(int i, int j) = 0;
 private:
 	int posX_;
 	int posY_;

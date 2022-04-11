@@ -17,14 +17,13 @@ class Square;
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 
-class Rook : public Piece
-{
+class Rook : public Piece {
 public:
 	Rook() = default;
-	Rook(string color, int x, int y);
+	Rook(string color);
 	~Rook() = default;
-	void setPossibleMoves() override;
-	void movePiece() override;
+	void setPossibleMoves(int i, int j) override;
+	void movePiece(int i, int j) override;
 };
 
 //class Calc : public QObject {
