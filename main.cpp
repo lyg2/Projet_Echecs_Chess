@@ -1,6 +1,6 @@
 #include "Game.hpp"
 #include "ChessWindow.hpp"
-
+#include<iostream>
 #include <QApplication>
 
 #if __has_include("bibliotheque_cours.hpp")
@@ -31,6 +31,59 @@ void initialiserBibliothequeCours([[maybe_unused]] int argc, [[maybe_unused]] ch
 int main(int argc, char *argv[])
 {
 	bibliotheque_cours::VerifierFuitesAllocations verifierFuitesAllocations;
+	Game* game = new Game;
+	Board* board = new Board;
+	game->setBoard(board);
+	game->getBoard()->drawBoard();
+	game->getBoard()->setPieces();
+	int i = 0;
+	int j = 0;
+	for (auto&& piece : game->getBoard()->getlistOfWhite())
+	{
+		game->getBoard()->addPieceOnBoard(piece, i++, j++);
+	}
+	i = 7;
+	j = 7;
+	for (auto&& piece : game->getBoard()->getlistOfBlack()){
+		game->getBoard()->addPieceOnBoard(piece,i--,j);
+	}
+	for (auto&& piece : game->getBoard()->getlistOfWhite())
+	{
+		cout << typeid(*piece).name()<< " " <<piece->getPieceColor()<< " " 
+			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	}
+
+	for (auto&& piece : game->getBoard()->getlistOfBlack())
+	{
+		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
+			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	}
+	for (auto&& piece : game->getBoard()->getlistOfWhite())
+	{
+		game->getBoard()->checkObstacle(
+			game->getBoard()->field_[piece->getPosX()][piece->getPosY()].get(),
+			2, 
+			5);
+		cout << typeid(*piece).name() << endl;
+	}
+
+	for (auto&& piece : game->getBoard()->getlistOfWhite())
+	{
+		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
+			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	}
+	
+	for (auto&& piece : game->getBoard()->getlistOfWhite())
+	{
+		delete piece;
+	}
+	for (auto&& piece : game->getBoard()->getlistOfBlack())
+	{
+		delete piece;
+	}
+	//game->getBoard()->addPieceOnBoard();
+	delete game;
+	delete board;
 	//QApplication app(argc, argv);
 	//initialiserBibliothequeCours(argc, argv);
 

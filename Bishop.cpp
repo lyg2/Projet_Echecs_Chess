@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
+#include <iostream>
 #include "Square.hpp"
 #include "Piece.hpp"
 #include "Bishop.hpp"
@@ -37,9 +38,9 @@ void Bishop::setPossibleMoves() {
 
 bool Bishop::validationMouvement(int posXApres, int posYApres) {
 	//Déplacement diagonale
-	if ((abs(posXApres - getPosX()) == 1) && (abs(posYApres - getPosY())) == 1) {
+	if ((abs(posXApres - getPosX()))==(abs(posYApres - getPosY()))
+		&& (abs(posXApres - getPosX()))!=0) {
 	return true;
 	}
-
 	return false;
 }

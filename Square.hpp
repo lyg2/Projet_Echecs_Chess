@@ -19,13 +19,10 @@ class Square{
 public:
 	//Attribute to remember old color
 	Square() = default;
-	void setColor(string color) {
-		caseColor_ = color;
-	}; //??
 	
 	void setCaseColor(string caseColor) {
 		caseColor_ = caseColor;
-	}; //??
+	};
 	bool getHasPiece() { return hasPiece_; };
 	void setHasPiece(bool possession)
 	{

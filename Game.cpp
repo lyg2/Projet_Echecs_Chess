@@ -16,10 +16,6 @@
 #include <functional>
 
 
-bool Game::checkKing() {
-	return true;
-}
-
 void Game::setPlayer() {
 	player1_ = make_unique<Player>();
 	player2_=make_unique<Player>();

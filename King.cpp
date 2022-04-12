@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
+#include <iostream>
 #include "Square.hpp"
 #include "Piece.hpp"
 #include "King.hpp"
@@ -61,6 +62,5 @@ bool King::validationMouvement(int posXApres, int posYApres) {
 	else if ((abs(posXApres - getPosX()) == 1) && (abs(posYApres - getPosY())) == 1) {
 		return true;
 	}
-
 	return false;
 }

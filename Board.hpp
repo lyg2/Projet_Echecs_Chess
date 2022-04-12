@@ -19,16 +19,22 @@ public:
 	Board()=default;
 	void drawBoard();
 	void setPieces();
-	void addPieceOnBoard(Piece* piece, Square* square, int posX, int posY);
-	Square* field_ [8][8];
+	void addPieceOnBoard(Piece* piece,int posX, int posY);
+	unique_ptr<Square> field_ [8][8];
 	bool checkObstacle(Square* square, int movePosX, int movePosY);
 	bool checkKing(King* king);
 	void movePiece(Piece* original, int movePosX, int movePosY);
+	list<Piece*> getlistOfWhite() { return listOfWhite_; };
+	list<Piece*> getlistOfBlack() { return listOfBlack_; };
+	Piece* getWhiteKing_() { return whiteKing_; };
+	Piece* getBlackKing_() { return blackKing_; };
 	// faire le mouvement ici
 
 private:
 	list <Piece*> listOfWhite_;
 	list <Piece*> listOfBlack_;
+	Piece* whiteKing_;
+	Piece* blackKing_;
 
 };
 //class Calc : public QObject {

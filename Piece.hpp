@@ -34,9 +34,8 @@ public:
 		return square_;
 	};
 
-	void setPieceColor(string color) { color = color; };
+	void setPieceColor(string color) { color_ = color; };
 	string getPieceColor() { return color_; };
-
 	void setIsOnSquare(bool isOnSquare) {
 		isOnSquare = isOnSquare;
 	}

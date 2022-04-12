@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
+#include <iostream>
 #include "Square.hpp"
 #include "Piece.hpp"
 #include "Rook.hpp"
@@ -41,14 +42,13 @@ void Rook::setPossibleMoves() {
 
 bool Rook::validationMouvement(int posXApres, int posYApres) {
 	//Déplacement horizontale
-	if ((abs(posXApres - getPosX()) == 1) && (posYApres - getPosY()) == 0) {
+	if ((abs(posXApres - getPosX()) >= 1) && (posYApres - getPosY()) == 0) {
 		return true;
 	}
 
 	//Déplacement verticale
-	else if ((posXApres - getPosX() == 0) && (abs(posYApres - getPosY()) == 1)) {
+	else if ((posXApres - getPosX() == 0) && (abs(posYApres - getPosY()) >= 1)) {
 		return true;
 	}
-
 	return false;
 }

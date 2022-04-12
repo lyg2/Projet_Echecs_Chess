@@ -18,9 +18,7 @@
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 class Game {
 public:
-	void isPieceDead();
-	bool checkKing();
-	void movePiece();
+	//void isPieceDead();
 	void setBoard(Board* board) { board_ = board; };
 	Board* getBoard() { return board_; };
 	bool isGameOver() {return gameOver_;};
