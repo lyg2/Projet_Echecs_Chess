@@ -64,6 +64,7 @@ int main(int argc, char *argv[])
 		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
 			<< piece->getPosX() << ", " << piece->getPosY() << endl;
 	}
+	//Only Rook should move
 	for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{
 		game->getBoard()->movePiece(piece,2,5);
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
 	{
 		game->getBoard()->movePiece(piece, 0, 1);
 	}
-
+	//Only King should move
 	for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{
 		game->getBoard()->movePiece(piece, 1, 0);
