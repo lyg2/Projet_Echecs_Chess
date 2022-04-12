@@ -273,7 +273,38 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	}
 	return false;
 }
+bool Board::checkKing(King* king) {
+	int posX=king->getPosX();
+	int posY=king->getPosY();
+	if (king->getPieceColor() == "White")
+	{
+		for (auto piece : listOfBlack_)
+		{
+			if (!dynamic_cast<King*>(king))
+			{
+				if (checkObstacle(field_[piece->getPosX()][piece->getPosY()], posX, posY))
+				{
+					return true;
+				}
+				
+			}
+		}
+	}
+	else {
+		for (auto piece : listOfWhite_)
+		{
+			if (!dynamic_cast<King*>(king))
+			{
+				if (checkObstacle(field_[piece->getPosX()][piece->getPosY()], posX, posY))
+				{
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 
+}
 //int getField(int posX) {
 //	return getField(posX);
 //}

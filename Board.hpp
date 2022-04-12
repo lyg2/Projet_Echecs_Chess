@@ -6,6 +6,7 @@
 #include <QGraphicsRectItem>
 #include "Piece.hpp"
 #include "Square.hpp"
+#include "King.hpp"
 #include <list>
 #include <QObject>
 #pragma pop()
@@ -21,7 +22,7 @@ public:
 	void addPieceOnBoard(Piece* piece, Square* square, int posX, int posY);
 	Square* field_ [8][8];
 	bool checkObstacle(Square* square, int movePosX, int movePosY);
-	void checkKing();
+	bool checkKing(King* king);
 	void movePiece();
 	// faire le mouvement ici
 
