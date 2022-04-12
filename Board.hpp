@@ -23,7 +23,7 @@ public:
 	Square* field_ [8][8];
 	bool checkObstacle(Square* square, int movePosX, int movePosY);
 	bool checkKing(King* king);
-	void movePiece();
+	void movePiece(Piece* original, int movePosX, int movePosY);
 	// faire le mouvement ici
 
 private:

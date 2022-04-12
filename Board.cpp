@@ -305,6 +305,12 @@ bool Board::checkKing(King* king) {
 	return false;
 
 }
+void Board::movePiece(Piece* original, int movePosX, int movePosY) {
+	field_[movePosX][movePosY]->putPieceOnSquare(original);
+	field_[original->getPosX()][original->getPosY()] = nullptr;
+	original->setPosX(movePosX);
+	original->setPosY(movePosY);
+}
 //int getField(int posX) {
 //	return getField(posX);
 //}
