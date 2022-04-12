@@ -26,6 +26,10 @@ public:
 	int getPosY() const { return posY_; };
 	void setPosX(int posX) { posX_ = posX; };
 	void setPosY(int posY) { posY_ = posY; };
+	int getSavedPosX() { return savedPosX_; };
+	int getSavedPosY() { return savedPosY_; };
+	void setSavedPosX(int savedPosX) {savedPosX_=savedPosX; };
+	void setSavedPosY(int savedPosY) {savedPosY_ = savedPosY; };
 	string getName() const { return namePiece_; }
 	void setPieceOnSquare(Square* square) {
 		square = square;
@@ -53,6 +57,8 @@ public:
 private:
 	int posX_;
 	int posY_;
+	int savedPosX_;
+	int savedPosY_;
 	string namePiece_;
 	Square* square_;
 	string color_;

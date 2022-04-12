@@ -28,11 +28,6 @@ public:
 	{
 		hasPiece_ = possession;
 	};
-
-	string getPieceColor() { return pieceColor_; };
-	void setPieceColor(string pieceColor) {
-		pieceColor_ = pieceColor;
-	};
 	
 	Piece* getPiece() {
 		return piece_;
@@ -52,7 +47,6 @@ public:
 private:
 	bool hasPiece_;
 	QBrush brush;
-	string pieceColor_;
 	string caseColor_;
 	Piece* piece_;
 	int positionX_;

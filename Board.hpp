@@ -21,6 +21,8 @@ public:
 	void setPieces();
 	void addPieceOnBoard(Piece* piece,int posX, int posY);
 	unique_ptr<Square> field_ [8][8];
+	void simulateNextPosition(Piece* piece, int nextPosX, int nexPosY);
+	void undoNextPosition(Piece* piece);
 	bool checkObstacle(Square* square, int movePosX, int movePosY);
 	bool checkKing(King* king);
 	void movePiece(Piece* original, int movePosX, int movePosY);

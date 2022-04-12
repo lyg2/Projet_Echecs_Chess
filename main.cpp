@@ -1,3 +1,9 @@
+/* Ce programme teste des mouvements de pièces
+* @file: main,cpp
+* @authors: Gia-Sherwin Ly, Fatima Mellata, Maroua Ouhib
+* @matricule: 2137375, 2147725, 2154712
+* @date:12 avril 2022
+*/ 
 #include "Game.hpp"
 #include "ChessWindow.hpp"
 #include<iostream>
@@ -63,14 +69,16 @@ int main(int argc, char *argv[])
 		game->getBoard()->movePiece(piece,2,5);
 	}
 
+	//No change because if King moves, the king is in check
 	for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{
 		game->getBoard()->movePiece(piece, 0, 1);
 	}
-	/*for (auto&& piece : game->getBoard()->getlistOfWhite())
+
+	for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{
-		game->getBoard()->movePiece(piece, 2, 2);
-	}*/
+		game->getBoard()->movePiece(piece, 1, 0);
+	}
 
 	for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{

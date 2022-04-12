@@ -1,6 +1,10 @@
 #pragma once
-// Le Modèle pour calculatrice simple.
-// Par Francois-R.Boyer@PolyMtl.ca
+/* Ce fichier est la classe Board qui s'occcupe du mouvement des pièces et de l'échéquier.
+* @file: Bishop.cpp
+* @authors: Gia-Sherwin Ly, Fatima Mellata, Maroua Ouhib
+* @matricule: 2137375, 2147725, 2154712
+* @date:12 avril 2022
+*/
 
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QGraphicsRectItem>
@@ -76,6 +80,24 @@ void Board::addPieceOnBoard(Piece* piece,int posX, int posY)
 	field_[posX][posY]->setHasPiece(true);
 }
 
+void Board::simulateNextPosition(Piece* piece, int nextPosX, int nextPosY) 
+{
+	piece->setSavedPosX(piece->getPosX());
+	piece->setSavedPosY(piece->getPosY());
+
+	piece->setPosX(nextPosX);
+	piece->setPosY(nextPosY);
+	field_[nextPosX][nextPosY]->putPieceOnSquare(piece);
+	field_[piece->getSavedPosX()][piece->getSavedPosY()]->putPieceOnSquare(nullptr);
+}
+void Board::undoNextPosition(Piece* piece)
+{
+	field_[piece->getSavedPosX()][piece->getSavedPosY()]->putPieceOnSquare(piece);
+	field_[piece->getPosX()][piece->getPosY()]->putPieceOnSquare(nullptr);
+	piece->setPosX(piece->getSavedPosX());
+	piece->setPosY(piece->getSavedPosY());
+}
+
 bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	//if checkObstacle==true, then no obstacle
 	// Must correct bug use field_[ instead of square for the if.
@@ -141,7 +163,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		{
 			return true;
 		}
-		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		else if (square->getPiece()->getPieceColor()
+			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 		{
 			return true;
 		}
@@ -161,7 +184,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		{
 			return true;
 		}
-		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		else if (square->getPiece()->getPieceColor()
+			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 		{
 			return true;
 		}
@@ -180,7 +204,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		{
 			return true;
 		}
-		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		else if (square->getPiece()->getPieceColor()
+			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 		{
 			return true;
 		}
@@ -200,7 +225,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		{
 			return true;
 		}
-		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		else if (square->getPiece()->getPieceColor()
+			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 		{
 			return true;
 		}
@@ -222,7 +248,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		{
 			return true;
 		}
-		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		else if (square->getPiece()->getPieceColor()
+			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 		{
 			return true;
 		}
@@ -243,7 +270,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		{
 			return true;
 		}
-		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		else if (square->getPiece()->getPieceColor() 
+			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 		{
 			return true;
 		}
@@ -265,7 +293,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		{
 			return true;
 		}
-		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		else if (square->getPiece()->getPieceColor()
+			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 		{
 			return true;
 		}
@@ -287,7 +316,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		{
 			return true;
 		}
-		else if (square->getPieceColor() != field_[movePosX][movePosY]->getPieceColor())
+		else if (square->getPiece()->getPieceColor()
+			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 		{
 			return true;
 		}
@@ -296,68 +326,75 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 }
 bool Board::checkKing(King* king) {
 	//if checkKing==true, then there's no King in check.
+	//change the function if the piece of who is moved is the king
 	int posX=king->getPosX();
 	int posY=king->getPosY();
 	if (king->getPieceColor() == "White")
 	{
 		for (auto piece : listOfBlack_)
 		{
-			if (dynamic_cast<King*>(piece)!=nullptr)
-			{
-				if (checkObstacle(field_[piece->getPosX()][piece->getPosY()].get(), posX, posY))
+			if (checkObstacle(field_[piece->getPosX()][piece->getPosY()].get(), posX, posY))
 				{
 					return false;
 				}
-				
-			}
+
 		}
 	}
 	else {
 		for (auto piece : listOfWhite_)
 		{
-			if (dynamic_cast<King*>(piece) != nullptr)
-			{
-				if (checkObstacle(field_[piece->getPosX()][piece->getPosY()].get(), posX, posY))
+			if (checkObstacle(field_[piece->getPosX()][piece->getPosY()].get(), posX, posY))
 				{
 					return false;
 				}
-			}
 		}
 	}
 	return true;
 
 }
 void Board::movePiece(Piece* original, int movePosX, int movePosY) {
+	if (!(original->validationMouvement(movePosX, movePosY)))
+	{
+		cout << "Mouvement non valide" << endl;
+		return;
+	}
 	if (original->getPieceColor() == "White")
 	{
-		if (!checkKing(dynamic_cast<King*>(whiteKing_))
-			|| !checkObstacle(
-				field_[original->getPosX()][original->getPosY()].get(),
-				movePosX,
-				movePosY))
+		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
+			movePosX,
+			movePosY)))
 		{
-			cout << "Illegal movement" << endl;
+			return;
+		}
+		simulateNextPosition(original, movePosX, movePosY);
+		if (!checkKing(dynamic_cast<King*>(whiteKing_)))
+		{
+			undoNextPosition(original);
 			return;
 		}
 	}
 	else
 	{
-		if (!checkKing(dynamic_cast<King*>(whiteKing_))
-			|| !checkObstacle(
-				field_[original->getPosX()][original->getPosY()].get(),
-				movePosX,
-				movePosY))
+		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
+			movePosX,
+			movePosY)))
+			simulateNextPosition(original, movePosX, movePosY);
+		if (!checkKing(dynamic_cast<King*>(blackKing_)))
 		{
-			cout << "Illegal movement" << endl;
+			undoNextPosition(original);
 			return;
 		}
+	}
+	if (original->getPosX() == movePosX && original->getPosY() == movePosY)
+	{
+		undoNextPosition(original);
 	}
 	int originalPosX = original->getPosX();
 	int originalPosY = original->getPosY();
 	original->setPosX(movePosX);
 	original->setPosY(movePosY);
 	field_[movePosX][movePosY]->putPieceOnSquare(original);
-	field_[originalPosX][originalPosY] = nullptr;
+	field_[originalPosX][originalPosY]->putPieceOnSquare(nullptr);
 }
 //int getField(int posX) {
 //	return getField(posX);
