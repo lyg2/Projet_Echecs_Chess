@@ -58,6 +58,8 @@ void Board::drawBoard()
 
 void Board::addPieceOnBoard(Piece* piece, Square* square, int posX, int posY)
 {
+	piece->setPosX(posX);
+	piece->setPosY(posY);
 	square->putPieceOnSquare(piece);
 	square->setHasPiece(true);
 	square->setPositionX(posX);
