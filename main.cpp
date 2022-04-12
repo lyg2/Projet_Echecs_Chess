@@ -60,18 +60,24 @@ int main(int argc, char *argv[])
 	}
 	for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{
-		game->getBoard()->checkObstacle(
-			game->getBoard()->field_[piece->getPosX()][piece->getPosY()].get(),
-			2, 
-			5);
-		cout << typeid(*piece).name() << endl;
+		game->getBoard()->movePiece(piece,2,5);
 	}
+
+	for (auto&& piece : game->getBoard()->getlistOfWhite())
+	{
+		game->getBoard()->movePiece(piece, 0, 1);
+	}
+	/*for (auto&& piece : game->getBoard()->getlistOfWhite())
+	{
+		game->getBoard()->movePiece(piece, 2, 2);
+	}*/
 
 	for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{
 		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
 			<< piece->getPosX() << ", " << piece->getPosY() << endl;
 	}
+
 	
 	for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{

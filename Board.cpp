@@ -131,7 +131,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	{
 		for (posX; posX < movePosX; posX++)
 		{
-			if (field_[posX][posY]->getPiece() != nullptr)
+			if (field_[posX][posY]->getPiece() != nullptr
+				&& square != field_[posX][posY].get())
 			{
 				return false;
 			}
@@ -150,7 +151,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	{
 		for (posX; posX > movePosX; posX--)
 		{
-			if (field_[posX][posY]->getPiece() != nullptr)
+			if (field_[posX][posY]->getPiece() != nullptr
+				&& square != field_[posX][posY].get())
 			{
 				return false;
 			}
@@ -164,11 +166,12 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 			return true;
 		}
 	}
-	else if (goDown) 
+	else if (goDown)
 	{
 		for (posY; posY < movePosY; posY++)
 		{
-			if (field_[movePosX][movePosY] != nullptr)
+			if (field_[posX][posY]->getPiece() != nullptr 
+				&& square != field_[posX][posY].get())
 			{
 				return false;
 			}
@@ -187,7 +190,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	{
 		for (posY; posY > movePosY; posY--) 
 		{
-			if (field_[posX][posY]->getPiece() != nullptr)
+			if (field_[posX][posY]->getPiece() != nullptr
+				&& square != field_[posX][posY].get())
 			{
 				return false;
 			}
@@ -206,7 +210,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	{
 		while (posX != movePosX && posY != movePosY)
 		{
-			if (square->getPiece() != nullptr)
+			if (field_[posX][posY]->getPiece() != nullptr
+				&& square != field_[posX][posY].get())
 			{
 				return false;
 			}
@@ -226,7 +231,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	{
 		while (posX != movePosX && posY != movePosY)
 		{
-			if (square->getPiece() != nullptr)
+			if (field_[posX][posY]->getPiece() != nullptr
+				&& square != field_[posX][posY].get())
 			{
 				return false;
 			}
@@ -247,7 +253,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	{
 		while (posX != movePosX && posY != movePosY)
 		{
-			if (square->getPiece() != nullptr)
+			if (field_[posX][posY]->getPiece() != nullptr
+				&& square != field_[posX][posY].get())
 			{
 				return false;
 			}
@@ -268,7 +275,8 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	{
 		while (posX != movePosX && posY != movePosY)
 		{
-			if (square->getPiece() != nullptr)
+			if (field_[posX][posY]->getPiece() != nullptr
+				&& square != field_[posX][posY].get())
 			{
 				return false;
 			}
@@ -307,7 +315,7 @@ bool Board::checkKing(King* king) {
 	else {
 		for (auto piece : listOfWhite_)
 		{
-			if (!dynamic_cast<King*>(king))
+			if (dynamic_cast<King*>(piece) != nullptr)
 			{
 				if (checkObstacle(field_[piece->getPosX()][piece->getPosY()].get(), posX, posY))
 				{
