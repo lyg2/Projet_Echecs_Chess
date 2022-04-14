@@ -18,8 +18,11 @@
 #pragma pop()
 #include <functional>
 
+Modele::Game::~Game(){
+	delete board_;
+}
 
-void Game::setPlayer() {
+void Modele::Game::setPlayer() {
 	player1_ = make_unique<Player>();
 	player2_=make_unique<Player>();
 	player1_.get()->setName("White Player");

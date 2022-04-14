@@ -1,0 +1,1802 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'watcher_thread' peut être '0' : ceci n'est pas conforme à la spécification de la fonction 'ResumeThread'. Voir la ligne 654 pour un emplacement antérieur dans lequel cela peut se produire"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 656,
+                  "startColumn": 7,
+                  "endLine": 656,
+                  "endColumn": 20
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?StartWatcherThreadFor@ThreadLocalRegistryImpl@internal@testing@@CAXK@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 638,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 641,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 644,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 645,
+                            "startColumn": 12
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' peut avoir la valeur NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 651,
+                            "startColumn": 5
+                          }
+                        },
+                        "message": {
+                          "text": "Le commutateur Assume ( '0' ) se traduit par case 0: "
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 654,
+                            "startColumn": 24
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' est une entrée dans 'SetThreadPriority' (déclarée au niveau de c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\um\\processthreadsapi.h:235)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 656,
+                            "startColumn": 19
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' est une entrée dans 'ResumeThread' (déclarée au niveau de c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\um\\processthreadsapi.h:315)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 656,
+                            "startColumn": 19
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' ne doit pas être NULL, car cela n'est pas cohérent avec l'annotation SAL sur 'ResumeThread'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'watcher_thread' peut être '0' : ceci n'est pas conforme à la spécification de la fonction 'CloseHandle'. Voir la ligne 654 pour un emplacement antérieur dans lequel cela peut se produire"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 657,
+                  "startColumn": 7,
+                  "endLine": 657,
+                  "endColumn": 19
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?StartWatcherThreadFor@ThreadLocalRegistryImpl@internal@testing@@CAXK@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 638,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 641,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 644,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 645,
+                            "startColumn": 12
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' peut avoir la valeur NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 651,
+                            "startColumn": 5
+                          }
+                        },
+                        "message": {
+                          "text": "Le commutateur Assume ( '0' ) se traduit par case 0: "
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 654,
+                            "startColumn": 24
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' est une entrée dans 'SetThreadPriority' (déclarée au niveau de c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\um\\processthreadsapi.h:235)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 656,
+                            "startColumn": 19
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' est une entrée dans 'ResumeThread' (déclarée au niveau de c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\um\\processthreadsapi.h:315)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 657,
+                            "startColumn": 18
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' est une entrée dans 'CloseHandle' (déclarée au niveau de c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\um\\handleapi.h:38)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 657,
+                            "startColumn": 18
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' ne doit pas être NULL, car cela n'est pas cohérent avec l'annotation SAL sur 'CloseHandle'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'watcher_thread' peut être '0' : ceci n'est pas conforme à la spécification de la fonction 'SetThreadPriority'. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 654,
+                  "startColumn": 24
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?StartWatcherThreadFor@ThreadLocalRegistryImpl@internal@testing@@CAXK@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 638,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 641,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 644,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 645,
+                            "startColumn": 12
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' peut avoir la valeur NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 651,
+                            "startColumn": 5
+                          }
+                        },
+                        "message": {
+                          "text": "Le commutateur Assume ( '0' ) se traduit par case 0: "
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 654,
+                            "startColumn": 24
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' est une entrée dans 'SetThreadPriority' (déclarée au niveau de c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\um\\processthreadsapi.h:235)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 654,
+                            "startColumn": 24
+                          }
+                        },
+                        "message": {
+                          "text": "'watcher_thread' ne doit pas être NULL, car cela n'est pas cohérent avec l'annotation SAL sur 'SetThreadPriority'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'regex' peut être '0' : ceci n'est pas conforme à la spécification de la fonction 'strlen'. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 994,
+                  "startColumn": 16,
+                  "endLine": 994,
+                  "endColumn": 29
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?Init@RE@internal@testing@@AEAAXPEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 983,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 984,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' peut avoir la valeur NULL (Ignorer cette branche)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 988,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' est une entrée dans 'testing::internal::ValidateRegex' (déclarée au niveau de c:\\temp\\inf1015_projet\\googletest\\src\\gtest-internal-inl.h:966)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 989,
+                            "startColumn": 7
+                          }
+                        },
+                        "message": {
+                          "text": "Ignorer cette branche, (supposer que '!is_valid_' a la valeur false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 994,
+                            "startColumn": 16
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' est une entrée dans 'strlen' (déclarée au niveau de c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\string.h:215)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 994,
+                            "startColumn": 16
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' ne doit pas être NULL, car cela n'est pas cohérent avec l'annotation SAL sur 'strlen'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "Suppression de la référence du pointeur NULL 'regex'. Voir la ligne 994 pour un emplacement antérieur dans lequel cela peut se produire"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 1001,
+                  "startColumn": 7,
+                  "endLine": 1001,
+                  "endColumn": 17
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?Init@RE@internal@testing@@AEAAXPEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 983,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 984,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' peut avoir la valeur NULL (Ignorer cette branche)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 988,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' est une entrée dans 'testing::internal::ValidateRegex' (déclarée au niveau de c:\\temp\\inf1015_projet\\googletest\\src\\gtest-internal-inl.h:966)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 989,
+                            "startColumn": 7
+                          }
+                        },
+                        "message": {
+                          "text": "Ignorer cette branche, (supposer que '!is_valid_' a la valeur false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 994,
+                            "startColumn": 16
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' est une entrée dans 'strlen' (déclarée au niveau de c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\string.h:215)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 998,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 999,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 1001,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' est déréférencé, mais peut encore avoir la valeur NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "Suppression de la référence du pointeur NULL 'buffer'. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 1002,
+                  "startColumn": 6,
+                  "endLine": 1002,
+                  "endColumn": 17
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?Init@RE@internal@testing@@AEAAXPEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 983,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 984,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 988,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 989,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 994,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 998,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'buffer' peut avoir la valeur NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 999,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 1001,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "Entrer dans cette branche, (supposer '*regex!=94')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 1002,
+                            "startColumn": 15
+                          }
+                        },
+                        "message": {
+                          "text": "'buffer' est déréférencé, mais peut encore avoir la valeur NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'regex' peut être '0' : ceci n'est pas conforme à la spécification de la fonction 'memcpy'. Voir la ligne 994 pour un emplacement antérieur dans lequel cela peut se produire"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 1006,
+                  "startColumn": 3,
+                  "endLine": 1006,
+                  "endColumn": 25
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?Init@RE@internal@testing@@AEAAXPEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 983,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 984,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' peut avoir la valeur NULL (Ignorer cette branche)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 988,
+                            "startColumn": 13
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' est une entrée dans 'testing::internal::ValidateRegex' (déclarée au niveau de c:\\temp\\inf1015_projet\\googletest\\src\\gtest-internal-inl.h:966)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 989,
+                            "startColumn": 7
+                          }
+                        },
+                        "message": {
+                          "text": "Ignorer cette branche, (supposer que '!is_valid_' a la valeur false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 994,
+                            "startColumn": 16
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' est une entrée dans 'strlen' (déclarée au niveau de c:\\program files (x86)\\windows kits\\10\\include\\10.0.19041.0\\ucrt\\string.h:215)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 998,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 999,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 1001,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 1006,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' est une entrée dans 'memcpy' (déclarée au niveau de c:\\program files (x86)\\microsoft visual studio\\2019\\enterprise\\vc\\tools\\msvc\\14.29.30133\\include\\vcruntime_string.h:43)"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 1006,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'regex' ne doit pas être NULL, car cela n'est pas cohérent avec l'annotation SAL sur 'memcpy'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'buffer' peut être '0' : ceci n'est pas conforme à la spécification de la fonction 'memcpy'. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 1006,
+                  "startColumn": 3,
+                  "endLine": 1006,
+                  "endColumn": 25
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?Init@RE@internal@testing@@AEAAXPEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 983,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 984,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 988,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 989,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 994,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 998,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'buffer' peut avoir la valeur NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 999,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 1001,
+                            "startColumn": 14
+                          }
+                        },
+                        "message": {
+                          "text": "Ignorer cette branche, (supposer que '*regex!=94' a la valeur false)"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 1006,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'buffer' est un argument Entrée/sortie dans 'memcpy' (déclaré au niveau de c:\\program files (x86)\\microsoft visual studio\\2019\\enterprise\\vc\\tools\\msvc\\14.29.30133\\include\\vcruntime_string.h:43)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                          },
+                          "region": {
+                            "startLine": 1006,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'buffer' ne doit pas être NULL, car cela n'est pas cohérent avec l'annotation SAL sur 'memcpy'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "Valeur de retour ignorée : 'dup2'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 1124,
+                  "startColumn": 5,
+                  "endLine": 1124,
+                  "endColumn": 23
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "??0CapturedStream@internal@testing@@QEAA@H@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "Valeur de retour ignorée : 'dup2'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+                },
+                "region": {
+                  "startLine": 1136,
+                  "startColumn": 7,
+                  "endLine": 1136,
+                  "endColumn": 28
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?GetCapturedString@CapturedStream@internal@testing@@QEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.29.30138.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x64\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x002DC1B0 -il C:\\Users\\lygia\\AppData\\Local\\Temp\\_CL_f235ac44ast -typedil -f googletest\\src\\gtest-all.cc -Ze -D_MSC_EXTENSIONS -Zp16 -pc \\:/ -D_MSC_VER=1929 -D_MSC_FULL_VER=192930138 -D_MSC_BUILD=0 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -I C:\\temp\\INF1015_Projet\\x64\\Debug\\moc -I C:\\temp\\INF1015_Projet\\include -I C:\\temp\\INF1015_Projet\\googletest\\include -I C:\\temp\\INF1015_Projet\\googletest -I C:\\temp\\INF1015_Projet\\x64\\Debug\\qmake\\temp -I C:\\Qt\\5.15.2\\msvc2019_64\\include -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtWidgets -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtGui -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtANGLE -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtCore -I C:\\temp\\INF1015_Projet\\x64\\Debug\\qmake\\temp -I C:\\include -I C:\\Qt\\5.15.2\\msvc2019_64\\mkspecs\\win32-msvc -I C:\\temp\\INF1015_Projet\\x64\\Debug\\moc -I C:\\temp\\INF1015_Projet\\x64\\Debug\\qmake\\temp -I C:\\Qt\\5.15.2\\msvc2019_64\\include -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtWidgets -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtGui -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtANGLE -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtCore -I C:\\temp\\INF1015_Projet\\x64\\Debug\\qmake\\temp -I C:\\include -I C:\\Qt\\5.15.2\\msvc2019_64\\mkspecs\\win32-msvc -I C:\\temp\\INF1015_Projet\\x64\\Debug\\moc -I C:\\Users\\lygia\\vcpkg\\installed\\x64-windows\\include -nologo -W 4 -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -D_WINDOWS -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -std:c++latest -Fox64\\Debug\\gtest-all.obj -Fdx64\\Debug\\vc142.pdb -external:W 4 -Gd -analyze:projectdirectory C:\\temp\\INF1015_Projet -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset NativeRecommendedRules_sansEnumClass.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -validate-charset -execution-charset: utf-8 -Zc:rvalueCast -Zc:strictStrings -Zc:referenceBinding -Zc:__cplusplus -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\UnitTest\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I C:\\temp\\INF1015_Projet\\Include\\um -I C:\\Users\\lygia\\vcpkg\\installed\\x64-windows\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\UnitTest\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\UnitTest\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -external:I C:\\temp\\INF1015_Projet\\Include\\um -I C:\\temp\\INF1015_Projet\\Include\\um -external:I C:\\Users\\lygia\\vcpkg\\installed\\x64-windows\\include -I C:\\Users\\lygia\\vcpkg\\installed\\x64-windows\\include -MPdiagMutex 00000000000001B8",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/temp/INF1015_Projet/googletest/src/gtest-port.cc"
+          },
+          "roles": [
+            "resultFile"
+          ],
+          "hashes": {
+            "md5": "c1efa4971fee00cab1d6923621c901a7"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/src/gtest-all.cc"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "37793bd604fca0330ca973adafa5eea3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest.h"
+          },
+          "hashes": {
+            "md5": "864d2cce649773a246dd8e083e811813"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-internal.h"
+          },
+          "hashes": {
+            "md5": "5f094d9f3dfd6b80f078ab9bbc13c7ff"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-port.h"
+          },
+          "hashes": {
+            "md5": "341e41a395bf0a9697f44716291d3dbb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-port-arch.h"
+          },
+          "hashes": {
+            "md5": "16e86f0aa07456135e5d2a49c8c407d2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/custom/gtest-port.h"
+          },
+          "hashes": {
+            "md5": "652e0b71fab73620a1b284c5a4343e9c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-message.h"
+          },
+          "hashes": {
+            "md5": "7a4f2bda344640fd8dc44e5fa482ac39"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-filepath.h"
+          },
+          "hashes": {
+            "md5": "23cd3f01d56d65cb2d6da7671020bfd3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-string.h"
+          },
+          "hashes": {
+            "md5": "fc02b8e03ee89d8757c8ad678f80aba6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-type-util.h"
+          },
+          "hashes": {
+            "md5": "fb69d1867fbe15b4896372e5acc97166"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-death-test.h"
+          },
+          "hashes": {
+            "md5": "eb9af638627e77e0ba1d6c1652c6d046"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-death-test-internal.h"
+          },
+          "hashes": {
+            "md5": "1b598e81b4ecaad1cdde7259fa928227"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-matchers.h"
+          },
+          "hashes": {
+            "md5": "972e7f072aeca76c7cfdeb2756857fb1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-printers.h"
+          },
+          "hashes": {
+            "md5": "c1156a9398afd7eeb5daf9e1ab6fc7ed"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/custom/gtest-printers.h"
+          },
+          "hashes": {
+            "md5": "707a55de1471b89db846c1ca2854eb03"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-param-test.h"
+          },
+          "hashes": {
+            "md5": "61dbeb9566448abd92833ed9e0bb98a1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-param-util.h"
+          },
+          "hashes": {
+            "md5": "f72b28e34514b3a19a8c4e26439dbb82"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest_prod.h"
+          },
+          "hashes": {
+            "md5": "c5ed78a2e01e54cf0aaaacb04bdc5f77"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-test-part.h"
+          },
+          "hashes": {
+            "md5": "7c254e4d54fa459790b29251b72eb031"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-typed-test.h"
+          },
+          "hashes": {
+            "md5": "d7d1f92ef97251560517912143ed776d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest_pred_impl.h"
+          },
+          "hashes": {
+            "md5": "afb97b57cb10992561f709e96f89a74b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/src/gtest.cc"
+          },
+          "hashes": {
+            "md5": "60bb3d37cf50e018319d74c2db81df3b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/custom/gtest.h"
+          },
+          "hashes": {
+            "md5": "a775960f18658368c4f2c74025ffbba4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-spi.h"
+          },
+          "hashes": {
+            "md5": "718a1e8bb15a32e3b9f63666dd6434a6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/src/gtest-internal-inl.h"
+          },
+          "hashes": {
+            "md5": "94b3d88daaafb858316f84c7a9d15071"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/src/gtest-death-test.cc"
+          },
+          "hashes": {
+            "md5": "3f03cb5ea258c2e6bccd44ea249c9d1f"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/src/gtest-filepath.cc"
+          },
+          "hashes": {
+            "md5": "b49554b941213a657dcc080118360eb2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/src/gtest-matchers.cc"
+          },
+          "hashes": {
+            "md5": "d4e919a02bf747403d28787c51de27a4"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/src/gtest-printers.cc"
+          },
+          "hashes": {
+            "md5": "8de5fc8135edd63f4fcac249488cbeba"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/src/gtest-test-part.cc"
+          },
+          "hashes": {
+            "md5": "1c7f447fbc34fc2da0adcb2df6439714"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/src/gtest-typed-test.cc"
+          },
+          "hashes": {
+            "md5": "731e6d7b840ab2b34d5f433263fbf0f7"
+          }
+        }
+      ]
+    }
+  ]
+}

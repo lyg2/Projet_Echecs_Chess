@@ -5,7 +5,9 @@
 * @date:12 avril 2022
 */ 
 #include "Game.hpp"
+#include "ui_Vue.h"
 #include "ChessWindow.hpp"
+#include "Controleur.h"
 #include<iostream>
 #include <QApplication>
 
@@ -37,7 +39,7 @@ void initialiserBibliothequeCours([[maybe_unused]] int argc, [[maybe_unused]] ch
 int main(int argc, char *argv[])
 {
 	bibliotheque_cours::VerifierFuitesAllocations verifierFuitesAllocations;
-	Game* game = new Game;
+	Modele::Game* game = new Modele::Game;
 	Board* board = new Board;
 	game->setBoard(board);
 	game->getBoard()->drawBoard();
@@ -86,24 +88,21 @@ int main(int argc, char *argv[])
 		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
 			<< piece->getPosX() << ", " << piece->getPosY() << endl;
 	}
-
 	
-	for (auto&& piece : game->getBoard()->getlistOfWhite())
+	/*for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{
 		delete piece;
 	}
 	for (auto&& piece : game->getBoard()->getlistOfBlack())
 	{
 		delete piece;
-	}
+	}*/
+	//delete board;
 	//game->getBoard()->addPieceOnBoard();
-	delete game;
-	delete board;
-	//QApplication app(argc, argv);
-	//initialiserBibliothequeCours(argc, argv);
-
-	//CalcWindow calcWindow;
-	//calcWindow.show();
-	//return app.exec();
-	return 0;
+	QApplication app(argc, argv);
+	initialiserBibliothequeCours(argc, argv);
+	ChessWindow* window= new ChessWindow;
+	Controleur controleur(game, window);
+	window->show();
+	return app.exec();
 }

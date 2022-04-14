@@ -204,6 +204,7 @@
     <ClCompile Include="bibliotheque_cours\bibliotheque_cours.cpp" />
     <ClCompile Include="bibliotheque_cours\verification_allocation.cpp" />
     <ClCompile Include="Bishop.cpp" />
+    <ClCompile Include="Controleur.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="ChessWindow.cpp" />
     <ClCompile Include="googletest\src\gtest-all.cc" />
@@ -218,6 +219,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bishop.hpp" />
+    <QtMoc Include="Controleur.h" />
+    <QtMoc Include="QSquareButton.h" />
     <ClInclude Include="Rook.hpp" />
     <ClInclude Include="King.hpp" />
     <ClInclude Include="Player.hpp" />
@@ -225,6 +228,7 @@
     <ClInclude Include="Board.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="ui_Vue.h" />
     <QtMoc Include="ChessWindow.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -8,11 +8,28 @@
 #include <QPushButton>
 #include <QString>
 #include <QLabel>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <Qt>
 #pragma pop()
+
+QT_BEGIN_NAMESPACE
+namespace Ui { class ChessWindow; }
+QT_END_NAMESPACE
 
 class ChessWindow : public QMainWindow {
 	Q_OBJECT
 public:
 	ChessWindow(QWidget* parent = nullptr);
-	~ChessWindow() override = default;
+	~ChessWindow();
+
+signals:
+
+private slots:
+	void squareClicked();
+
+private:
+	Ui::ChessWindow* ui;
+	QPushButton button_;
+
 };

@@ -17,6 +17,7 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 class Board {
 public:
 	Board()=default;
+	~Board();
 	void drawBoard();
 	void setPieces();
 	void addPieceOnBoard(Piece* piece,int posX, int posY);

@@ -15,11 +15,42 @@
 #include <iostream>
 #include <type_traits>
 #include <cppitertools/range.hpp>
+#include "QSquareButton.h"
+#include "ui_Vue.h"
 
 using iter::range;
 
-ChessWindow::ChessWindow(QWidget* parent) :
+ChessWindow::ChessWindow(QWidget *parent) :
 	QMainWindow(parent)
+	, ui(new Ui::ChessWindow())
+{
+	ui->setupUi(this);
+    for (int i = 0; i < ui->gridLayout->rowCount(); i++) {
+        for (int j = 0; j < ui->gridLayout->columnCount(); j++) {
+            QLayoutItem* item = ui->gridLayout->itemAtPosition(i, j);
+            if (item->widget()) {
+                QPushButton* square = qobject_cast<QPushButton*>(item->widget());
+                //QSquareButton* squareButton = dynamic_cast<QSquareButton*>(square);
+                //squareButton->setPosX(j);
+                //squareButton->setPosY(i);
+                if ((i + j) % 2 == 0)
+                {
+                    square->setStyleSheet("background-color: white");
+                }
+                else {
+                    square->setStyleSheet("background-color: gray");
+                }
+                square->setText("Shit");
+                //connect(square, &QPushButton::clicked, this, &ChessWindow::squareClicked);
+            }
+        }
+    }
+}
+
+ChessWindow:: ~ChessWindow() {
+    delete ui;
+}
+void ChessWindow::squareClicked()
 {
 
 }

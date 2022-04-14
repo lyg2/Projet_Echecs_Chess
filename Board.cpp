@@ -20,6 +20,14 @@
 #include <functional>
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
+Board:: ~Board() {
+	for (auto&& piece : listOfWhite_) {
+		delete piece;
+	}
+	for (auto&& piece : listOfBlack_) {
+		delete piece;
+	}
+}
 void Board::setPieces()
 {
 	//set color

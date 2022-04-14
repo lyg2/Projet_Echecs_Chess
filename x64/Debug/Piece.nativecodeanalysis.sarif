@@ -1,0 +1,279 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.29.30138.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x64\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x002DC1B0 -il C:\\Users\\lygia\\AppData\\Local\\Temp\\_CL_6a887f5bast -typedil -f Piece.cpp -Ze -D_MSC_EXTENSIONS -Zp16 -pc \\:/ -D_MSC_VER=1929 -D_MSC_FULL_VER=192930138 -D_MSC_BUILD=0 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -I C:\\temp\\INF1015_Projet\\x64\\Debug\\moc -I C:\\temp\\INF1015_Projet\\include -I C:\\temp\\INF1015_Projet\\googletest\\include -I C:\\temp\\INF1015_Projet\\googletest -I C:\\temp\\INF1015_Projet\\x64\\Debug\\qmake\\temp -I C:\\Qt\\5.15.2\\msvc2019_64\\include -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtWidgets -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtGui -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtANGLE -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtCore -I C:\\temp\\INF1015_Projet\\x64\\Debug\\qmake\\temp -I C:\\include -I C:\\Qt\\5.15.2\\msvc2019_64\\mkspecs\\win32-msvc -I C:\\temp\\INF1015_Projet\\x64\\Debug\\moc -I C:\\temp\\INF1015_Projet\\x64\\Debug\\qmake\\temp -I C:\\Qt\\5.15.2\\msvc2019_64\\include -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtWidgets -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtGui -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtANGLE -I C:\\Qt\\5.15.2\\msvc2019_64\\include\\QtCore -I C:\\temp\\INF1015_Projet\\x64\\Debug\\qmake\\temp -I C:\\include -I C:\\Qt\\5.15.2\\msvc2019_64\\mkspecs\\win32-msvc -I C:\\temp\\INF1015_Projet\\x64\\Debug\\moc -I C:\\Users\\lygia\\vcpkg\\installed\\x64-windows\\include -nologo -W 4 -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -D_WINDOWS -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -std:c++latest -Fox64\\Debug\\Piece.obj -Fdx64\\Debug\\vc142.pdb -external:W 4 -Gd -analyze:projectdirectory C:\\temp\\INF1015_Projet -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset NativeRecommendedRules_sansEnumClass.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -validate-charset -execution-charset: utf-8 -Zc:rvalueCast -Zc:strictStrings -Zc:referenceBinding -Zc:__cplusplus -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\UnitTest\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I C:\\temp\\INF1015_Projet\\Include\\um -I C:\\Users\\lygia\\vcpkg\\installed\\x64-windows\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Tools\\MSVC\\14.29.30133\\atlmfc\\include -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\ucrt -external:I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\UnitTest\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\VS\\UnitTest\\include -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\um -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\shared -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\winrt -external:I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.19041.0\\cppwinrt -external:I C:\\temp\\INF1015_Projet\\Include\\um -I C:\\temp\\INF1015_Projet\\Include\\um -external:I C:\\Users\\lygia\\vcpkg\\installed\\x64-windows\\include -I C:\\Users\\lygia\\vcpkg\\installed\\x64-windows\\include -MPdiagMutex 00000000000001B8",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/bibliotheque_cours/bibliotheque_cours.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "e03f8c44ada232cbfa68eefff91bc0ac"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/include/codecoverage_bugfix.h"
+          },
+          "hashes": {
+            "md5": "2d12f0ca200dcbc78cc1a07037b05355"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/program files (x86)/microsoft visual studio/2019/enterprise/vc/auxiliary/vs/include/codecoverage/codecoverage.h"
+          },
+          "hashes": {
+            "md5": "41d03fb113ea42fd6e673c1c0e56c8f1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/include/bibliotheque_cours.hpp"
+          },
+          "hashes": {
+            "md5": "4b5cc14286ee96b1e64c24d230afaa90"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest.h"
+          },
+          "hashes": {
+            "md5": "864d2cce649773a246dd8e083e811813"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-internal.h"
+          },
+          "hashes": {
+            "md5": "5f094d9f3dfd6b80f078ab9bbc13c7ff"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-port.h"
+          },
+          "hashes": {
+            "md5": "341e41a395bf0a9697f44716291d3dbb"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-port-arch.h"
+          },
+          "hashes": {
+            "md5": "16e86f0aa07456135e5d2a49c8c407d2"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/custom/gtest-port.h"
+          },
+          "hashes": {
+            "md5": "652e0b71fab73620a1b284c5a4343e9c"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-message.h"
+          },
+          "hashes": {
+            "md5": "7a4f2bda344640fd8dc44e5fa482ac39"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-filepath.h"
+          },
+          "hashes": {
+            "md5": "23cd3f01d56d65cb2d6da7671020bfd3"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-string.h"
+          },
+          "hashes": {
+            "md5": "fc02b8e03ee89d8757c8ad678f80aba6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-type-util.h"
+          },
+          "hashes": {
+            "md5": "fb69d1867fbe15b4896372e5acc97166"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-death-test.h"
+          },
+          "hashes": {
+            "md5": "eb9af638627e77e0ba1d6c1652c6d046"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-death-test-internal.h"
+          },
+          "hashes": {
+            "md5": "1b598e81b4ecaad1cdde7259fa928227"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-matchers.h"
+          },
+          "hashes": {
+            "md5": "972e7f072aeca76c7cfdeb2756857fb1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-printers.h"
+          },
+          "hashes": {
+            "md5": "c1156a9398afd7eeb5daf9e1ab6fc7ed"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/custom/gtest-printers.h"
+          },
+          "hashes": {
+            "md5": "707a55de1471b89db846c1ca2854eb03"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-param-test.h"
+          },
+          "hashes": {
+            "md5": "61dbeb9566448abd92833ed9e0bb98a1"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/internal/gtest-param-util.h"
+          },
+          "hashes": {
+            "md5": "f72b28e34514b3a19a8c4e26439dbb82"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest_prod.h"
+          },
+          "hashes": {
+            "md5": "c5ed78a2e01e54cf0aaaacb04bdc5f77"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-test-part.h"
+          },
+          "hashes": {
+            "md5": "7c254e4d54fa459790b29251b72eb031"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest-typed-test.h"
+          },
+          "hashes": {
+            "md5": "d7d1f92ef97251560517912143ed776d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/googletest/include/gtest/gtest_pred_impl.h"
+          },
+          "hashes": {
+            "md5": "afb97b57cb10992561f709e96f89a74b"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/include/gsl/span"
+          },
+          "hashes": {
+            "md5": "0a8ea45198e69de50d4aff5848e36084"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/include/gsl/gsl_assert"
+          },
+          "hashes": {
+            "md5": "72264bb379e417a24bab384237b995be"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/include/gsl/gsl_byte"
+          },
+          "hashes": {
+            "md5": "cee657ff358f33c5e0115bcf41ee3729"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/piece.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "md5": "c1699c093f1280d78e2e26413b3b4b78"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/square.hpp"
+          },
+          "hashes": {
+            "md5": "e1e1dcb8b2e8ad690ddde7e8bec58372"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/piece.hpp"
+          },
+          "hashes": {
+            "md5": "2f39d80a3164d48cb418da7bf8c0eaad"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/temp/inf1015_projet/king.hpp"
+          },
+          "hashes": {
+            "md5": "e02e7eefe26f8c06e0a0e6c43a759009"
+          }
+        }
+      ]
+    }
+  ]
+}
