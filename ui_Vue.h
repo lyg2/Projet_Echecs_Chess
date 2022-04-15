@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'VuejEatyd.ui'
+** Form generated from reading UI file 'VuepTTqDY.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef VUEJEATYD_H
-#define VUEJEATYD_H
+#ifndef VUEPTTQDY_H
+#define VUEPTTQDY_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -16,6 +16,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -90,6 +91,9 @@ public:
     QPushButton *pushButton_84;
     QPushButton *pushButton_85;
     QPushButton *pushButton_80;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *newGameButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -564,10 +568,26 @@ public:
 
         gridLayout->addWidget(pushButton_80, 2, 6, 1, 1);
 
+        verticalLayoutWidget = new QWidget(centralwidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(880, 90, 160, 80));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        newGameButton = new QPushButton(verticalLayoutWidget);
+        newGameButton->setObjectName(QString::fromUtf8("newGameButton"));
+        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(newGameButton->sizePolicy().hasHeightForWidth());
+        newGameButton->setSizePolicy(sizePolicy2);
+
+        verticalLayout->addWidget(newGameButton);
+
         ChessWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ChessWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1051, 21));
+        menubar->setGeometry(QRect(0, 0, 1051, 22));
         ChessWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(ChessWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -645,6 +665,7 @@ public:
         pushButton_84->setText(QString());
         pushButton_85->setText(QString());
         pushButton_80->setText(QString());
+        newGameButton->setText(QCoreApplication::translate("ChessWindow", "New Game", nullptr));
     } // retranslateUi
 
 };
@@ -655,4 +676,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // VUEJEATYD_H
+#endif // VUEPTTQDY_H

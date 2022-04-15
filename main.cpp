@@ -10,6 +10,9 @@
 #include "Controleur.h"
 #include<iostream>
 #include <QApplication>
+#include <QLayoutItem>
+#include <QPushButton>
+#include <QObject>
 
 #if __has_include("bibliotheque_cours.hpp")
 #include "bibliotheque_cours.hpp"
@@ -42,52 +45,40 @@ int main(int argc, char *argv[])
 	Modele::Game* game = new Modele::Game;
 	Board* board = new Board;
 	game->setBoard(board);
-	game->getBoard()->drawBoard();
-	game->getBoard()->setPieces();
-	int i = 0;
-	int j = 0;
-	for (auto&& piece : game->getBoard()->getlistOfWhite())
-	{
-		game->getBoard()->addPieceOnBoard(piece, i++, j++);
-	}
-	i = 7;
-	j = 7;
-	for (auto&& piece : game->getBoard()->getlistOfBlack()){
-		game->getBoard()->addPieceOnBoard(piece,i--,j);
-	}
-	for (auto&& piece : game->getBoard()->getlistOfWhite())
-	{
-		cout << typeid(*piece).name()<< " " <<piece->getPieceColor()<< " " 
-			<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	}
+	//
+	//for (auto&& piece : game->getBoard()->getlistOfWhite())
+	//{
+	//	cout << typeid(*piece).name()<< " " <<piece->getPieceColor()<< " " 
+	//		<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	//}
 
-	for (auto&& piece : game->getBoard()->getlistOfBlack())
-	{
-		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
-			<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	}
-	//Only Rook should move
-	for (auto&& piece : game->getBoard()->getlistOfWhite())
-	{
-		game->getBoard()->movePiece(piece,2,5);
-	}
+	//for (auto&& piece : game->getBoard()->getlistOfBlack())
+	//{
+	//	cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
+	//		<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	//}
+	////Only Rook should move
+	//for (auto&& piece : game->getBoard()->getlistOfWhite())
+	//{
+	//	game->getBoard()->movePiece(piece,2,5);
+	//}
 
-	//No change because if King moves, the king is in check
-	for (auto&& piece : game->getBoard()->getlistOfWhite())
-	{
-		game->getBoard()->movePiece(piece, 0, 1);
-	}
-	//Only King should move
-	for (auto&& piece : game->getBoard()->getlistOfWhite())
-	{
-		game->getBoard()->movePiece(piece, 1, 0);
-	}
+	////No change because if King moves, the king is in check
+	//for (auto&& piece : game->getBoard()->getlistOfWhite())
+	//{
+	//	game->getBoard()->movePiece(piece, 0, 1);
+	//}
+	////Only King should move
+	//for (auto&& piece : game->getBoard()->getlistOfWhite())
+	//{
+	//	game->getBoard()->movePiece(piece, 1, 0);
+	//}
 
-	for (auto&& piece : game->getBoard()->getlistOfWhite())
-	{
-		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
-			<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	}
+	//for (auto&& piece : game->getBoard()->getlistOfWhite())
+	//{
+	//	cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
+	//		<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	//}
 	
 	/*for (auto&& piece : game->getBoard()->getlistOfWhite())
 	{
@@ -103,6 +94,11 @@ int main(int argc, char *argv[])
 	initialiserBibliothequeCours(argc, argv);
 	ChessWindow* window= new ChessWindow;
 	Controleur controleur(game, window);
+	QObject::connect(window,
+		SIGNAL(squareClicked(QPushButton*, int, int)),
+		&controleur,
+		SLOT(squareClicker(QPushButton*, int , int)));
+	QObject::connect(window, SIGNAL(newGameClicked()), &controleur, SLOT(newGameClicker()));
 	window->show();
 	return app.exec();
 }

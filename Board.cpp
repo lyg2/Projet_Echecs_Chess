@@ -24,6 +24,7 @@ Board:: ~Board() {
 	for (auto&& piece : listOfWhite_) {
 		delete piece;
 	}
+
 	for (auto&& piece : listOfBlack_) {
 		delete piece;
 	}

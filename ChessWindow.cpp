@@ -30,9 +30,7 @@ ChessWindow::ChessWindow(QWidget *parent) :
             QLayoutItem* item = ui->gridLayout->itemAtPosition(i, j);
             if (item->widget()) {
                 QPushButton* square = qobject_cast<QPushButton*>(item->widget());
-                //QSquareButton* squareButton = dynamic_cast<QSquareButton*>(square);
-                //squareButton->setPosX(j);
-                //squareButton->setPosY(i);
+                //QSquareButton* squareButton = qobject_cast<QSquareButton*>(square);
                 if ((i + j) % 2 == 0)
                 {
                     square->setStyleSheet("background-color: white");
@@ -40,19 +38,36 @@ ChessWindow::ChessWindow(QWidget *parent) :
                 else {
                     square->setStyleSheet("background-color: gray");
                 }
-                square->setText("Shit");
-                //connect(square, &QPushButton::clicked, this, &ChessWindow::squareClicked);
+                square->move(j, i);
+                //cout << square->x() << " " << square->y() << endl;
+                QString texte = QString::number(square->x()) + " " + QString::number(square->y());
+                square->setText(texte);
+                square->setProperty("PosX", QVariant::fromValue<int>(j));
+                square->setProperty("PosY", QVariant::fromValue<int>(i));
+                
+                connect(square, &QPushButton::clicked, this, &ChessWindow::checkSquare);
             }
         }
     }
+
+    QPushButton* newGameButton= qobject_cast<QPushButton*>(ui->verticalLayout->itemAt(0)->widget());
+    connect(newGameButton, &QPushButton::clicked, this, &ChessWindow::checkNewgame);
+    
+    //ui->gridLayout->itemAtPosition(1, 1);
 }
 
 ChessWindow:: ~ChessWindow() {
     delete ui;
 }
-void ChessWindow::squareClicked()
+void ChessWindow::checkSquare()
+{   posX_=QObject::sender()->property("PosX").value<int>();
+    posY_ = QObject::sender()->property("PosY").value<int>();
+    button_ = qobject_cast<QPushButton*>(sender());
+    emit squareClicked(button_, posX_, posY_);
+}
+void ChessWindow::checkNewgame()
 {
-
+    emit newGameClicked();
 }
 //template <typename T>
 //QPushButton* CalcWindow::nouveauBouton(const QString& text, const T& slot)

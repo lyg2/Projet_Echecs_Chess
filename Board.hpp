@@ -34,8 +34,8 @@ public:
 	// faire le mouvement ici
 
 private:
-	list <Piece*> listOfWhite_;
-	list <Piece*> listOfBlack_;
+	list <Piece*> listOfWhite_={};
+	list <Piece*> listOfBlack_ = {};
 	Piece* whiteKing_;
 	Piece* blackKing_;
 

@@ -10,7 +10,10 @@ class Controleur : public QObject {
 public:
     Controleur(Modele::Game* modele, ChessWindow* vue);
     ~Controleur();
-    void squareClicker(QPushButton* squareButton);
+
+public slots:
+    void squareClicker(QPushButton* squareButton, int posX, int posY);
+    void newGameClicker();
 private:
     Modele::Game* modele_;
     ChessWindow* vue_;

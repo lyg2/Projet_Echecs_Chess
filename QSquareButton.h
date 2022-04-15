@@ -14,10 +14,10 @@ class QSquareButton : public QPushButton {
 	Q_OBJECT
 public: 
 	QSquareButton(int posX, int posY, QWidget* parent = 0);
-	int getPosX() {return posX_;};
-	int getPosY() { return posY_; };
-	void setPosX(int posX) { posX_ = posX; };
-	void setPosY(int posY) { posY_ = posY; };
+	virtual int getPosX() {return posX_;};
+	virtual int getPosY() { return posY_; };
+	virtual void setPosX(int posX) { posX_ = posX; };
+	virtual void setPosY(int posY) { posY_ = posY; };
 private:
 	int posX_;
 	int posY_;

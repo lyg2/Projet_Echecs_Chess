@@ -24,12 +24,17 @@ public:
 	~ChessWindow();
 
 signals:
+	void squareClicked(QPushButton* button, int posX, int posY);
+	void newGameClicked();
 
 private slots:
-	void squareClicked();
+	void checkSquare();
+	void checkNewgame();
 
 private:
 	Ui::ChessWindow* ui;
-	QPushButton button_;
+	QPushButton* button_;
+	int posX_;
+	int posY_;
 
 };
