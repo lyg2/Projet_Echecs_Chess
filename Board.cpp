@@ -15,6 +15,7 @@
 #include "King.hpp"
 #include "Rook.hpp"
 #include "Bishop.hpp"
+#include "Simulator.h"
 #include <QObject>
 #pragma pop()
 #include <functional>
@@ -36,7 +37,7 @@ void Board::setPieces()
 	piece = new King;
 	piece->setPieceColor("White");
 	listOfWhite_.push_back(piece);
-	whiteKing_ = piece;
+	whiteKing_ = dynamic_cast<King*>(piece);
 	piece = new Bishop;
 	piece->setPieceColor("White");
 	listOfWhite_.push_back(piece);
@@ -47,7 +48,7 @@ void Board::setPieces()
 	piece = new King;
 	listOfBlack_.push_back(piece);
 	piece->setPieceColor("Black");
-	blackKing_ = piece;
+	blackKing_ = dynamic_cast<King*>(piece);
 	piece = new Bishop;
 	listOfBlack_.push_back(piece);
 	piece->setPieceColor("Black");
@@ -73,7 +74,7 @@ void Board::drawBoard()
 			else {
 				square->setCaseColor("Black");
 			}
-			field_[i][j] = unique_ptr<Square>(square);
+			field_[i][j] = shared_ptr<Square>(square);
 
 		}
 	}
@@ -376,7 +377,7 @@ void Board::movePiece(Piece* original, int movePosX, int movePosY) {
 			return;
 		}
 		simulateNextPosition(original, movePosX, movePosY);
-		if (!checkKing(dynamic_cast<King*>(whiteKing_)))
+		if (!checkKing(whiteKing_))
 		{
 			undoNextPosition(original);
 			return;
@@ -388,7 +389,7 @@ void Board::movePiece(Piece* original, int movePosX, int movePosY) {
 			movePosX,
 			movePosY)))
 			simulateNextPosition(original, movePosX, movePosY);
-		if (!checkKing(dynamic_cast<King*>(blackKing_)))
+		if (!checkKing(blackKing_))
 		{
 			undoNextPosition(original);
 			return;

@@ -21,7 +21,7 @@ public:
 	void drawBoard();
 	void setPieces();
 	void addPieceOnBoard(Piece* piece,int posX, int posY);
-	unique_ptr<Square> field_ [8][8];
+	shared_ptr<Square> field_ [8][8];
 	void simulateNextPosition(Piece* piece, int nextPosX, int nexPosY);
 	void undoNextPosition(Piece* piece);
 	bool checkObstacle(Square* square, int movePosX, int movePosY);
@@ -29,15 +29,14 @@ public:
 	void movePiece(Piece* original, int movePosX, int movePosY);
 	list<Piece*> getlistOfWhite() { return listOfWhite_; };
 	list<Piece*> getlistOfBlack() { return listOfBlack_; };
-	Piece* getWhiteKing_() { return whiteKing_; };
-	Piece* getBlackKing_() { return blackKing_; };
+	King* getWhiteKing_() { return whiteKing_; };
+	King* getBlackKing_() { return blackKing_; };
 	// faire le mouvement ici
-
 private:
 	list <Piece*> listOfWhite_={};
 	list <Piece*> listOfBlack_ = {};
-	Piece* whiteKing_;
-	Piece* blackKing_;
+	King* whiteKing_;
+	King* blackKing_;
 
 };
 //class Calc : public QObject {

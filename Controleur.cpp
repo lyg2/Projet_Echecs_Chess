@@ -15,17 +15,15 @@ void Controleur::squareClicker(QPushButton* squareButton, int posX, int posY) {
 }
 
 void Controleur::newGameClicker() {
-	cout << "lol" << endl;
+	
 	if (!modele_->getIsNewGame())
 	{
-		/*Board* board = new Board;
-		modele_->setBoard(board);
-		modele_->setPlayer();
+		
 		modele_->getBoard()->drawBoard();
 		modele_->getBoard()->setPieces();
 		int i = 0;
-		int j = 0;*/
-		/*for (auto&& piece : modele_->getBoard()->getlistOfWhite())
+		int j = 0;
+		for (auto&& piece : modele_->getBoard()->getlistOfWhite())
 		{
 			modele_->getBoard()->addPieceOnBoard(piece, i++, j++);
 		}
@@ -44,8 +42,21 @@ void Controleur::newGameClicker() {
 	{
 		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
 			<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	}*/
+	}
+	for (auto&& piece : modele_->getBoard()->getlistOfBlack())
+	{
+		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
+			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	}
+	//Only Rook should move
+	for (auto&& piece : modele_->getBoard()->getlistOfWhite())
+	{
+		modele_->getBoard()->movePiece(piece,2,5);
+	}
 	modele_->setIsNewGame(true);
 		
+	}
+	else {
+		cout<<"Le nombre d'instance de roi est de roi"<< modele_->getBoard()->getWhiteKing_()->getCount();
 	}
 }

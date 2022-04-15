@@ -18,7 +18,7 @@
 #pragma pop()
 #include <functional>
 
-
+int King::count_ = 0;
 
 void King::setPossibleMoves() {
 //

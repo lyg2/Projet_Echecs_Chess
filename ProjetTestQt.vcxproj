@@ -214,6 +214,7 @@
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rook.cpp" />
+    <ClCompile Include="Simulator.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="TestCalc.cpp" />
   </ItemGroup>
@@ -224,6 +225,7 @@
     <ClInclude Include="Rook.hpp" />
     <ClInclude Include="King.hpp" />
     <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Simulator.h" />
     <ClInclude Include="Square.hpp" />
     <ClInclude Include="Board.hpp" />
     <ClInclude Include="Piece.hpp" />

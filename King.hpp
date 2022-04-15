@@ -20,9 +20,13 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 class King : public Piece
 {
 public:
-	King() = default;
+	King() { count_++; };
+	~King() { count_--; };
+	static int getCount() { return count_; };
 	void setPossibleMoves() override;
 	bool validationMouvement(int posXApres, int posYApres) override;
+private:
+	static int count_;
 
 };
 
