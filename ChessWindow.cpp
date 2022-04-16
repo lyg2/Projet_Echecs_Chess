@@ -69,6 +69,28 @@ void ChessWindow::checkNewgame()
 {
     emit newGameClicked();
 }
+void ChessWindow::drawNewPiece(QString name, int posX, int posY) {
+    QLayoutItem* item = ui->gridLayout->itemAtPosition(posY, posX);
+    QPushButton* square = qobject_cast<QPushButton*>(item->widget());
+    square->setText(name);
+
+}
+void ChessWindow::updateColorSquare(int posX, int posY, bool isSelected) {
+    QLayoutItem* item = ui->gridLayout->itemAtPosition(posY, posX);
+    QPushButton* square = qobject_cast<QPushButton*>(item->widget());
+    if (isSelected){
+        square->setStyleSheet("background-color: red");
+    }
+    else {
+        if ((posX + posY) % 2 == 0)
+        {
+            square->setStyleSheet("background-color: white");
+        }
+        else {
+            square->setStyleSheet("background-color: gray");
+        }
+    }
+}
 //template <typename T>
 //QPushButton* CalcWindow::nouveauBouton(const QString& text, const T& slot)
 //{

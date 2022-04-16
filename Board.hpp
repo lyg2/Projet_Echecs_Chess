@@ -22,11 +22,11 @@ public:
 	void setPieces();
 	void addPieceOnBoard(Piece* piece,int posX, int posY);
 	shared_ptr<Square> field_ [8][8];
-	void simulateNextPosition(Piece* piece, int nextPosX, int nexPosY);
+	bool simulateNextPosition(Piece* piece, int nextPosX, int nexPosY, King* king);
 	void undoNextPosition(Piece* piece);
 	bool checkObstacle(Square* square, int movePosX, int movePosY);
 	bool checkKing(King* king);
-	void movePiece(Piece* original, int movePosX, int movePosY);
+	bool movePiece(Piece* original, int movePosX, int movePosY);
 	list<Piece*> getlistOfWhite() { return listOfWhite_; };
 	list<Piece*> getlistOfBlack() { return listOfBlack_; };
 	King* getWhiteKing_() { return whiteKing_; };

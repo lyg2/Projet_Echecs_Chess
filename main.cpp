@@ -99,6 +99,8 @@ int main(int argc, char *argv[])
 		&controleur,
 		SLOT(squareClicker(QPushButton*, int , int)));
 	QObject::connect(window, SIGNAL(newGameClicked()), &controleur, SLOT(newGameClicker()));
+	QObject::connect(&controleur, SIGNAL(drawPiece(QString, int, int)), window, SLOT(drawNewPiece(QString, int, int)));
+	QObject::connect(&controleur, SIGNAL(colorSquare(int, int, bool)), window, SLOT(updateColorSquare(int, int, bool)));
 	window->show();
 	return app.exec();
 }

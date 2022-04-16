@@ -20,6 +20,7 @@ public:
 	Piece() = default;
 	virtual ~Piece() = default;
 	virtual bool validationMouvement(int posXApres, int posYApres) = 0;
+	virtual QString getNamePiece() = 0;
 	/*bool ifMoved(int newPosX, int newPosY);
 	bool eatPiece(int newPosX, int newPosY);*/
 	int getPosX() const { return posX_; };

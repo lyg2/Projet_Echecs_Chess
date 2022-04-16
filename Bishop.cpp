@@ -47,3 +47,7 @@ bool Bishop::validationMouvement(int posXApres, int posYApres) {
 	}
 	return false;
 }
+
+QString Bishop::getNamePiece() {
+	return QString::fromStdString(getPieceColor()+"Bishop");
+}

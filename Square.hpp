@@ -48,7 +48,7 @@ private:
 	bool hasPiece_;
 	QBrush brush;
 	string caseColor_;
-	Piece* piece_;
+	Piece* piece_=nullptr;
 	int positionX_;
 	int positionY_;
 

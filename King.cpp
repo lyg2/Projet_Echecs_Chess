@@ -68,3 +68,7 @@ bool King::validationMouvement(int posXApres, int posYApres) {
 	}
 	return false;
 }
+
+QString King::getNamePiece() {
+	return QString::fromStdString(getPieceColor()+"King");
+}

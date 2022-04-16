@@ -25,6 +25,7 @@ public:
 	static int getCount() { return count_; };
 	void setPossibleMoves() override;
 	bool validationMouvement(int posXApres, int posYApres) override;
+	QString getNamePiece() override;
 private:
 	static int count_;
 

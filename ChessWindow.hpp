@@ -30,6 +30,8 @@ signals:
 private slots:
 	void checkSquare();
 	void checkNewgame();
+	void drawNewPiece(QString name, int posX, int posY);
+	void updateColorSquare(int posX, int posY, bool);
 
 private:
 	Ui::ChessWindow* ui;

@@ -56,3 +56,7 @@ bool Rook::validationMouvement(int posXApres, int posYApres) {
 	}
 	return false;
 }
+
+QString Rook::getNamePiece() {
+	return QString::fromStdString(getPieceColor() + "Rook");
+}

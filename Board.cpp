@@ -90,15 +90,10 @@ void Board::addPieceOnBoard(Piece* piece,int posX, int posY)
 	field_[posX][posY]->setHasPiece(true);
 }
 
-void Board::simulateNextPosition(Piece* piece, int nextPosX, int nextPosY) 
+bool Board::simulateNextPosition(Piece* piece, int nextPosX, int nextPosY, King* king) 
 {
-	piece->setSavedPosX(piece->getPosX());
-	piece->setSavedPosY(piece->getPosY());
-
-	piece->setPosX(nextPosX);
-	piece->setPosY(nextPosY);
-	field_[nextPosX][nextPosY]->putPieceOnSquare(piece);
-	field_[piece->getSavedPosX()][piece->getSavedPosY()]->putPieceOnSquare(nullptr);
+	Simulator simulator=Simulator(piece, field_, nextPosX, nextPosY);
+	return checkKing(king);
 }
 void Board::undoNextPosition(Piece* piece)
 {
@@ -111,6 +106,16 @@ void Board::undoNextPosition(Piece* piece)
 bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	//if checkObstacle==true, then no obstacle
 	// Must correct bug use field_[ instead of square for the if.
+	enum class Movement {
+	GO_UP,
+	GO_DOWN,
+	GO_LEFT,
+	GO_RIGHT,
+	GO_UP_RIGHT,
+	GO_UP_LEFT,
+	GO_DOWN_RIGHT,
+	GO_DOWN_LEFT};
+	Movement movement = Movement::GO_UP;
 	bool goUp = false;
 	bool goDown = false;
 	bool goLeft = false;
@@ -128,209 +133,94 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 	if ((movePosX - posX >= 1) && (movePosY == posY))
 	{
 		goRight = true;
+		movement = Movement::GO_RIGHT;
 	}
 	else if ((movePosX - posX <= -1) && (movePosY == posY))
 	{
 		goLeft = true;
+		movement = Movement::GO_LEFT;
 	}
 
 	else if ((movePosX == posX) && (movePosY- posY>=1)) {
 		goDown = true;
+		movement = Movement::GO_DOWN;
 	}
 	else if ((movePosX == posX) && (movePosY - posY >= -1)) {
 		goUp = true;
+		movement = Movement::GO_UP;
 	}
 
 	else if ((movePosX-posX>=1) && (movePosY - posY>=1)) 
 	{
 		goDownRight = true;
+		movement = Movement::GO_DOWN_RIGHT;
 	}
 	else if ((movePosX - posX >= 1) && (movePosY - posY <= -1))
 	{
 		goUpRight = true;
+		movement = Movement::GO_UP_RIGHT;
 	}
 
 	else if ((movePosX - posX >= -1) && (movePosY - posY >= 1))
 	{
 		goDownLeft = true;
+		movement = Movement::GO_DOWN_LEFT;
 	}
 
 	else if ((movePosX - posX <= -1) && (movePosY - posY <= -1))
 	{
 		goUpLeft = true;
+		movement = Movement::GO_UP_LEFT;
 	}
-	if (goRight) 
+	while (posX != movePosX && posY != movePosY)
 	{
-		for (posX; posX < movePosX; posX++)
+		if (field_[posX][posY]->getPiece() != nullptr
+			&& square != field_[posX][posY].get())
 		{
-			if (field_[posX][posY]->getPiece() != nullptr
-				&& square != field_[posX][posY].get())
-			{
-				return false;
-			}
+			return false;
 		}
-		if (field_[movePosX][movePosY]->getPiece()==nullptr)
-		{
-			return true;
-		}
-		else if (square->getPiece()->getPieceColor()
-			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
-		{
-			return true;
-		}
-		//check if Piece is Black or White and Player
-	}
-	else if (goLeft)
-	{
-		for (posX; posX > movePosX; posX--)
-		{
-			if (field_[posX][posY]->getPiece() != nullptr
-				&& square != field_[posX][posY].get())
-			{
-				return false;
-			}
-		}
-		if (field_[movePosX][movePosY]->getPiece() == nullptr)
-		{
-			return true;
-		}
-		else if (square->getPiece()->getPieceColor()
-			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
-		{
-			return true;
-		}
-	}
-	else if (goDown)
-	{
-		for (posY; posY < movePosY; posY++)
-		{
-			if (field_[posX][posY]->getPiece() != nullptr 
-				&& square != field_[posX][posY].get())
-			{
-				return false;
-			}
-		}
-		if (field_[movePosX][movePosY]->getPiece() == nullptr)
-		{
-			return true;
-		}
-		else if (square->getPiece()->getPieceColor()
-			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
-		{
-			return true;
-		}
-	}
+		switch (movement) {
+			case Movement::GO_RIGHT:
+				posX++;
+				break;
+			case Movement::GO_LEFT:
+				posX--;
+				break;
 
-	else if (goUp) 
-	{
-		for (posY; posY > movePosY; posY--) 
-		{
-			if (field_[posX][posY]->getPiece() != nullptr
-				&& square != field_[posX][posY].get())
-			{
-				return false;
-			}
+			case Movement::GO_DOWN:
+				posY++;
+				break;
+			case Movement:: GO_UP:
+				posY--;
+				break;
+			case Movement:: GO_DOWN_RIGHT:
+				posX++;
+				posY++;
+				break;
+			case Movement::GO_DOWN_LEFT:
+				posX--;
+				posY++;
+				break;
+			case Movement:: GO_UP_RIGHT:
+				posX++;
+				posY--;
+				break;
+			case Movement:: GO_UP_LEFT:
+				posX--;
+				posY--;
+				break;
+	
 		}
-		if (field_[movePosX][movePosY]->getPiece() == nullptr)
-		{
-			return true;
-		}
-		else if (square->getPiece()->getPieceColor()
-			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
-		{
-			return true;
-		}
-	}
 
-	else if (goDownRight)
-	{
-		while (posX != movePosX && posY != movePosY)
-		{
-			if (field_[posX][posY]->getPiece() != nullptr
-				&& square != field_[posX][posY].get())
-			{
-				return false;
-			}
-			posX++;
-			posY++;
-		}
-		if (field_[movePosX][movePosY]->getPiece() == nullptr)
-		{
-			return true;
-		}
-		else if (square->getPiece()->getPieceColor()
-			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
-		{
-			return true;
-		}
 	}
-	else if (goDownLeft)
+	if (field_[movePosX][movePosY]->getPiece() == nullptr)
 	{
-		while (posX != movePosX && posY != movePosY)
-		{
-			if (field_[posX][posY]->getPiece() != nullptr
-				&& square != field_[posX][posY].get())
-			{
-				return false;
-			}
-			posX--;
-			posY++;
-		}
-		if (field_[movePosX][movePosY]->getPiece() == nullptr)
-		{
-			return true;
-		}
-		else if (square->getPiece()->getPieceColor() 
-			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
-		{
-			return true;
-		}
+		return true;
 	}
-
-	else if (goUpRight)
+	else if (square->getPiece()->getPieceColor()
+		!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 	{
-		while (posX != movePosX && posY != movePosY)
-		{
-			if (field_[posX][posY]->getPiece() != nullptr
-				&& square != field_[posX][posY].get())
-			{
-				return false;
-			}
-			posX++;
-			posY--;
-		}
-		if (field_[movePosX][movePosY]->getPiece() == nullptr)
-		{
-			return true;
-		}
-		else if (square->getPiece()->getPieceColor()
-			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
-		{
-			return true;
-		}
-		//check if Piece is Black or White and Player
-	}
-	else if (goUpLeft) 
-	{
-		while (posX != movePosX && posY != movePosY)
-		{
-			if (field_[posX][posY]->getPiece() != nullptr
-				&& square != field_[posX][posY].get())
-			{
-				return false;
-			}
-			posX--;
-			posY--;
-		}
-		if (field_[movePosX][movePosY]->getPiece() == nullptr)
-		{
-			return true;
-		}
-		else if (square->getPiece()->getPieceColor()
-			!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
-		{
-			return true;
-		}
+		return true;
 	}
 	return false;
 }
@@ -362,11 +252,11 @@ bool Board::checkKing(King* king) {
 	return true;
 
 }
-void Board::movePiece(Piece* original, int movePosX, int movePosY) {
+bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
 	if (!(original->validationMouvement(movePosX, movePosY)))
 	{
 		cout << "Mouvement non valide" << endl;
-		return;
+		return false;
 	}
 	if (original->getPieceColor() == "White")
 	{
@@ -374,37 +264,43 @@ void Board::movePiece(Piece* original, int movePosX, int movePosY) {
 			movePosX,
 			movePosY)))
 		{
-			return;
+			return false;
 		}
-		simulateNextPosition(original, movePosX, movePosY);
-		if (!checkKing(whiteKing_))
+		if (!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))) {
+			return false;
+		}
+		/*if (!checkKing(whiteKing_))
 		{
 			undoNextPosition(original);
 			return;
-		}
+		}*/
 	}
 	else
 	{
 		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
 			movePosX,
 			movePosY)))
-			simulateNextPosition(original, movePosX, movePosY);
-		if (!checkKing(blackKing_))
+			if (!(simulateNextPosition(original, movePosX, movePosY, blackKing_))) {
+				return false;
+			}
+			
+		/*if (!checkKing(blackKing_))
 		{
 			undoNextPosition(original);
 			return;
-		}
+		}*/
 	}
-	if (original->getPosX() == movePosX && original->getPosY() == movePosY)
+	/*if (original->getPosX() == movePosX && original->getPosY() == movePosY)
 	{
 		undoNextPosition(original);
-	}
+	}*/
 	int originalPosX = original->getPosX();
 	int originalPosY = original->getPosY();
 	original->setPosX(movePosX);
 	original->setPosY(movePosY);
 	field_[movePosX][movePosY]->putPieceOnSquare(original);
 	field_[originalPosX][originalPosY]->putPieceOnSquare(nullptr);
+	return true;
 }
 //int getField(int posX) {
 //	return getField(posX);
