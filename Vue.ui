@@ -898,9 +898,9 @@
    <widget class="QLineEdit" name="playerTurnView">
     <property name="geometry">
      <rect>
-      <x>430</x>
+      <x>280</x>
       <y>0</y>
-      <width>241</width>
+      <width>541</width>
       <height>71</height>
      </rect>
     </property>

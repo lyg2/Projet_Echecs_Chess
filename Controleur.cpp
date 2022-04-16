@@ -54,6 +54,9 @@ void Controleur::squareClicker(QPushButton* squareButton, int posX, int posY) {
 			modele_->setIsYourTurn(!modele_->getIsYourTurn());
 			emit playerTurn(modele_->getIsYourTurn());
 		}
+		else {
+			emit invalidMovement();
+		}
 	}
 }
 

@@ -33,6 +33,7 @@ private slots:
 	void drawNewPiece(QString name, int posX, int posY);
 	void updateColorSquare(int posX, int posY, bool);
 	void updatePlayerTurn(bool turn);
+	void invalidMovementWarning();
 
 private:
 	Ui::ChessWindow* ui;

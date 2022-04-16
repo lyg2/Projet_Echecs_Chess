@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'VuesbJDfl.ui'
+** Form generated from reading UI file 'VuePYDJGm.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef VUESBJDFL_H
-#define VUESBJDFL_H
+#ifndef VUEPYDJGM_H
+#define VUEPYDJGM_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -588,7 +588,7 @@ public:
 
         playerTurnView = new QLineEdit(centralwidget);
         playerTurnView->setObjectName(QString::fromUtf8("playerTurnView"));
-        playerTurnView->setGeometry(QRect(430, 0, 241, 71));
+        playerTurnView->setGeometry(QRect(280, 0, 541, 71));
         QFont font;
         font.setPointSize(15);
         playerTurnView->setFont(font);
@@ -685,4 +685,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // VUESBJDFL_H
+#endif // VUEPYDJGM_H

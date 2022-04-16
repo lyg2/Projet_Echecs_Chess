@@ -11,6 +11,9 @@
 #include <QVariant>
 #include <QPaintEvent>
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QInputDialog>
+#include <Qt>
 #pragma pop()
 #include <iostream>
 #include <type_traits>
@@ -93,11 +96,18 @@ void ChessWindow::updateColorSquare(int posX, int posY, bool isSelected) {
 }
 void ChessWindow::updatePlayerTurn(bool turn) {
     if (turn) {
-        ui->playerTurnView->setText("Is is the turn of White Player");
+        ui->playerTurnView->setText("It is the turn of White Player");
     }
     else {
-        ui->playerTurnView->setText("Is is the turn of Black Player");
+        ui->playerTurnView->setText("It is the turn of Black Player");
     }
+}
+
+void ChessWindow::invalidMovementWarning() {
+    QMessageBox::StandardButton msgBox;
+    msgBox = QMessageBox::warning(this, "Illegal Move !",
+        "Please try again");
+
 }
 //template <typename T>
 //QPushButton* CalcWindow::nouveauBouton(const QString& text, const T& slot)
