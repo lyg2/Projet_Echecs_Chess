@@ -101,6 +101,7 @@ int main(int argc, char *argv[])
 	QObject::connect(window, SIGNAL(newGameClicked()), &controleur, SLOT(newGameClicker()));
 	QObject::connect(&controleur, SIGNAL(drawPiece(QString, int, int)), window, SLOT(drawNewPiece(QString, int, int)));
 	QObject::connect(&controleur, SIGNAL(colorSquare(int, int, bool)), window, SLOT(updateColorSquare(int, int, bool)));
+	QObject::connect(&controleur, SIGNAL(playerTurn(bool)), window, SLOT(updatePlayerTurn(bool)));
 	window->show();
 	return app.exec();
 }

@@ -52,6 +52,7 @@ void Controleur::squareClicker(QPushButton* squareButton, int posX, int posY) {
 			modele_->setSelectedPiece(nullptr);
 			emit colorSquare(savedLocationX, savedLocationY, false);
 			modele_->setIsYourTurn(!modele_->getIsYourTurn());
+			emit playerTurn(modele_->getIsYourTurn());
 		}
 	}
 }
@@ -64,6 +65,7 @@ void Controleur::newGameClicker() {
 		modele_->getBoard()->drawBoard();
 		modele_->getBoard()->setPieces();
 		modele_->setIsYourTurn(true);
+		emit playerTurn(true);
 		int i = 0;
 		int j = 0;
 		for (auto&& piece : modele_->getBoard()->getlistOfWhite())

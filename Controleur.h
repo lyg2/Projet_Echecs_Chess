@@ -14,6 +14,7 @@ signals:
     void drawPiece(QString name, int posX, int posY);
     void changeLocation(int posX, int posY);
     void colorSquare(int posX, int posY, bool isSelected);
+    void playerTurn(bool);
 public slots:
     void squareClicker(QPushButton* squareButton, int posX, int posY);
     void newGameClicker();

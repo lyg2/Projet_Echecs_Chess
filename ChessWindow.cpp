@@ -91,6 +91,14 @@ void ChessWindow::updateColorSquare(int posX, int posY, bool isSelected) {
         }
     }
 }
+void ChessWindow::updatePlayerTurn(bool turn) {
+    if (turn) {
+        ui->playerTurnView->setText("Is is the turn of White Player");
+    }
+    else {
+        ui->playerTurnView->setText("Is is the turn of Black Player");
+    }
+}
 //template <typename T>
 //QPushButton* CalcWindow::nouveauBouton(const QString& text, const T& slot)
 //{

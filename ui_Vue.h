@@ -1,17 +1,18 @@
 /********************************************************************************
-** Form generated from reading UI file 'VueUDJuax.ui'
+** Form generated from reading UI file 'VuesbJDfl.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef VUEUDJUAX_H
-#define VUEUDJUAX_H
+#ifndef VUESBJDFL_H
+#define VUESBJDFL_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -94,6 +95,7 @@ public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *newGameButton;
+    QLineEdit *playerTurnView;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -101,13 +103,13 @@ public:
     {
         if (ChessWindow->objectName().isEmpty())
             ChessWindow->setObjectName(QString::fromUtf8("ChessWindow"));
-        ChessWindow->resize(1302, 913);
+        ChessWindow->resize(1256, 926);
         ChessWindow->setAutoFillBackground(false);
         centralwidget = new QWidget(ChessWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(130, 30, 841, 781));
+        gridLayoutWidget->setGeometry(QRect(140, 90, 841, 781));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -584,10 +586,17 @@ public:
 
         verticalLayout->addWidget(newGameButton);
 
+        playerTurnView = new QLineEdit(centralwidget);
+        playerTurnView->setObjectName(QString::fromUtf8("playerTurnView"));
+        playerTurnView->setGeometry(QRect(430, 0, 241, 71));
+        QFont font;
+        font.setPointSize(15);
+        playerTurnView->setFont(font);
+        playerTurnView->setAlignment(Qt::AlignCenter);
         ChessWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ChessWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1302, 21));
+        menubar->setGeometry(QRect(0, 0, 1256, 21));
         ChessWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(ChessWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -676,4 +685,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // VUEUDJUAX_H
+#endif // VUESBJDFL_H
