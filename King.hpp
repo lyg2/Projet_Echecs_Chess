@@ -21,9 +21,8 @@ class King : public Piece
 {
 public:
 	King() { count_++; };
-	~King() { count_--; };
+	virtual ~King() { count_--; };
 	static int getCount() { return count_; };
-	void setPossibleMoves() override;
 	bool validationMouvement(int posXApres, int posYApres) override;
 	QString getNamePiece() override;
 private:

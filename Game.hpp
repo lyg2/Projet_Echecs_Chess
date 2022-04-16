@@ -31,11 +31,17 @@ namespace Modele {
 		void setHasSelectedPiece(bool hasSelectedPiece) { hasSelectedPiece_ = hasSelectedPiece; };
 		Piece* getSelectedPiece() { return selectedPiece_; };
 		void setSelectedPiece(Piece* selectedPiece) { selectedPiece_=selectedPiece; };
+		void setIsYourTurn(bool isYourTurn) { isYourTurn_ = isYourTurn; };
+		bool getIsYourTurn() { return isYourTurn_; };
+		void setColorTurn(string colorTurn) { colorTurn_ = colorTurn; };
+		string getColorTurn() { return colorTurn_; };
 		/*Player* getPlayer1() { return player1_; };
 		Player* getPlayer2() { return player2_; };
 		void setPlayer1(Player* player) { player1_=player; };
 		void setPlayer2(Player* player) { player2_ = player; };*/
 	private:
+		string colorTurn_;
+		bool isYourTurn_;
 		bool isNewGame_ = false;
 		bool hasSelectedPiece_ = false;
 		Piece* selectedPiece_;

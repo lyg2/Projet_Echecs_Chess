@@ -20,9 +20,7 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 class Rook : public Piece {
 public:
 	Rook() = default;
-	Rook(string color);
-	~Rook() = default;
-	void setPossibleMoves() override;
+	virtual ~Rook() = default;
 	bool validationMouvement(int posXApres, int posYApres) override;
 	QString getNamePiece() override;
 

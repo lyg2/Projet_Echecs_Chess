@@ -19,26 +19,6 @@
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 
-void Bishop::setPossibleMoves() {
-	/*Piece* piece;
-	Board board;
-
-	for (int i = -1; i <= 1; i++) {
-		for (int j = -1; j <= 1; j++) {
-			int movePosXY = board.field_[piece.getPosX() + i][piece.getPosY() + j];
-			(piece.possibleMoves_).push_back(movePosXY);
-		}
-	}*/
-}
-
-//void Bishop::movePiece(int i, int j) {
-//	piece* piece;
-//	board board;
-//	if (i != 0 && j != 0) {
-//	int nextposxy = board.field_[piece.getposx() + i][piece.getposy() + j];
-//	}
-//}
-
 bool Bishop::validationMouvement(int posXApres, int posYApres) {
 	//Déplacement diagonale
 	if ((abs(posXApres - getPosX()))==(abs(posYApres - getPosY()))

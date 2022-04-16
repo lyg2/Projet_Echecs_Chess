@@ -21,7 +21,6 @@ class Bishop : public Piece
 {
 public:
 	Bishop() = default;
-	void setPossibleMoves() override;
 	bool validationMouvement(int posX, int posY) override;
 	QString getNamePiece() override;
 

@@ -21,8 +21,6 @@ public:
 	virtual ~Piece() = default;
 	virtual bool validationMouvement(int posXApres, int posYApres) = 0;
 	virtual QString getNamePiece() = 0;
-	/*bool ifMoved(int newPosX, int newPosY);
-	bool eatPiece(int newPosX, int newPosY);*/
 	int getPosX() const { return posX_; };
 	int getPosY() const { return posY_; };
 	void setPosX(int posX) { posX_ = posX; };
@@ -32,26 +30,9 @@ public:
 	void setSavedPosX(int savedPosX) {savedPosX_=savedPosX; };
 	void setSavedPosY(int savedPosY) {savedPosY_ = savedPosY; };
 	string getName() const { return namePiece_; }
-	void setPieceOnSquare(Square* square) {
-		square = square;
-	};
-	Square* getSquare() {
-		return square_;
-	};
 
 	void setPieceColor(string color) { color_ = color; };
 	string getPieceColor() { return color_; };
-	void setIsOnSquare(bool isOnSquare) {
-		isOnSquare = isOnSquare;
-	}
-	bool getIsOnSquare() { return isOnSquare_; };
-
-	list<Square*> getPossibleMove() {
-		return possibleMoves_;
-	};
-
-
-	virtual void setPossibleMoves() = 0;
 
 	//virtual void movePiece(int i, int j) = 0;
 
@@ -61,8 +42,5 @@ private:
 	int savedPosX_;
 	int savedPosY_;
 	string namePiece_;
-	Square* square_;
 	string color_;
-	bool isOnSquare_;
-	list<Square*> possibleMoves_;
 };

@@ -20,37 +20,6 @@
 
 int King::count_ = 0;
 
-void King::setPossibleMoves() {
-//
-//	for (int i = -1; i <= 1; i++) {
-//		for (int j = -1; j <= 1; j++) {
-//			int movePosX = getPosX() + i;
-//			int movePosY = getPosY() + j;
-//			int movePosDiago = [getPosX() + i][getPosY() + j];
-//			(piece.possibleMoves_).push_back(movePosX);
-//			(piece.possibleMoves_).push_back(movePosY);
-//			(piece.possibleMoves_).push_back(movePosXY);
-//		}
-//	}
-}
-
-//void King::movePiece(int x1, int y1) {
-//	piece piece;
-//	board board;
-//	if (i != 0) {
-//		int nextposx = board.field_[piece.getposx() + i][j];
-//		int nextposx = getfield[piece.getposx() + i];
-//
-//	}
-//	else if (j != 0) {
-//		int nextposy = board.field_[i][piece.getposy() + j];
-//	}
-//	else if (i != 0 && j != 0) {
-//		int nextposxy = board.field_[piece.getposx() + i][piece.getposy() + j];
-//	}
-//
-//}
-
 bool King::validationMouvement(int posXApres, int posYApres) {
 	//Déplacement horizontale
 	if ((abs(posXApres - getPosX()) == 1) && (posYApres - getPosY()) == 0) {
