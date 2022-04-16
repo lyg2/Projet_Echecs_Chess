@@ -286,6 +286,9 @@ bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
 		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
 			movePosX,
 			movePosY)))
+		{
+			return false;
+		}
 			if (!(simulateNextPosition(original, movePosX, movePosY, blackKing_))) {
 				return false;
 			}
@@ -308,9 +311,11 @@ bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
 	if (temp_piece != nullptr) {
 		if (temp_piece->getPieceColor() == "White"){
 			listOfWhite_.remove(temp_piece);
+			delete temp_piece;
 		}
 		else {
 			listOfBlack_.remove(temp_piece);
+			delete temp_piece;
 		}
 	}
 	int originalPosX = original->getPosX();
