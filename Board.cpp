@@ -117,14 +117,6 @@ bool Board::checkObstacle(Square* square, int movePosX, int movePosY) {
 		GO_DOWN_LEFT
 	};
 	Movement movement = Movement::GO_UP;
-	bool goUp = false;
-	bool goDown = false;
-	bool goLeft = false;
-	bool goRight = false;
-	bool goUpRight = false;
-	bool goUpLeft = false;
-	bool goDownRight = false;
-	bool goDownLeft = false;
 	int posX = square->getPositionX();
 	int posY = square->getPositionY();
 	if (!(square->getPiece()->validationMouvement(movePosX, movePosY))) {
@@ -133,47 +125,40 @@ bool Board::checkObstacle(Square* square, int movePosX, int movePosY) {
 
 	if ((movePosX - posX >= 1) && (movePosY == posY))
 	{
-		goRight = true;
 		movement = Movement::GO_RIGHT;
 	}
 	else if ((movePosX - posX <= -1) && (movePosY == posY))
 	{
-		goLeft = true;
 		movement = Movement::GO_LEFT;
 	}
 
 	else if ((movePosX == posX) && (movePosY - posY >= 1)) {
-		goDown = true;
 		movement = Movement::GO_DOWN;
 	}
 	else if ((movePosX == posX) && (movePosY - posY >= -1)) {
-		goUp = true;
 		movement = Movement::GO_UP;
 	}
 
 	else if ((movePosX - posX >= 1) && (movePosY - posY >= 1))
 	{
-		goDownRight = true;
 		movement = Movement::GO_DOWN_RIGHT;
 	}
 	else if ((movePosX - posX >= 1) && (movePosY - posY <= -1))
 	{
-		goUpRight = true;
 		movement = Movement::GO_UP_RIGHT;
 	}
 
 	else if ((movePosX - posX >= -1) && (movePosY - posY >= 1))
 	{
-		goDownLeft = true;
 		movement = Movement::GO_DOWN_LEFT;
 	}
 
 	else if ((movePosX - posX <= -1) && (movePosY - posY <= -1))
 	{
-		goUpLeft = true;
 		movement = Movement::GO_UP_LEFT;
 	}
-	while (posX != movePosX && posY != movePosY)
+
+	while (posX != movePosX || posY != movePosY)
 	{
 		if (field_[posX][posY]->getPiece() != nullptr
 			&& square != field_[posX][posY].get())
@@ -187,7 +172,6 @@ bool Board::checkObstacle(Square* square, int movePosX, int movePosY) {
 		case Movement::GO_LEFT:
 			posX--;
 			break;
-
 		case Movement::GO_DOWN:
 			posY++;
 			break;
@@ -275,11 +259,6 @@ bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
 		if (!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))) {
 			return false;
 		}
-		/*if (!checkKing(whiteKing_))
-		{
-			undoNextPosition(original);
-			return;
-		}*/
 	}
 	else
 	{
@@ -307,7 +286,7 @@ bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
 		undoNextPosition(original);
 	}*/
 	//field_[][]
-	//New Bug, check doesn't work for Black King. Find the cause.
+	//New Bug, check bypass obstacles
 	if (temp_piece != nullptr) {
 		if (temp_piece->getPieceColor() == "White"){
 			listOfWhite_.remove(temp_piece);

@@ -1,4 +1,8 @@
+#pragma once
 #include "Controleur.h"
+#include "Rook.hpp"
+#include "Bishop.hpp"
+#include "King.hpp"
 #include <iostream>
 
 Controleur::Controleur(Modele::Game* modele, ChessWindow* vue)
@@ -51,17 +55,33 @@ void Controleur::newGameClicker() {
 		int j = 0;
 		for (auto&& piece : modele_->getBoard()->getlistOfWhite())
 		{
-			modele_->getBoard()->addPieceOnBoard(piece, i, j);
-			emit drawPiece(piece->getNamePiece(), i, j);
-			i++;
-			j++;
+			if (dynamic_cast<King*>(piece) != nullptr) {
+				modele_->getBoard()->addPieceOnBoard(piece, 0, 0);
+				emit drawPiece(piece->getNamePiece(), 0, 0);
+			}
+			else if (dynamic_cast<Rook*>(piece) != nullptr) {
+				modele_->getBoard()->addPieceOnBoard(piece, 1, 0);
+				emit drawPiece(piece->getNamePiece(), 1, 0);
+			}
+			else if (dynamic_cast<Bishop*>(piece) != nullptr) {
+				modele_->getBoard()->addPieceOnBoard(piece, 2, 0);
+				emit drawPiece(piece->getNamePiece(), 2, 0);
+			}
+
 		}
-		i = 7;
-		j = 7;
 		for (auto&& piece : modele_->getBoard()->getlistOfBlack()) {
-			modele_->getBoard()->addPieceOnBoard(piece, i, j);
-			emit drawPiece(piece->getNamePiece(), i, j);
-			i--;
+			if (dynamic_cast<King*>(piece) != nullptr) {
+				modele_->getBoard()->addPieceOnBoard(piece, 7, 7);
+				emit drawPiece(piece->getNamePiece(), 7, 7);
+			}
+			else if (dynamic_cast<Rook*>(piece) != nullptr) {
+				modele_->getBoard()->addPieceOnBoard(piece, 7, 0);
+				emit drawPiece(piece->getNamePiece(), 7, 0);
+			}
+			else if (dynamic_cast<Bishop*>(piece) != nullptr) {
+				modele_->getBoard()->addPieceOnBoard(piece, 6, 7);
+				emit drawPiece(piece->getNamePiece(), 6, 7);
+			}
 		}
 	//	for (auto&& piece : modele_->getBoard()->getlistOfWhite())
 	//{
