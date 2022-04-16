@@ -80,7 +80,7 @@ void Board::drawBoard()
 	}
 }
 
-void Board::addPieceOnBoard(Piece* piece,int posX, int posY)
+void Board::addPieceOnBoard(Piece* piece, int posX, int posY)
 {
 	piece->setPosX(posX);
 	piece->setPosY(posY);
@@ -90,9 +90,9 @@ void Board::addPieceOnBoard(Piece* piece,int posX, int posY)
 	field_[posX][posY]->setHasPiece(true);
 }
 
-bool Board::simulateNextPosition(Piece* piece, int nextPosX, int nextPosY, King* king) 
+bool Board::simulateNextPosition(Piece* piece, int nextPosX, int nextPosY, King* king)
 {
-	Simulator simulator=Simulator(piece, field_, nextPosX, nextPosY);
+	Simulator simulator = Simulator(piece, field_, nextPosX, nextPosY);
 	return checkKing(king);
 }
 void Board::undoNextPosition(Piece* piece)
@@ -103,18 +103,19 @@ void Board::undoNextPosition(Piece* piece)
 	piece->setPosY(piece->getSavedPosY());
 }
 
-bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
+bool Board::checkObstacle(Square* square, int movePosX, int movePosY) {
 	//if checkObstacle==true, then no obstacle
 	// Must correct bug use field_[ instead of square for the if.
 	enum class Movement {
-	GO_UP,
-	GO_DOWN,
-	GO_LEFT,
-	GO_RIGHT,
-	GO_UP_RIGHT,
-	GO_UP_LEFT,
-	GO_DOWN_RIGHT,
-	GO_DOWN_LEFT};
+		GO_UP,
+		GO_DOWN,
+		GO_LEFT,
+		GO_RIGHT,
+		GO_UP_RIGHT,
+		GO_UP_LEFT,
+		GO_DOWN_RIGHT,
+		GO_DOWN_LEFT
+	};
 	Movement movement = Movement::GO_UP;
 	bool goUp = false;
 	bool goDown = false;
@@ -141,7 +142,7 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		movement = Movement::GO_LEFT;
 	}
 
-	else if ((movePosX == posX) && (movePosY- posY>=1)) {
+	else if ((movePosX == posX) && (movePosY - posY >= 1)) {
 		goDown = true;
 		movement = Movement::GO_DOWN;
 	}
@@ -150,7 +151,7 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 		movement = Movement::GO_UP;
 	}
 
-	else if ((movePosX-posX>=1) && (movePosY - posY>=1)) 
+	else if ((movePosX - posX >= 1) && (movePosY - posY >= 1))
 	{
 		goDownRight = true;
 		movement = Movement::GO_DOWN_RIGHT;
@@ -180,36 +181,36 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 			return false;
 		}
 		switch (movement) {
-			case Movement::GO_RIGHT:
-				posX++;
-				break;
-			case Movement::GO_LEFT:
-				posX--;
-				break;
+		case Movement::GO_RIGHT:
+			posX++;
+			break;
+		case Movement::GO_LEFT:
+			posX--;
+			break;
 
-			case Movement::GO_DOWN:
-				posY++;
-				break;
-			case Movement:: GO_UP:
-				posY--;
-				break;
-			case Movement:: GO_DOWN_RIGHT:
-				posX++;
-				posY++;
-				break;
-			case Movement::GO_DOWN_LEFT:
-				posX--;
-				posY++;
-				break;
-			case Movement:: GO_UP_RIGHT:
-				posX++;
-				posY--;
-				break;
-			case Movement:: GO_UP_LEFT:
-				posX--;
-				posY--;
-				break;
-	
+		case Movement::GO_DOWN:
+			posY++;
+			break;
+		case Movement::GO_UP:
+			posY--;
+			break;
+		case Movement::GO_DOWN_RIGHT:
+			posX++;
+			posY++;
+			break;
+		case Movement::GO_DOWN_LEFT:
+			posX--;
+			posY++;
+			break;
+		case Movement::GO_UP_RIGHT:
+			posX++;
+			posY--;
+			break;
+		case Movement::GO_UP_LEFT:
+			posX--;
+			posY--;
+			break;
+
 		}
 
 	}
@@ -227,16 +228,16 @@ bool Board:: checkObstacle(Square* square, int movePosX, int movePosY) {
 bool Board::checkKing(King* king) {
 	//if checkKing==true, then there's no King in check.
 	//change the function if the piece of who is moved is the king
-	int posX=king->getPosX();
-	int posY=king->getPosY();
+	int posX = king->getPosX();
+	int posY = king->getPosY();
 	if (king->getPieceColor() == "White")
 	{
 		for (auto piece : listOfBlack_)
 		{
 			if (checkObstacle(field_[piece->getPosX()][piece->getPosY()].get(), posX, posY))
-				{
-					return false;
-				}
+			{
+				return false;
+			}
 
 		}
 	}
@@ -244,15 +245,20 @@ bool Board::checkKing(King* king) {
 		for (auto piece : listOfWhite_)
 		{
 			if (checkObstacle(field_[piece->getPosX()][piece->getPosY()].get(), posX, posY))
-				{
-					return false;
-				}
+			{
+				return false;
+			}
 		}
 	}
 	return true;
 
 }
 bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
+	Piece* temp_piece = nullptr;
+	if (field_[movePosX][movePosY].get()->getHasPiece())
+	{
+		temp_piece = field_[movePosX][movePosY].get()->getPiece();
+	}
 	if (!(original->validationMouvement(movePosX, movePosY)))
 	{
 		cout << "Mouvement non valide" << endl;
@@ -283,28 +289,56 @@ bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
 			if (!(simulateNextPosition(original, movePosX, movePosY, blackKing_))) {
 				return false;
 			}
-			
 		/*if (!checkKing(blackKing_))
 		{
 			undoNextPosition(original);
 			return;
 		}*/
 	}
+	/*if (temp_square->getPiece() != nullptr)
+	{
+		cout << "lol" << endl;
+	}*/
 	/*if (original->getPosX() == movePosX && original->getPosY() == movePosY)
 	{
 		undoNextPosition(original);
 	}*/
+	//field_[][]
+	//New Bug, check doesn't work for Black King. Find the cause.
+	if (temp_piece != nullptr) {
+		if (temp_piece->getPieceColor() == "White"){
+			listOfWhite_.remove(temp_piece);
+		}
+		else {
+			listOfBlack_.remove(temp_piece);
+		}
+	}
 	int originalPosX = original->getPosX();
 	int originalPosY = original->getPosY();
 	original->setPosX(movePosX);
 	original->setPosY(movePosY);
 	field_[movePosX][movePosY]->putPieceOnSquare(original);
+	field_[movePosX][movePosY]->setHasPiece(true);
 	field_[originalPosX][originalPosY]->putPieceOnSquare(nullptr);
+	field_[originalPosX][originalPosY]->setHasPiece(false);
+	for (auto&& piece :listOfWhite_)
+	{
+		cout << typeid(*piece).name()<< " " <<piece->getPieceColor()<< " " 
+			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	}
+
+	for (auto&& piece :listOfBlack_)
+	{
+		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
+			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	}
+
 	return true;
 }
 //int getField(int posX) {
 //	return getField(posX);
 //}
+
 
 
 
