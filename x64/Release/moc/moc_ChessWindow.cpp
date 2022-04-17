@@ -41,10 +41,10 @@ QT_MOC_LITERAL(5, 47, 4), // "posX"
 QT_MOC_LITERAL(6, 52, 4), // "posY"
 QT_MOC_LITERAL(7, 57, 14), // "newGameClicked"
 QT_MOC_LITERAL(8, 72, 18), // "nameOfTheGameTyped"
-QT_MOC_LITERAL(9, 91, 11), // "checkSquare"
-QT_MOC_LITERAL(10, 103, 12), // "checkNewgame"
-QT_MOC_LITERAL(11, 116, 12), // "drawNewPiece"
-QT_MOC_LITERAL(12, 129, 4), // "name"
+QT_MOC_LITERAL(9, 91, 4), // "name"
+QT_MOC_LITERAL(10, 96, 11), // "checkSquare"
+QT_MOC_LITERAL(11, 108, 12), // "checkNewgame"
+QT_MOC_LITERAL(12, 121, 12), // "drawNewPiece"
 QT_MOC_LITERAL(13, 134, 17), // "updateColorSquare"
 QT_MOC_LITERAL(14, 152, 16), // "updatePlayerTurn"
 QT_MOC_LITERAL(15, 169, 4), // "turn"
@@ -54,10 +54,9 @@ QT_MOC_LITERAL(17, 197, 31) // "on_actionPhilidor1777_triggered"
     },
     "ChessWindow\0squareClicked\0\0QPushButton*\0"
     "button\0posX\0posY\0newGameClicked\0"
-    "nameOfTheGameTyped\0checkSquare\0"
-    "checkNewgame\0drawNewPiece\0name\0"
-    "updateColorSquare\0updatePlayerTurn\0"
-    "turn\0invalidMovementWarning\0"
+    "nameOfTheGameTyped\0name\0checkSquare\0"
+    "checkNewgame\0drawNewPiece\0updateColorSquare\0"
+    "updatePlayerTurn\0turn\0invalidMovementWarning\0"
     "on_actionPhilidor1777_triggered"
 };
 #undef QT_MOC_LITERAL
@@ -81,9 +80,9 @@ static const uint qt_meta_data_ChessWindow[] = {
        8,    1,   72,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       9,    0,   75,    2, 0x08 /* Private */,
-      10,    0,   76,    2, 0x08 /* Private */,
-      11,    3,   77,    2, 0x08 /* Private */,
+      10,    0,   75,    2, 0x08 /* Private */,
+      11,    0,   76,    2, 0x08 /* Private */,
+      12,    3,   77,    2, 0x08 /* Private */,
       13,    3,   84,    2, 0x08 /* Private */,
       14,    1,   91,    2, 0x08 /* Private */,
       16,    0,   94,    2, 0x08 /* Private */,
@@ -92,12 +91,12 @@ static const uint qt_meta_data_ChessWindow[] = {
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int, QMetaType::Int,    4,    5,    6,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString,    9,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::Int, QMetaType::Int,   12,    5,    6,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int, QMetaType::Int,    9,    5,    6,
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Bool,    5,    6,    2,
     QMetaType::Void, QMetaType::Bool,   15,
     QMetaType::Void,

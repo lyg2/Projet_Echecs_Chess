@@ -36,6 +36,7 @@ private slots:
 	void updatePlayerTurn(bool turn);
 	void invalidMovementWarning();
 	void on_actionPhilidor1777_triggered();
+	void on_actionTD6_Q2_3_Kings_triggered();
 
 private:
 	Ui::ChessWindow* ui;

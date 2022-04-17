@@ -961,6 +961,7 @@
       <string>Load_txt</string>
      </property>
      <addaction name="actionPhilidor1777"/>
+     <addaction name="actionTD6_Q2_3_Kings"/>
     </widget>
     <addaction name="menuLoad_txt"/>
     <addaction name="actionexit"/>
@@ -986,6 +987,11 @@
   <action name="actionPhilidor1777">
    <property name="text">
     <string>Philidor1777</string>
+   </property>
+  </action>
+  <action name="actionTD6_Q2_3_Kings">
+   <property name="text">
+    <string>TD6_Q2_3_Kings</string>
    </property>
   </action>
  </widget>

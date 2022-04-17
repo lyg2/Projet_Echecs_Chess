@@ -1,4 +1,0 @@
-"White"	"King"	2	2
-"White"	"Queen"	0	3
-"Black"	"King"	1	0
-"Black"	"Rook"	1	1

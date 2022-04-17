@@ -137,7 +137,7 @@ void Controleur::newGameClicker() {
 		
 	}
 	else {
-		cout<<"Le nombre d'instance de roi est de "
+		cout<<"The number of kings is "
 			<< modele_->getBoard()->getWhiteKing_()->getCount()
 			<<endl;
 	}
@@ -145,8 +145,13 @@ void Controleur::newGameClicker() {
 void Controleur::newGameMenu(QString name) {
 	if (!modele_->getIsNewGame()) {
 		modele_->getBoard()->drawBoard();
-		modele_->getBoard()->loadChessGame(name.toStdString());
-		modele_->setIsYourTurn(true);
+		try{
+			modele_->getBoard()->loadChessGame(name.toStdString());
+			modele_->setIsYourTurn(true);
+		}
+		catch(logic_error& e) {
+			cout << "It is impossible to have more than 2 Kings" << e.what() << endl;
+		}
 		for (auto&& piece : modele_->getBoard()->getlistOfWhite()) {
 			drawPiece(piece->getNamePiece(), piece->getPosX(), piece->getPosY());
 		}
