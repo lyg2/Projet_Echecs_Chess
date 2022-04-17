@@ -37,6 +37,7 @@ private slots:
 	void invalidMovementWarning();
 	void on_actionPhilidor1777_triggered();
 	void on_actionTD6_Q2_3_Kings_triggered();
+	void showWinner(QString side);
 
 private:
 	Ui::ChessWindow* ui;

@@ -124,3 +124,20 @@ void ChessWindow::on_actionPhilidor1777_triggered() {
 void ChessWindow::on_actionTD6_Q2_3_Kings_triggered() {
     emit nameOfTheGameTyped("chessgame_files/TD6_Q2_Too_many_kings.txt");
 }
+
+void ChessWindow::showWinner(QString side) {
+    QMessageBox::StandardButton msgBox;
+    msgBox = QMessageBox::question(this, "Winner is ",
+        side + "\nDo you want to start a new game or quit ?",
+        QMessageBox::Yes | QMessageBox::No);
+    if (msgBox == QMessageBox::Yes)
+    {
+        //reset board
+        //board resetted
+        QApplication::quit();
+    }
+    else 
+    {
+        QApplication::quit();
+    }
+}

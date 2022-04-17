@@ -19,19 +19,21 @@ class Board {
 public:
 	Board()=default;
 	~Board();
+	shared_ptr<Square> field_[8][8];
 	void drawBoard();
 	void setPieces();
 	Piece* readLinePosition(string color, string namePiece);
 	void loadChessGame(string chessGame);
 	void addPieceOnBoard(Piece* piece,int posX, int posY);
-	shared_ptr<Square> field_ [8][8];
 	bool simulateNextPosition(Piece* piece, int nextPosX, int nexPosY, King* king);
 	void undoNextPosition(Piece* piece);
 	bool checkObstacle(Piece* pieceToMove, int movePosX, int movePosY);
 	bool checkKing(King* king);
 	bool isValidMove(Piece* original, int movePosX, int movePosY);
 	void movePieceOnBoard(Piece* original, int movePosX, int movePosY);
-	bool movePiece(Piece* original, int movePosX, int movePosY);
+	bool isCheckmate(string side);
+	//bool movePiece(Piece* original, int movePosX, int movePosY);
+
 	list<Piece*> getlistOfWhite() { return listOfWhite_; };
 	list<Piece*> getlistOfBlack() { return listOfBlack_; };
 	King* getWhiteKing_() { return whiteKing_; };

@@ -381,71 +381,89 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 			<< piece->getPosX() << ", " << piece->getPosY() << endl;
 	}
 }
-bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
-	Piece* temp_piece = nullptr;
-	if (field_[movePosX][movePosY].get()->getHasPiece())
-	{
-		temp_piece = field_[movePosX][movePosY].get()->getPiece();
-	}
-	if (!(original->validationMouvement(movePosX, movePosY)))
-	{
-		cout << "Mouvement non valide" << endl;
-		return false;
-	}
-	if (original->getPieceColor() == "White")
-	{
-		if (!(checkObstacle(original,movePosX,movePosY)))
-		{
-			return false;
-		}
-		if (!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))) {
-			return false;
-		}
-	}
-	else
-	{
-		if (!(checkObstacle(original,movePosX,movePosY)))
-		{
-			return false;
-		}
-			if (!(simulateNextPosition(original, movePosX, movePosY, blackKing_))) {
-				return false;
+
+bool Board::isCheckmate(string side) {
+	bool isCheck = false;
+	if (side == "White") {
+		isCheck = !checkKing(whiteKing_);
+		for (auto&& piece : listOfWhite_) {
+			for (int i = 0; i < 8; i++) {
+				for (int j = 0; j < 8; j++) {
+					if(isValidMove(piece, i, j))
+					{
+						return false;
+					}
+				}
 			}
-	}
-
-	//New Bug, check bypass obstacles
-	if (temp_piece != nullptr) {
-		if (temp_piece->getPieceColor() == "White" && original->getPieceColor()=="Black") {
-			listOfWhiteDead_.push_back(temp_piece);
-			listOfWhite_.remove(temp_piece);
-		}
-		else if (temp_piece->getPieceColor() == "Black" && original->getPieceColor() == "White") {
-			listOfBlackDead_.push_back(temp_piece);
-			listOfBlack_.remove(temp_piece);
 		}
 	}
-	int originalPosX = original->getPosX();
-	int originalPosY = original->getPosY();
-	original->setPosX(movePosX);
-	original->setPosY(movePosY);
-	field_[movePosX][movePosY]->putPieceOnSquare(original);
-	field_[movePosX][movePosY]->setHasPiece(true);
-	field_[originalPosX][originalPosY]->putPieceOnSquare(nullptr);
-	field_[originalPosX][originalPosY]->setHasPiece(false);
-	for (auto&& piece :listOfWhite_)
-	{
-		cout << typeid(*piece).name()<< " " <<piece->getPieceColor()<< " " 
-			<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	}
-
-	for (auto&& piece :listOfBlack_)
-	{
-		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
-			<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	}
-
 	return true;
 }
+//bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
+//	Piece* temp_piece = nullptr;
+//	if (field_[movePosX][movePosY].get()->getHasPiece())
+//	{
+//		temp_piece = field_[movePosX][movePosY].get()->getPiece();
+//	}
+//	if (!(original->validationMouvement(movePosX, movePosY)))
+//	{
+//		cout << "Mouvement non valide" << endl;
+//		return false;
+//	}
+//	if (original->getPieceColor() == "White")
+//	{
+//		if (!(checkObstacle(original,movePosX,movePosY)))
+//		{
+//			return false;
+//		}
+//		if (!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))) {
+//			return false;
+//		}
+//	}
+//	else
+//	{
+//		if (!(checkObstacle(original,movePosX,movePosY)))
+//		{
+//			return false;
+//		}
+//			if (!(simulateNextPosition(original, movePosX, movePosY, blackKing_))) {
+//				return false;
+//			}
+//	}
+//
+//	//New Bug, check bypass obstacles
+//	if (temp_piece != nullptr) {
+//		if (temp_piece->getPieceColor() == "White" && original->getPieceColor()=="Black") {
+//			listOfWhiteDead_.push_back(temp_piece);
+//			listOfWhite_.remove(temp_piece);
+//		}
+//		else if (temp_piece->getPieceColor() == "Black" && original->getPieceColor() == "White") {
+//			listOfBlackDead_.push_back(temp_piece);
+//			listOfBlack_.remove(temp_piece);
+//		}
+//	}
+//	int originalPosX = original->getPosX();
+//	int originalPosY = original->getPosY();
+//	original->setPosX(movePosX);
+//	original->setPosY(movePosY);
+//	field_[movePosX][movePosY]->putPieceOnSquare(original);
+//	field_[movePosX][movePosY]->setHasPiece(true);
+//	field_[originalPosX][originalPosY]->putPieceOnSquare(nullptr);
+//	field_[originalPosX][originalPosY]->setHasPiece(false);
+//	for (auto&& piece :listOfWhite_)
+//	{
+//		cout << typeid(*piece).name()<< " " <<piece->getPieceColor()<< " " 
+//			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+//	}
+//
+//	for (auto&& piece :listOfBlack_)
+//	{
+//		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
+//			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+//	}
+//
+//	return true;
+//}
 //int getField(int posX) {
 //	return getField(posX);
 //}

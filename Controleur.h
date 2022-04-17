@@ -16,6 +16,7 @@ signals:
     void colorSquare(int posX, int posY, bool isSelected);
     void playerTurn(bool);
     void invalidMovement();
+    void checkmate(QString side);
 public slots:
     void squareClicker(QPushButton* squareButton, int posX, int posY);
     void newGameClicker();
