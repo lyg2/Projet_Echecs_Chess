@@ -79,8 +79,8 @@ void Controleur::newGameClicker() {
 				emit drawPiece(piece->getNamePiece(), 0, 0);
 			}
 			else if (dynamic_cast<Rook*>(piece) != nullptr) {
-				modele_->getBoard()->addPieceOnBoard(piece, 1, 0);
-				emit drawPiece(piece->getNamePiece(), 1, 0);
+				modele_->getBoard()->addPieceOnBoard(piece, 1, 1);
+				emit drawPiece(piece->getNamePiece(), 1, 1);
 			}
 			else if (dynamic_cast<Bishop*>(piece) != nullptr) {
 				modele_->getBoard()->addPieceOnBoard(piece, 2, 0);
@@ -90,12 +90,12 @@ void Controleur::newGameClicker() {
 		}
 		for (auto&& piece : modele_->getBoard()->getlistOfBlack()) {
 			if (dynamic_cast<King*>(piece) != nullptr) {
-				modele_->getBoard()->addPieceOnBoard(piece, 7, 7);
-				emit drawPiece(piece->getNamePiece(), 7, 7);
+				modele_->getBoard()->addPieceOnBoard(piece, 5, 7);
+				emit drawPiece(piece->getNamePiece(), 5, 7);
 			}
 			else if (dynamic_cast<Rook*>(piece) != nullptr) {
-				modele_->getBoard()->addPieceOnBoard(piece, 7, 0);
-				emit drawPiece(piece->getNamePiece(), 7, 0);
+				modele_->getBoard()->addPieceOnBoard(piece, 6, 0);
+				emit drawPiece(piece->getNamePiece(), 6, 0);
 			}
 			else if (dynamic_cast<Bishop*>(piece) != nullptr) {
 				modele_->getBoard()->addPieceOnBoard(piece, 6, 7);

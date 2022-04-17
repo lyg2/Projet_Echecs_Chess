@@ -43,9 +43,9 @@ void Board::setPieces()
 	piece->setPieceColor("White");
 	listOfWhite_.push_back(piece);
 	whiteKing_ = dynamic_cast<King*>(piece);
-	piece = new Bishop;
+	/*piece = new Bishop;
 	piece->setPieceColor("White");
-	listOfWhite_.push_back(piece);
+	listOfWhite_.push_back(piece);*/
 	piece = new Rook;
 	piece->setPieceColor("White");
 	listOfWhite_.push_back(piece);
@@ -54,9 +54,9 @@ void Board::setPieces()
 	listOfBlack_.push_back(piece);
 	piece->setPieceColor("Black");
 	blackKing_ = dynamic_cast<King*>(piece);
-	piece = new Bishop;
+	/*piece = new Bishop;
 	listOfBlack_.push_back(piece);
-	piece->setPieceColor("Black");
+	piece->setPieceColor("Black");*/
 	piece = new Rook;
 	piece->setPieceColor("Black");
 	listOfBlack_.push_back(piece);
@@ -111,6 +111,7 @@ void Board::undoNextPosition(Piece* piece)
 bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 	//if checkObstacle==true, then no obstacle
 	// Must correct bug use field_[ instead of square for the if.
+	//Bug: can't shield itself.
 	enum class Movement {
 		GO_UP,
 		GO_DOWN,
@@ -166,8 +167,9 @@ bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 	while (posX != movePosX || posY != movePosY)
 	{
 		if (field_[posX][posY]->getHasPiece() 
-			&& pieceToMove->getPosX()!=posX
-			&& pieceToMove->getPosY()!=posY)
+			&& 
+			(pieceToMove->getPosX()!=posX
+			|| pieceToMove->getPosY()!=posY))
 		{
 			return false;
 		}
@@ -218,6 +220,7 @@ bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 bool Board::checkKing(King* king) {
 	//if checkKing==true, then there's no King in check.
 	//change the function if the piece of who is moved is the king
+	// TODO: Problem, it doesn't take in account that one can move a piece to protect the king.
 	int posX = king->getPosX();
 	int posY = king->getPosY();
 	if (king->getPieceColor() == "White")
