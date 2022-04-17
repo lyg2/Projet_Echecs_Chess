@@ -148,7 +148,7 @@ bool Board::checkObstacle(Square* square, int movePosX, int movePosY) {
 		movement = Movement::GO_UP_RIGHT;
 	}
 
-	else if ((movePosX - posX >= -1) && (movePosY - posY >= 1))
+	else if ((movePosX - posX <= -1) && (movePosY - posY >= 1))
 	{
 		movement = Movement::GO_DOWN_LEFT;
 	}
@@ -236,6 +236,77 @@ bool Board::checkKing(King* king) {
 	}
 	return true;
 
+}
+
+bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
+	if (!(original->validationMouvement(movePosX, movePosY)))
+	{
+		cout << "Mouvement non valide" << endl;
+		return false;
+	}
+	if (original->getPieceColor() == "White")
+	{
+		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
+			movePosX,
+			movePosY)))
+		{
+			return false;
+		}
+		if (!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))) 
+		{
+			return false;
+		}
+	}
+	else
+	{
+		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
+			movePosX,
+			movePosY)))
+		{
+			return false;
+		}
+		if (!(simulateNextPosition(original, movePosX, movePosY, blackKing_))) 
+		{
+			return false;
+		}
+	}
+	return true;
+}
+void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
+	Piece* temp_piece = nullptr;
+	if (field_[movePosX][movePosY].get()->getHasPiece())
+	{
+		temp_piece = field_[movePosX][movePosY].get()->getPiece();
+	}
+	if (temp_piece != nullptr) {
+		if (temp_piece->getPieceColor() == "White") {
+			listOfWhite_.remove(temp_piece);
+			delete temp_piece;
+		}
+		else {
+			listOfBlack_.remove(temp_piece);
+			delete temp_piece;
+		}
+	}
+	int originalPosX = original->getPosX();
+	int originalPosY = original->getPosY();
+	original->setPosX(movePosX);
+	original->setPosY(movePosY);
+	field_[movePosX][movePosY]->putPieceOnSquare(original);
+	field_[movePosX][movePosY]->setHasPiece(true);
+	field_[originalPosX][originalPosY]->putPieceOnSquare(nullptr);
+	field_[originalPosX][originalPosY]->setHasPiece(false);
+	for (auto&& piece : listOfWhite_)
+	{
+		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
+			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	}
+
+	for (auto&& piece : listOfBlack_)
+	{
+		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
+			<< piece->getPosX() << ", " << piece->getPosY() << endl;
+	}
 }
 bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
 	Piece* temp_piece = nullptr;

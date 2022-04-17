@@ -26,46 +26,24 @@ public:
 	void undoNextPosition(Piece* piece);
 	bool checkObstacle(Square* square, int movePosX, int movePosY);
 	bool checkKing(King* king);
+	bool isValidMove(Piece* original, int movePosX, int movePosY);
+	void movePieceOnBoard(Piece* original, int movePosX, int movePosY);
 	bool movePiece(Piece* original, int movePosX, int movePosY);
 	list<Piece*> getlistOfWhite() { return listOfWhite_; };
 	list<Piece*> getlistOfBlack() { return listOfBlack_; };
 	King* getWhiteKing_() { return whiteKing_; };
 	King* getBlackKing_() { return blackKing_; };
-	// faire le mouvement ici
+	bool getCheckWhiteKing() { return checkWhiteKing_; };
+	bool getCheckBlackKing() { return checkBlackKing_; };
+	void setCheckWhiteKing(bool check) { checkWhiteKing_ = check; };
+	void setCheckBlackKing(bool check) { checkBlackKing_ = check; };
+
 private:
 	list <Piece*> listOfWhite_={};
 	list <Piece*> listOfBlack_ = {};
 	King* whiteKing_;
 	King* blackKing_;
+	bool checkWhiteKing_=false;
+	bool checkBlackKing_=false;
 
 };
-//class Calc : public QObject {
-//	Q_OBJECT
-//public:
-//	Calc() = default;
-//
-//	int obtenirValeur() { return valeur_; }
-//
-//public slots:
-//	void changerValeur(int valeur);
-//	void effacer();
-//	void ajouterChiffre(int chiffre);
-//	void changerOperation(const function<int(int,int)>& operation);
-//	void operationPlus();
-//	void operationMoins();
-//	void operationEgal();
-//	void effectuerOperation();
-//
-//signals:
-//	void valeurChangee(int valeur);
-//
-//private:
-//	static int plus (int x, int y);
-//	static int moins(int x, int y);
-//	static int egal (int  , int y);
-//
-//	bool estResultat_ = true;
-//	int valeur_ = 0;
-//	int resultatPrecedent_ = 0;
-//	function<int(int,int)> operation_ = egal;
-//};

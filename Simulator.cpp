@@ -34,7 +34,9 @@ Simulator::Simulator(Piece* piece, shared_ptr<Square> field[8][8], int  tempPosX
 	piece->setPosY(tempPosY);
 
 	simulateField[tempPosX][tempPosY]->putPieceOnSquare(piece);
+	simulateField[tempPosX][tempPosY]->setHasPiece(true);
 	simulateField[savedPosX_][savedPosY_]->putPieceOnSquare(nullptr);
+	simulateField[savedPosX_][savedPosY_]->setHasPiece(false);
 }
 Simulator:: ~Simulator() {
 	//field_[piece->getSavedPosX()][piece->getSavedPosY()]->putPieceOnSquare(piece);
@@ -42,7 +44,9 @@ Simulator:: ~Simulator() {
 //piece->setPosX(piece->getSavedPosX());
 //piece->setPosY(piece->getSavedPosY());
 	simulateField[savedPosX_][savedPosY_]->putPieceOnSquare(piece_);
+	simulateField[savedPosX_][savedPosY_]->setHasPiece(true);
 	simulateField[tempPosX_][tempPosY_]->putPieceOnSquare(nullptr);
+	simulateField[tempPosX_][tempPosY_]->setHasPiece(false);
 	piece_->setPosX(savedPosX_);
 	piece_->setPosY(savedPosY_);
 }
