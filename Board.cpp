@@ -15,6 +15,7 @@
 #include "Square.hpp"
 #include "Board.hpp"
 #include "King.hpp"
+#include "Knight.h"
 #include "Queen.h"
 #include "Rook.hpp"
 #include "Bishop.hpp"
@@ -24,10 +25,16 @@
 
 using namespace std; // Dans ce cours on accepte le using namespace std dans le .hpp .
 Board:: ~Board() {
+	resetBoard();
+}
+
+void Board::resetBoard() {
 	for (auto&& piece : listOfWhite_) {
+		field_[piece->getPosX()][piece->getPosY()]->setHasPiece(false);
 		delete piece;
 	}
 	for (auto&& piece : listOfBlack_) {
+		field_[piece->getPosX()][piece->getPosY()]->setHasPiece(false);
 		delete piece;
 	}
 	for (auto&& piece : listOfWhiteDead_) {
@@ -82,7 +89,7 @@ Piece* Board::readLinePosition(string color, string namePiece)
 		piece = new Bishop;
 	}
 	else if (namePiece == "Knight") {
-		//piece = new Knight;
+		piece = new Knight;
 	}
 	else if (namePiece == "Pawn") {
 		//piece = new Pawn;
@@ -173,11 +180,33 @@ void Board::undoNextPosition(Piece* piece)
 	piece->setPosX(piece->getSavedPosX());
 	piece->setPosY(piece->getSavedPosY());
 }
+bool Board::isSquareAllyFree(Piece* piece, int movePosX, int movePosY) {
+	if (field_[movePosX][movePosY]->getPiece() == nullptr)
+	{
+		return true;
+	}
+	else if (piece->getPieceColor()
+		!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
+	{
+		return true;
+	}
+	return false;
+
+}
 
 bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 	//if checkObstacle==true, then no obstacle
 	// Must correct bug use field_[ instead of square for the if.
 	//Bug: can't shield itself.
+	if (!(pieceToMove->validationMouvement(movePosX, movePosY))) {
+		return false;
+	}
+	int posX = pieceToMove->getPosX();
+	int posY = pieceToMove->getPosY();
+	if (dynamic_cast<Knight*>(pieceToMove) != nullptr)
+	{
+		return isSquareAllyFree(pieceToMove, movePosX, movePosY);
+	}
 	enum class Movement {
 		GO_UP,
 		GO_DOWN,
@@ -189,11 +218,6 @@ bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 		GO_DOWN_LEFT
 	};
 	Movement movement = Movement::GO_UP;
-	int posX = pieceToMove->getPosX();
-	int posY = pieceToMove->getPosY();
-	if (!(pieceToMove->validationMouvement(movePosX, movePosY))) {
-		return false;
-	}
 
 	if ((movePosX - posX >= 1) && (movePosY == posY))
 	{
@@ -234,8 +258,7 @@ bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 	{
 		if (field_[posX][posY]->getHasPiece() 
 			&& 
-			(pieceToMove->getPosX()!=posX
-			|| pieceToMove->getPosY()!=posY))
+			(pieceToMove->getPosX()!=posX|| pieceToMove->getPosY()!=posY))
 		{
 			return false;
 		}
@@ -316,7 +339,6 @@ bool Board::checkKing(King* king) {
 bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	if (!(original->validationMouvement(movePosX, movePosY)))
 	{
-		cout << "Mouvement non valide" << endl;
 		return false;
 	}
 	if (original->getPieceColor() == "White")

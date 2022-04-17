@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'VueuwVZto.ui'
+** Form generated from reading UI file 'VueLynnee.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef VUEUWVZTO_H
-#define VUEUWVZTO_H
+#ifndef VUELYNNEE_H
+#define VUELYNNEE_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -32,6 +32,7 @@ public:
     QAction *actionexit;
     QAction *actionPhilidor1777;
     QAction *actionTD6_Q2_3_Kings;
+    QAction *actionKnights_Of_The_Round_Table;
     QWidget *centralwidget;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
@@ -126,6 +127,8 @@ public:
         actionPhilidor1777->setObjectName(QString::fromUtf8("actionPhilidor1777"));
         actionTD6_Q2_3_Kings = new QAction(ChessWindow);
         actionTD6_Q2_3_Kings->setObjectName(QString::fromUtf8("actionTD6_Q2_3_Kings"));
+        actionKnights_Of_The_Round_Table = new QAction(ChessWindow);
+        actionKnights_Of_The_Round_Table->setObjectName(QString::fromUtf8("actionKnights_Of_The_Round_Table"));
         centralwidget = new QWidget(ChessWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayoutWidget = new QWidget(centralwidget);
@@ -647,6 +650,7 @@ public:
         menuMenu->addAction(actionexit);
         menuLoad_txt->addAction(actionPhilidor1777);
         menuLoad_txt->addAction(actionTD6_Q2_3_Kings);
+        menuLoad_txt->addAction(actionKnights_Of_The_Round_Table);
 
         retranslateUi(ChessWindow);
 
@@ -661,6 +665,7 @@ public:
         actionexit->setText(QCoreApplication::translate("ChessWindow", "exit", nullptr));
         actionPhilidor1777->setText(QCoreApplication::translate("ChessWindow", "Philidor1777", nullptr));
         actionTD6_Q2_3_Kings->setText(QCoreApplication::translate("ChessWindow", "TD6_Q2_3_Kings", nullptr));
+        actionKnights_Of_The_Round_Table->setText(QCoreApplication::translate("ChessWindow", "Knights_Of_The_Round_Table", nullptr));
         pushButton_33->setText(QString());
         pushButton_36->setText(QString());
         pushButton_78->setText(QString());
@@ -740,4 +745,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // VUEUWVZTO_H
+#endif // VUELYNNEE_H

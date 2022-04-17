@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ChessWindow_t {
-    QByteArrayData data[21];
-    char stringdata0[279];
+    QByteArrayData data[22];
+    char stringdata0[325];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -51,8 +51,9 @@ QT_MOC_LITERAL(15, 169, 4), // "turn"
 QT_MOC_LITERAL(16, 174, 22), // "invalidMovementWarning"
 QT_MOC_LITERAL(17, 197, 31), // "on_actionPhilidor1777_triggered"
 QT_MOC_LITERAL(18, 229, 33), // "on_actionTD6_Q2_3_Kings_trigg..."
-QT_MOC_LITERAL(19, 263, 10), // "showWinner"
-QT_MOC_LITERAL(20, 274, 4) // "side"
+QT_MOC_LITERAL(19, 263, 45), // "on_actionKnights_Of_The_Round..."
+QT_MOC_LITERAL(20, 309, 10), // "showWinner"
+QT_MOC_LITERAL(21, 320, 4) // "side"
 
     },
     "ChessWindow\0squareClicked\0\0QPushButton*\0"
@@ -62,6 +63,7 @@ QT_MOC_LITERAL(20, 274, 4) // "side"
     "updatePlayerTurn\0turn\0invalidMovementWarning\0"
     "on_actionPhilidor1777_triggered\0"
     "on_actionTD6_Q2_3_Kings_triggered\0"
+    "on_actionKnights_Of_The_Round_Table_triggered\0"
     "showWinner\0side"
 };
 #undef QT_MOC_LITERAL
@@ -72,7 +74,7 @@ static const uint qt_meta_data_ChessWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -80,20 +82,21 @@ static const uint qt_meta_data_ChessWindow[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   74,    2, 0x06 /* Public */,
-       7,    0,   81,    2, 0x06 /* Public */,
-       8,    1,   82,    2, 0x06 /* Public */,
+       1,    3,   79,    2, 0x06 /* Public */,
+       7,    0,   86,    2, 0x06 /* Public */,
+       8,    1,   87,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      10,    0,   85,    2, 0x08 /* Private */,
-      11,    0,   86,    2, 0x08 /* Private */,
-      12,    3,   87,    2, 0x08 /* Private */,
-      13,    3,   94,    2, 0x08 /* Private */,
-      14,    1,  101,    2, 0x08 /* Private */,
-      16,    0,  104,    2, 0x08 /* Private */,
-      17,    0,  105,    2, 0x08 /* Private */,
-      18,    0,  106,    2, 0x08 /* Private */,
-      19,    1,  107,    2, 0x08 /* Private */,
+      10,    0,   90,    2, 0x08 /* Private */,
+      11,    0,   91,    2, 0x08 /* Private */,
+      12,    3,   92,    2, 0x08 /* Private */,
+      13,    3,   99,    2, 0x08 /* Private */,
+      14,    1,  106,    2, 0x08 /* Private */,
+      16,    0,  109,    2, 0x08 /* Private */,
+      17,    0,  110,    2, 0x08 /* Private */,
+      18,    0,  111,    2, 0x08 /* Private */,
+      19,    0,  112,    2, 0x08 /* Private */,
+      20,    1,  113,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int, QMetaType::Int,    4,    5,    6,
@@ -109,7 +112,8 @@ static const uint qt_meta_data_ChessWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   20,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   21,
 
        0        // eod
 };
@@ -131,7 +135,8 @@ void ChessWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 8: _t->invalidMovementWarning(); break;
         case 9: _t->on_actionPhilidor1777_triggered(); break;
         case 10: _t->on_actionTD6_Q2_3_Kings_triggered(); break;
-        case 11: _t->showWinner((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 11: _t->on_actionKnights_Of_The_Round_Table_triggered(); break;
+        case 12: _t->showWinner((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -200,13 +205,13 @@ int ChessWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }

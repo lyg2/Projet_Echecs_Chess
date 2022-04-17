@@ -19,7 +19,7 @@ class Square{
 public:
 	//Attribute to remember old color
 	Square() = default;
-	
+	~Square() = default;
 	void setCaseColor(string caseColor) {
 		caseColor_ = caseColor;
 	};
@@ -46,7 +46,6 @@ public:
 
 private:
 	bool hasPiece_;
-	QBrush brush;
 	string caseColor_;
 	Piece* piece_=nullptr;
 	int positionX_;

@@ -125,6 +125,10 @@ void ChessWindow::on_actionTD6_Q2_3_Kings_triggered() {
     emit nameOfTheGameTyped("chessgame_files/TD6_Q2_Too_many_kings.txt");
 }
 
+void ChessWindow ::on_actionKnights_Of_The_Round_Table_triggered() {
+    emit nameOfTheGameTyped("chessgame_files/Knights_Of_The_Round_Table.txt");
+}
+
 void ChessWindow::showWinner(QString side) {
     QMessageBox::StandardButton msgBox;
     msgBox = QMessageBox::question(this, "Checkmate ! Winner is "+ side,

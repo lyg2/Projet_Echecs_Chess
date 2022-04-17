@@ -962,6 +962,7 @@
      </property>
      <addaction name="actionPhilidor1777"/>
      <addaction name="actionTD6_Q2_3_Kings"/>
+     <addaction name="actionKnights_Of_The_Round_Table"/>
     </widget>
     <addaction name="menuLoad_txt"/>
     <addaction name="actionexit"/>
@@ -992,6 +993,11 @@
   <action name="actionTD6_Q2_3_Kings">
    <property name="text">
     <string>TD6_Q2_3_Kings</string>
+   </property>
+  </action>
+  <action name="actionKnights_Of_The_Round_Table">
+   <property name="text">
+    <string>Knights_Of_The_Round_Table</string>
    </property>
   </action>
  </widget>
