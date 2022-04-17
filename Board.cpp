@@ -25,8 +25,13 @@ Board:: ~Board() {
 	for (auto&& piece : listOfWhite_) {
 		delete piece;
 	}
-
 	for (auto&& piece : listOfBlack_) {
+		delete piece;
+	}
+	for (auto&& piece : listOfWhiteDead_) {
+		delete piece;
+	}
+	for (auto&& piece : listOfBlackDead_) {
 		delete piece;
 	}
 }
@@ -103,7 +108,7 @@ void Board::undoNextPosition(Piece* piece)
 	piece->setPosY(piece->getSavedPosY());
 }
 
-bool Board::checkObstacle(Square* square, int movePosX, int movePosY) {
+bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 	//if checkObstacle==true, then no obstacle
 	// Must correct bug use field_[ instead of square for the if.
 	enum class Movement {
@@ -117,9 +122,9 @@ bool Board::checkObstacle(Square* square, int movePosX, int movePosY) {
 		GO_DOWN_LEFT
 	};
 	Movement movement = Movement::GO_UP;
-	int posX = square->getPositionX();
-	int posY = square->getPositionY();
-	if (!(square->getPiece()->validationMouvement(movePosX, movePosY))) {
+	int posX = pieceToMove->getPosX();
+	int posY = pieceToMove->getPosY();
+	if (!(pieceToMove->validationMouvement(movePosX, movePosY))) {
 		return false;
 	}
 
@@ -160,8 +165,9 @@ bool Board::checkObstacle(Square* square, int movePosX, int movePosY) {
 
 	while (posX != movePosX || posY != movePosY)
 	{
-		if (field_[posX][posY]->getPiece() != nullptr
-			&& square != field_[posX][posY].get())
+		if (field_[posX][posY]->getHasPiece() 
+			&& pieceToMove->getPosX()!=posX
+			&& pieceToMove->getPosY()!=posY)
 		{
 			return false;
 		}
@@ -202,7 +208,7 @@ bool Board::checkObstacle(Square* square, int movePosX, int movePosY) {
 	{
 		return true;
 	}
-	else if (square->getPiece()->getPieceColor()
+	else if (pieceToMove->getPieceColor()
 		!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
 	{
 		return true;
@@ -218,7 +224,7 @@ bool Board::checkKing(King* king) {
 	{
 		for (auto piece : listOfBlack_)
 		{
-			if (checkObstacle(field_[piece->getPosX()][piece->getPosY()].get(), posX, posY))
+			if (checkObstacle(piece, posX, posY))
 			{
 				return false;
 			}
@@ -228,7 +234,7 @@ bool Board::checkKing(King* king) {
 	else {
 		for (auto piece : listOfWhite_)
 		{
-			if (checkObstacle(field_[piece->getPosX()][piece->getPosY()].get(), posX, posY))
+			if (checkObstacle(piece, posX, posY))
 			{
 				return false;
 			}
@@ -246,7 +252,7 @@ bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	}
 	if (original->getPieceColor() == "White")
 	{
-		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
+		if (!(checkObstacle(original,
 			movePosX,
 			movePosY)))
 		{
@@ -259,9 +265,7 @@ bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	}
 	else
 	{
-		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
-			movePosX,
-			movePosY)))
+		if (!(checkObstacle(original,movePosX,movePosY)))
 		{
 			return false;
 		}
@@ -321,9 +325,7 @@ bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
 	}
 	if (original->getPieceColor() == "White")
 	{
-		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
-			movePosX,
-			movePosY)))
+		if (!(checkObstacle(original,movePosX,movePosY)))
 		{
 			return false;
 		}
@@ -333,39 +335,24 @@ bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
 	}
 	else
 	{
-		if (!(checkObstacle(field_[original->getPosX()][original->getPosY()].get(),
-			movePosX,
-			movePosY)))
+		if (!(checkObstacle(original,movePosX,movePosY)))
 		{
 			return false;
 		}
 			if (!(simulateNextPosition(original, movePosX, movePosY, blackKing_))) {
 				return false;
 			}
-		/*if (!checkKing(blackKing_))
-		{
-			undoNextPosition(original);
-			return;
-		}*/
 	}
-	/*if (temp_square->getPiece() != nullptr)
-	{
-		cout << "lol" << endl;
-	}*/
-	/*if (original->getPosX() == movePosX && original->getPosY() == movePosY)
-	{
-		undoNextPosition(original);
-	}*/
-	//field_[][]
+
 	//New Bug, check bypass obstacles
 	if (temp_piece != nullptr) {
-		if (temp_piece->getPieceColor() == "White"){
+		if (temp_piece->getPieceColor() == "White" && original->getPieceColor()=="Black") {
+			listOfWhiteDead_.push_back(temp_piece);
 			listOfWhite_.remove(temp_piece);
-			delete temp_piece;
 		}
-		else {
+		else if (temp_piece->getPieceColor() == "Black" && original->getPieceColor() == "White") {
+			listOfBlackDead_.push_back(temp_piece);
 			listOfBlack_.remove(temp_piece);
-			delete temp_piece;
 		}
 	}
 	int originalPosX = original->getPosX();

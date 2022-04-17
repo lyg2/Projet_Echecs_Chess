@@ -24,7 +24,7 @@ public:
 	shared_ptr<Square> field_ [8][8];
 	bool simulateNextPosition(Piece* piece, int nextPosX, int nexPosY, King* king);
 	void undoNextPosition(Piece* piece);
-	bool checkObstacle(Square* square, int movePosX, int movePosY);
+	bool checkObstacle(Piece* pieceToMove, int movePosX, int movePosY);
 	bool checkKing(King* king);
 	bool isValidMove(Piece* original, int movePosX, int movePosY);
 	void movePieceOnBoard(Piece* original, int movePosX, int movePosY);
@@ -41,6 +41,8 @@ public:
 private:
 	list <Piece*> listOfWhite_={};
 	list <Piece*> listOfBlack_ = {};
+	list <Piece*> listOfWhiteDead_ = {};
+	list <Piece*> listOfBlackDead_ = {};
 	King* whiteKing_;
 	King* blackKing_;
 	bool checkWhiteKing_=false;
