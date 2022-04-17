@@ -45,7 +45,8 @@ void Controleur::squareClicker(QPushButton* squareButton, int posX, int posY) {
 	else {
 		int savedLocationX = modele_->getSelectedPiece()->getPosX();
 		int savedLocationY = modele_->getSelectedPiece()->getPosY();
-		if (modele_->getBoard()->movePiece(modele_->getSelectedPiece(), posX, posY)) {
+		if (modele_->getBoard()->isValidMove(modele_->getSelectedPiece(), posX, posY)) {
+			modele_->getBoard()->movePieceOnBoard(modele_->getSelectedPiece(), posX, posY);
 			modele_->setHasSelectedPiece(false);
 			emit drawPiece("", savedLocationX, savedLocationY);
 			emit drawPiece(modele_->getSelectedPiece()->getNamePiece(), posX, posY);

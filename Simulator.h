@@ -11,6 +11,7 @@ public:
 private:
 	
 	Piece* piece_;
+	Piece* enemyPiece_;
 	int tempPosX_;
 	int tempPosY_;
 	int savedPosX_;
