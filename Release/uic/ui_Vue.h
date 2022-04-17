@@ -33,6 +33,7 @@ public:
     QAction *actionPhilidor1777;
     QAction *actionTD6_Q2_3_Kings;
     QAction *actionKnights_Of_The_Round_Table;
+    QAction *actionPeople_are_just_pawns;
     QWidget *centralwidget;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
@@ -129,6 +130,8 @@ public:
         actionTD6_Q2_3_Kings->setObjectName(QString::fromUtf8("actionTD6_Q2_3_Kings"));
         actionKnights_Of_The_Round_Table = new QAction(ChessWindow);
         actionKnights_Of_The_Round_Table->setObjectName(QString::fromUtf8("actionKnights_Of_The_Round_Table"));
+        actionPeople_are_just_pawns = new QAction(ChessWindow);
+        actionPeople_are_just_pawns->setObjectName(QString::fromUtf8("actionPeople_are_just_pawns"));
         centralwidget = new QWidget(ChessWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayoutWidget = new QWidget(centralwidget);
@@ -666,6 +669,7 @@ public:
         actionPhilidor1777->setText(QCoreApplication::translate("ChessWindow", "Philidor1777", nullptr));
         actionTD6_Q2_3_Kings->setText(QCoreApplication::translate("ChessWindow", "TD6_Q2_3_Kings", nullptr));
         actionKnights_Of_The_Round_Table->setText(QCoreApplication::translate("ChessWindow", "Knights_Of_The_Round_Table", nullptr));
+        actionPeople_are_just_pawns->setText(QCoreApplication::translate("ChessWindow", "People_are_just_pawns", nullptr));
         pushButton_33->setText(QString());
         pushButton_36->setText(QString());
         pushButton_78->setText(QString());

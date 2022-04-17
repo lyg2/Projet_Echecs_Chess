@@ -91,9 +91,9 @@ Piece* Board::readLinePosition(string color, string namePiece)
 	else if (namePiece == "Knight") {
 		piece = new Knight;
 	}
-	else if (namePiece == "Pawn") {
-		//piece = new Pawn;
-	}
+	/*else if (namePiece == "Pawn") {
+		piece = new Pawn;
+	}*/
 	else {
 		piece = new Rook;
 	}
@@ -194,6 +194,7 @@ bool Board::isSquareAllyFree(Piece* piece, int movePosX, int movePosY) {
 
 }
 
+
 bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 	//if checkObstacle==true, then no obstacle
 	// Must correct bug use field_[ instead of square for the if.
@@ -291,20 +292,9 @@ bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 			posX--;
 			posY--;
 			break;
-
 		}
-
 	}
-	if (field_[movePosX][movePosY]->getPiece() == nullptr)
-	{
-		return true;
-	}
-	else if (pieceToMove->getPieceColor()
-		!= field_[movePosX][movePosY]->getPiece()->getPieceColor())
-	{
-		return true;
-	}
-	return false;
+	return isSquareAllyFree(pieceToMove, movePosX, movePosY);
 }
 bool Board::checkKing(King* king) {
 	//if checkKing==true, then there's no King in check.

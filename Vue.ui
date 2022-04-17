@@ -1000,6 +1000,11 @@
     <string>Knights_Of_The_Round_Table</string>
    </property>
   </action>
+  <action name="actionPeople_are_just_pawns">
+   <property name="text">
+    <string>People_are_just_pawns</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

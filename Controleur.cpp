@@ -58,23 +58,6 @@ void Controleur::squareClicker(QPushButton* squareButton, int posX, int posY) {
 				cout << "Checkmate ! Victory for " << modele_->getColorTurn() << endl;
 				emit checkmate(QString::fromStdString(modele_->getColorTurn()));
 			}
-
-			/*if (modele_->getColorTurn() == "White") 
-			{
-				if (modele_->getBoard()->isCheckmate("Black")) 
-				{
-					cout << "Checkmate ! Victory for White" << endl;
-					emit checkmate(QString::fromStdString(modele_->getColorTurn()));
-				}
-			}
-			else 
-			{
-				if(modele_->getBoard()->isCheckmate("White"))
-				{
-					cout << "Checkmate ! Victory for Black"<<endl;
-					emit checkmate(QString::fromStdString(modele_->getColorTurn()));
-				}
-			}*/
 			modele_->setIsYourTurn(!modele_->getIsYourTurn());
 			emit playerTurn(modele_->getIsYourTurn());
 		}

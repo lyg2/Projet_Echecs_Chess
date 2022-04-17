@@ -29,6 +29,7 @@ public:
 	bool simulateNextPosition(Piece* piece, int nextPosX, int nexPosY, King* king);
 	void undoNextPosition(Piece* piece);
 	bool isSquareAllyFree(Piece* piece, int movePosX, int movePosY);
+	bool isPawnMoving(Piece* piece, int movePosX, int movePosY);
 	bool checkObstacle(Piece* pieceToMove, int movePosX, int movePosY);
 	bool checkKing(King* king);
 	bool isValidMove(Piece* original, int movePosX, int movePosY);
