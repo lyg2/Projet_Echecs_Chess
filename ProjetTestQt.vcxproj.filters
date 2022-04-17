@@ -81,9 +81,6 @@
     <QtMoc Include="Controleur.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="QSquareButton.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rook.hpp">

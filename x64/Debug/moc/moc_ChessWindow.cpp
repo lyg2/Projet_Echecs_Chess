@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ChessWindow_t {
-    QByteArrayData data[16];
-    char stringdata0[178];
+    QByteArrayData data[18];
+    char stringdata0[229];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,21 +40,24 @@ QT_MOC_LITERAL(4, 40, 6), // "button"
 QT_MOC_LITERAL(5, 47, 4), // "posX"
 QT_MOC_LITERAL(6, 52, 4), // "posY"
 QT_MOC_LITERAL(7, 57, 14), // "newGameClicked"
-QT_MOC_LITERAL(8, 72, 11), // "checkSquare"
-QT_MOC_LITERAL(9, 84, 12), // "checkNewgame"
-QT_MOC_LITERAL(10, 97, 12), // "drawNewPiece"
-QT_MOC_LITERAL(11, 110, 4), // "name"
-QT_MOC_LITERAL(12, 115, 17), // "updateColorSquare"
-QT_MOC_LITERAL(13, 133, 16), // "updatePlayerTurn"
-QT_MOC_LITERAL(14, 150, 4), // "turn"
-QT_MOC_LITERAL(15, 155, 22) // "invalidMovementWarning"
+QT_MOC_LITERAL(8, 72, 18), // "nameOfTheGameTyped"
+QT_MOC_LITERAL(9, 91, 4), // "name"
+QT_MOC_LITERAL(10, 96, 11), // "checkSquare"
+QT_MOC_LITERAL(11, 108, 12), // "checkNewgame"
+QT_MOC_LITERAL(12, 121, 12), // "drawNewPiece"
+QT_MOC_LITERAL(13, 134, 17), // "updateColorSquare"
+QT_MOC_LITERAL(14, 152, 16), // "updatePlayerTurn"
+QT_MOC_LITERAL(15, 169, 4), // "turn"
+QT_MOC_LITERAL(16, 174, 22), // "invalidMovementWarning"
+QT_MOC_LITERAL(17, 197, 31) // "on_actionPhilidor1777_triggered"
 
     },
     "ChessWindow\0squareClicked\0\0QPushButton*\0"
     "button\0posX\0posY\0newGameClicked\0"
-    "checkSquare\0checkNewgame\0drawNewPiece\0"
-    "name\0updateColorSquare\0updatePlayerTurn\0"
-    "turn\0invalidMovementWarning"
+    "nameOfTheGameTyped\0name\0checkSquare\0"
+    "checkNewgame\0drawNewPiece\0updateColorSquare\0"
+    "updatePlayerTurn\0turn\0invalidMovementWarning\0"
+    "on_actionPhilidor1777_triggered"
 };
 #undef QT_MOC_LITERAL
 
@@ -64,35 +67,39 @@ static const uint qt_meta_data_ChessWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   54,    2, 0x06 /* Public */,
-       7,    0,   61,    2, 0x06 /* Public */,
+       1,    3,   64,    2, 0x06 /* Public */,
+       7,    0,   71,    2, 0x06 /* Public */,
+       8,    1,   72,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    0,   62,    2, 0x08 /* Private */,
-       9,    0,   63,    2, 0x08 /* Private */,
-      10,    3,   64,    2, 0x08 /* Private */,
-      12,    3,   71,    2, 0x08 /* Private */,
-      13,    1,   78,    2, 0x08 /* Private */,
-      15,    0,   81,    2, 0x08 /* Private */,
+      10,    0,   75,    2, 0x08 /* Private */,
+      11,    0,   76,    2, 0x08 /* Private */,
+      12,    3,   77,    2, 0x08 /* Private */,
+      13,    3,   84,    2, 0x08 /* Private */,
+      14,    1,   91,    2, 0x08 /* Private */,
+      16,    0,   94,    2, 0x08 /* Private */,
+      17,    0,   95,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int, QMetaType::Int,    4,    5,    6,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    9,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::Int, QMetaType::Int,   11,    5,    6,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int, QMetaType::Int,    9,    5,    6,
     QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Bool,    5,    6,    2,
-    QMetaType::Void, QMetaType::Bool,   14,
+    QMetaType::Void, QMetaType::Bool,   15,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -106,12 +113,14 @@ void ChessWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         switch (_id) {
         case 0: _t->squareClicked((*reinterpret_cast< QPushButton*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 1: _t->newGameClicked(); break;
-        case 2: _t->checkSquare(); break;
-        case 3: _t->checkNewgame(); break;
-        case 4: _t->drawNewPiece((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
-        case 5: _t->updateColorSquare((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< bool(*)>(_a[3]))); break;
-        case 6: _t->updatePlayerTurn((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 7: _t->invalidMovementWarning(); break;
+        case 2: _t->nameOfTheGameTyped((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: _t->checkSquare(); break;
+        case 4: _t->checkNewgame(); break;
+        case 5: _t->drawNewPiece((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
+        case 6: _t->updateColorSquare((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< bool(*)>(_a[3]))); break;
+        case 7: _t->updatePlayerTurn((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 8: _t->invalidMovementWarning(); break;
+        case 9: _t->on_actionPhilidor1777_triggered(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -138,6 +147,13 @@ void ChessWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             using _t = void (ChessWindow::*)();
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ChessWindow::newGameClicked)) {
                 *result = 1;
+                return;
+            }
+        }
+        {
+            using _t = void (ChessWindow::*)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&ChessWindow::nameOfTheGameTyped)) {
+                *result = 2;
                 return;
             }
         }
@@ -173,13 +189,13 @@ int ChessWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 10;
     }
     return _id;
 }
@@ -195,6 +211,13 @@ void ChessWindow::squareClicked(QPushButton * _t1, int _t2, int _t3)
 void ChessWindow::newGameClicked()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void ChessWindow::nameOfTheGameTyped(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

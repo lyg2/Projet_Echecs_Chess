@@ -26,6 +26,7 @@ public:
 signals:
 	void squareClicked(QPushButton* button, int posX, int posY);
 	void newGameClicked();
+	void nameOfTheGameTyped(QString name);
 
 private slots:
 	void checkSquare();
@@ -34,6 +35,7 @@ private slots:
 	void updateColorSquare(int posX, int posY, bool);
 	void updatePlayerTurn(bool turn);
 	void invalidMovementWarning();
+	void on_actionPhilidor1777_triggered();
 
 private:
 	Ui::ChessWindow* ui;

@@ -142,3 +142,18 @@ void Controleur::newGameClicker() {
 			<<endl;
 	}
 }
+void Controleur::newGameMenu(QString name) {
+	if (!modele_->getIsNewGame()) {
+		modele_->getBoard()->drawBoard();
+		modele_->getBoard()->loadChessGame(name.toStdString());
+		modele_->setIsYourTurn(true);
+		for (auto&& piece : modele_->getBoard()->getlistOfWhite()) {
+			drawPiece(piece->getNamePiece(), piece->getPosX(), piece->getPosY());
+		}
+		for (auto&& piece : modele_->getBoard()->getlistOfBlack()) {
+			drawPiece(piece->getNamePiece(), piece->getPosX(), piece->getPosY());
+		}
+		emit playerTurn(true);
+		modele_->setIsNewGame(true);
+	}
+}

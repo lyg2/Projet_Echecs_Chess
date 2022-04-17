@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Controleur_t {
-    QByteArrayData data[15];
-    char stringdata0[157];
+    QByteArrayData data[16];
+    char stringdata0[169];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,13 +46,15 @@ QT_MOC_LITERAL(10, 86, 15), // "invalidMovement"
 QT_MOC_LITERAL(11, 102, 13), // "squareClicker"
 QT_MOC_LITERAL(12, 116, 12), // "QPushButton*"
 QT_MOC_LITERAL(13, 129, 12), // "squareButton"
-QT_MOC_LITERAL(14, 142, 14) // "newGameClicker"
+QT_MOC_LITERAL(14, 142, 14), // "newGameClicker"
+QT_MOC_LITERAL(15, 157, 11) // "newGameMenu"
 
     },
     "Controleur\0drawPiece\0\0name\0posX\0posY\0"
     "changeLocation\0colorSquare\0isSelected\0"
     "playerTurn\0invalidMovement\0squareClicker\0"
-    "QPushButton*\0squareButton\0newGameClicker"
+    "QPushButton*\0squareButton\0newGameClicker\0"
+    "newGameMenu"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +64,7 @@ static const uint qt_meta_data_Controleur[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,15 +72,16 @@ static const uint qt_meta_data_Controleur[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   49,    2, 0x06 /* Public */,
-       6,    2,   56,    2, 0x06 /* Public */,
-       7,    3,   61,    2, 0x06 /* Public */,
-       9,    1,   68,    2, 0x06 /* Public */,
-      10,    0,   71,    2, 0x06 /* Public */,
+       1,    3,   54,    2, 0x06 /* Public */,
+       6,    2,   61,    2, 0x06 /* Public */,
+       7,    3,   66,    2, 0x06 /* Public */,
+       9,    1,   73,    2, 0x06 /* Public */,
+      10,    0,   76,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      11,    3,   72,    2, 0x0a /* Public */,
-      14,    0,   79,    2, 0x0a /* Public */,
+      11,    3,   77,    2, 0x0a /* Public */,
+      14,    0,   84,    2, 0x0a /* Public */,
+      15,    1,   85,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::Int, QMetaType::Int,    3,    4,    5,
@@ -90,6 +93,7 @@ static const uint qt_meta_data_Controleur[] = {
  // slots: parameters
     QMetaType::Void, 0x80000000 | 12, QMetaType::Int, QMetaType::Int,   13,    4,    5,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    3,
 
        0        // eod
 };
@@ -107,6 +111,7 @@ void Controleur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: _t->invalidMovement(); break;
         case 5: _t->squareClicker((*reinterpret_cast< QPushButton*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 6: _t->newGameClicker(); break;
+        case 7: _t->newGameMenu((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -189,13 +194,13 @@ int Controleur::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }

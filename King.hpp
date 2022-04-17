@@ -20,8 +20,8 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 class King : public Piece
 {
 public:
-	King() { count_++; };
-	virtual ~King() { count_--; };
+	King();
+	virtual ~King();
 	static int getCount() { return count_; };
 	bool validationMouvement(int posXApres, int posYApres) override;
 	QString getNamePiece() override;

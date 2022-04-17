@@ -20,6 +20,17 @@
 
 int King::count_ = 0;
 
+King:: King() {
+	if (count_ >= 2) {
+		throw logic_error("Imposible to have 3 or more kings");
+	}
+	count_++;
+}
+King:: ~King() 
+{ 
+	count_--;
+}
+
 bool King::validationMouvement(int posXApres, int posYApres) {
 	//Déplacement horizontale
 	if ((abs(posXApres - getPosX()) == 1) && (posYApres - getPosY()) == 0) {

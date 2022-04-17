@@ -873,23 +873,52 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>1070</x>
-      <y>160</y>
+      <x>1040</x>
+      <y>220</y>
       <width>160</width>
-      <height>80</height>
+      <height>83</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
      <item>
       <widget class="QPushButton" name="newGameButton">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
        <property name="text">
         <string>New Game</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="LoadFromFile">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>LoadFromFile</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="tryToAddNewKing">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>tryToAddNewKing</string>
        </property>
       </widget>
      </item>
@@ -923,8 +952,42 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+    <widget class="QMenu" name="menuLoad_txt">
+     <property name="title">
+      <string>Load_txt</string>
+     </property>
+     <addaction name="actionPhilidor1777"/>
+    </widget>
+    <addaction name="menuLoad_txt"/>
+    <addaction name="actionexit"/>
+   </widget>
+   <addaction name="menuMenu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionPhilidor_1777">
+   <property name="text">
+    <string>Philidor_1777</string>
+   </property>
+  </action>
+  <action name="actionPhilidor_1778">
+   <property name="text">
+    <string>Philidor_1778</string>
+   </property>
+  </action>
+  <action name="actionexit">
+   <property name="text">
+    <string>exit</string>
+   </property>
+  </action>
+  <action name="actionPhilidor1777">
+   <property name="text">
+    <string>Philidor1777</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

@@ -103,6 +103,7 @@ int main(int argc, char *argv[])
 	QObject::connect(&controleur, SIGNAL(colorSquare(int, int, bool)), window, SLOT(updateColorSquare(int, int, bool)));
 	QObject::connect(&controleur, SIGNAL(playerTurn(bool)), window, SLOT(updatePlayerTurn(bool)));
 	QObject::connect(&controleur, SIGNAL(invalidMovement()), window, SLOT(invalidMovementWarning()));
+	QObject::connect(window, SIGNAL(nameOfTheGameTyped(QString)), &controleur, SLOT(newGameMenu(QString)));
 	window->show();
 	return app.exec();
 }

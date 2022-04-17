@@ -9,6 +9,7 @@
 #include "King.hpp"
 #include <list>
 #include <QObject>
+#include <fstream>
 #pragma pop()
 #include <functional>
 
@@ -20,6 +21,8 @@ public:
 	~Board();
 	void drawBoard();
 	void setPieces();
+	Piece* readLinePosition(string color, string namePiece);
+	void loadChessGame(string chessGame);
 	void addPieceOnBoard(Piece* piece,int posX, int posY);
 	shared_ptr<Square> field_ [8][8];
 	bool simulateNextPosition(Piece* piece, int nextPosX, int nexPosY, King* king);

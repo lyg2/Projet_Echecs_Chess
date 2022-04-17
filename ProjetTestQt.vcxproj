@@ -222,7 +222,6 @@
   <ItemGroup>
     <ClInclude Include="Bishop.hpp" />
     <QtMoc Include="Controleur.h" />
-    <QtMoc Include="QSquareButton.h" />
     <ClInclude Include="Queen.h" />
     <ClInclude Include="Rook.hpp" />
     <ClInclude Include="King.hpp" />

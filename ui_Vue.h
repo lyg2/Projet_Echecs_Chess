@@ -1,19 +1,21 @@
 /********************************************************************************
-** Form generated from reading UI file 'VuePYDJGm.ui'
+** Form generated from reading UI file 'VueUfvFRB.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef VUEPYDJGM_H
-#define VUEPYDJGM_H
+#ifndef VUEUFVFRB_H
+#define VUEUFVFRB_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -25,6 +27,10 @@ QT_BEGIN_NAMESPACE
 class Ui_ChessWindow
 {
 public:
+    QAction *actionPhilidor_1777;
+    QAction *actionPhilidor_1778;
+    QAction *actionexit;
+    QAction *actionPhilidor1777;
     QWidget *centralwidget;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
@@ -95,8 +101,12 @@ public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *newGameButton;
+    QPushButton *LoadFromFile;
+    QPushButton *tryToAddNewKing;
     QLineEdit *playerTurnView;
     QMenuBar *menubar;
+    QMenu *menuMenu;
+    QMenu *menuLoad_txt;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *ChessWindow)
@@ -105,6 +115,14 @@ public:
             ChessWindow->setObjectName(QString::fromUtf8("ChessWindow"));
         ChessWindow->resize(1256, 926);
         ChessWindow->setAutoFillBackground(false);
+        actionPhilidor_1777 = new QAction(ChessWindow);
+        actionPhilidor_1777->setObjectName(QString::fromUtf8("actionPhilidor_1777"));
+        actionPhilidor_1778 = new QAction(ChessWindow);
+        actionPhilidor_1778->setObjectName(QString::fromUtf8("actionPhilidor_1778"));
+        actionexit = new QAction(ChessWindow);
+        actionexit->setObjectName(QString::fromUtf8("actionexit"));
+        actionPhilidor1777 = new QAction(ChessWindow);
+        actionPhilidor1777->setObjectName(QString::fromUtf8("actionPhilidor1777"));
         centralwidget = new QWidget(ChessWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayoutWidget = new QWidget(centralwidget);
@@ -572,19 +590,34 @@ public:
 
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(1070, 160, 160, 80));
+        verticalLayoutWidget->setGeometry(QRect(1040, 220, 160, 83));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         newGameButton = new QPushButton(verticalLayoutWidget);
         newGameButton->setObjectName(QString::fromUtf8("newGameButton"));
-        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(newGameButton->sizePolicy().hasHeightForWidth());
         newGameButton->setSizePolicy(sizePolicy2);
 
         verticalLayout->addWidget(newGameButton);
+
+        LoadFromFile = new QPushButton(verticalLayoutWidget);
+        LoadFromFile->setObjectName(QString::fromUtf8("LoadFromFile"));
+        sizePolicy2.setHeightForWidth(LoadFromFile->sizePolicy().hasHeightForWidth());
+        LoadFromFile->setSizePolicy(sizePolicy2);
+
+        verticalLayout->addWidget(LoadFromFile);
+
+        tryToAddNewKing = new QPushButton(verticalLayoutWidget);
+        tryToAddNewKing->setObjectName(QString::fromUtf8("tryToAddNewKing"));
+        sizePolicy2.setHeightForWidth(tryToAddNewKing->sizePolicy().hasHeightForWidth());
+        tryToAddNewKing->setSizePolicy(sizePolicy2);
+
+        verticalLayout->addWidget(tryToAddNewKing);
 
         playerTurnView = new QLineEdit(centralwidget);
         playerTurnView->setObjectName(QString::fromUtf8("playerTurnView"));
@@ -597,10 +630,19 @@ public:
         menubar = new QMenuBar(ChessWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 1256, 21));
+        menuMenu = new QMenu(menubar);
+        menuMenu->setObjectName(QString::fromUtf8("menuMenu"));
+        menuLoad_txt = new QMenu(menuMenu);
+        menuLoad_txt->setObjectName(QString::fromUtf8("menuLoad_txt"));
         ChessWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(ChessWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         ChessWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuMenu->menuAction());
+        menuMenu->addAction(menuLoad_txt->menuAction());
+        menuMenu->addAction(actionexit);
+        menuLoad_txt->addAction(actionPhilidor1777);
 
         retranslateUi(ChessWindow);
 
@@ -610,6 +652,10 @@ public:
     void retranslateUi(QMainWindow *ChessWindow)
     {
         ChessWindow->setWindowTitle(QCoreApplication::translate("ChessWindow", "MainWindow", nullptr));
+        actionPhilidor_1777->setText(QCoreApplication::translate("ChessWindow", "Philidor_1777", nullptr));
+        actionPhilidor_1778->setText(QCoreApplication::translate("ChessWindow", "Philidor_1778", nullptr));
+        actionexit->setText(QCoreApplication::translate("ChessWindow", "exit", nullptr));
+        actionPhilidor1777->setText(QCoreApplication::translate("ChessWindow", "Philidor1777", nullptr));
         pushButton_33->setText(QString());
         pushButton_36->setText(QString());
         pushButton_78->setText(QString());
@@ -675,6 +721,10 @@ public:
         pushButton_85->setText(QString());
         pushButton_80->setText(QString());
         newGameButton->setText(QCoreApplication::translate("ChessWindow", "New Game", nullptr));
+        LoadFromFile->setText(QCoreApplication::translate("ChessWindow", "LoadFromFile", nullptr));
+        tryToAddNewKing->setText(QCoreApplication::translate("ChessWindow", "tryToAddNewKing", nullptr));
+        menuMenu->setTitle(QCoreApplication::translate("ChessWindow", "Menu", nullptr));
+        menuLoad_txt->setTitle(QCoreApplication::translate("ChessWindow", "Load_txt", nullptr));
     } // retranslateUi
 
 };
@@ -685,4 +735,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // VUEPYDJGM_H
+#endif // VUEUFVFRB_H

@@ -18,7 +18,6 @@
 #include <iostream>
 #include <type_traits>
 #include <cppitertools/range.hpp>
-#include "QSquareButton.h"
 #include "ui_Vue.h"
 
 using iter::range;
@@ -107,6 +106,19 @@ void ChessWindow::invalidMovementWarning() {
     QMessageBox::StandardButton msgBox;
     msgBox = QMessageBox::warning(this, "Illegal Move !",
         "Please try again");
+
+}
+
+void ChessWindow::on_actionPhilidor1777_triggered() {
+    //bool ok;
+    ////Faire un QMessageInformation et donner la liste des jeux
+    //QString nameGame = QInputDialog::getText(this, tr("Name of the ChessGame")
+    //    , tr("Enter the name of the game of chess"),
+    //    QLineEdit::Normal, "", &ok);
+    //if (ok && !nameGame.isEmpty()) {
+    //    emit nameOfTheGameTyped(nameGame);
+    //}
+    emit nameOfTheGameTyped("philidor1777.txt");
 
 }
 //template <typename T>

@@ -8,15 +8,17 @@
 
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QGraphicsRectItem>
+#include <QObject>
 #include <iostream>
+#include <fstream>
 #include "Piece.hpp"
 #include "Square.hpp"
 #include "Board.hpp"
 #include "King.hpp"
+#include "Queen.h"
 #include "Rook.hpp"
 #include "Bishop.hpp"
 #include "Simulator.h"
-#include <QObject>
 #pragma pop()
 #include <functional>
 
@@ -35,6 +37,8 @@ Board:: ~Board() {
 		delete piece;
 	}
 }
+
+
 void Board::setPieces()
 {
 	//set color
@@ -60,6 +64,68 @@ void Board::setPieces()
 	piece = new Rook;
 	piece->setPieceColor("Black");
 	listOfBlack_.push_back(piece);
+}
+
+Piece* Board::readLinePosition(string color, string namePiece) 
+{
+	Piece* piece = nullptr;
+	if (namePiece == "King") {
+		piece = new King;
+	}
+	else if (namePiece == "Queen") {
+		piece = new Queen;
+	}
+	else if (namePiece == "Rook") {
+		piece = new Rook;
+	}
+	else if (namePiece == "Bishop") {
+		piece = new Bishop;
+	}
+	else if (namePiece == "Knight") {
+		//piece = new Knight;
+	}
+	else if (namePiece == "Pawn") {
+		//piece = new Pawn;
+	}
+	else {
+		piece = new Rook;
+	}
+	piece->setPieceColor(color);
+	
+	if (color == "White")
+	{
+		listOfWhite_.push_back(piece);
+
+	}
+	else {
+		listOfBlack_.push_back(piece);
+	}
+	return piece;
+}
+
+void Board::loadChessGame(string chessGame) {
+	string color, namePiece, posX, posY ;
+	ifstream fichier(chessGame);
+	fichier.exceptions(ios::failbit);
+	while (!fichier.eof()) {
+		fichier >> quoted(color);
+		fichier >> quoted(namePiece);
+		fichier >> quoted(posX);
+		fichier >> quoted(posY);
+		addPieceOnBoard(readLinePosition(color, namePiece), stoi(posX), stoi(posY));
+	}
+	for (auto&& piece : listOfWhite_) {
+		if (dynamic_cast<King*>(piece) != nullptr) {
+			whiteKing_ = dynamic_cast<King*>(piece);
+			break;
+		}
+	}
+	for (auto&& piece : listOfBlack_) {
+		if (dynamic_cast<King*>(piece) != nullptr) {
+			blackKing_ = dynamic_cast<King*>(piece);
+			break;
+		}
+	}
 }
 
 void Board::drawBoard()
