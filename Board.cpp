@@ -383,10 +383,11 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 }
 
 bool Board::isCheckmate(string side) {
+	//Side: the one who made the last move
 	bool isCheck = false;
 	if (side == "White") {
-		isCheck = !checkKing(whiteKing_);
-		for (auto&& piece : listOfWhite_) {
+		isCheck = !checkKing(blackKing_);
+		for (auto&& piece : listOfBlack_) {
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
 					if(isValidMove(piece, i, j))
@@ -396,6 +397,21 @@ bool Board::isCheckmate(string side) {
 				}
 			}
 		}
+	}
+	else 
+	{
+		isCheck = !checkKing(whiteKing_);
+		for (auto&& piece : listOfWhite_) {
+			for (int i = 0; i < 8; i++) {
+				for (int j = 0; j < 8; j++) {
+					if (isValidMove(piece, i, j))
+					{
+						return false;
+					}
+				}
+			}
+		}
+
 	}
 	return true;
 }

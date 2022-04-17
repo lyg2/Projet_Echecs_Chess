@@ -127,8 +127,8 @@ void ChessWindow::on_actionTD6_Q2_3_Kings_triggered() {
 
 void ChessWindow::showWinner(QString side) {
     QMessageBox::StandardButton msgBox;
-    msgBox = QMessageBox::question(this, "Winner is ",
-        side + "\nDo you want to start a new game or quit ?",
+    msgBox = QMessageBox::question(this, "Checkmate ! Winner is "+ side,
+        "\nDo you want to start a new game or quit ?",
         QMessageBox::Yes | QMessageBox::No);
     if (msgBox == QMessageBox::Yes)
     {
