@@ -282,14 +282,14 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 	{
 		temp_piece = field_[movePosX][movePosY].get()->getPiece();
 	}
-	if (temp_piece != nullptr) {
-		if (temp_piece->getPieceColor() == "White") {
+	if (field_[movePosX][movePosY].get()->getHasPiece()) {
+		if (temp_piece->getPieceColor() == "White" && original->getPieceColor() == "Black") {
+			listOfWhiteDead_.push_back(temp_piece);
 			listOfWhite_.remove(temp_piece);
-			delete temp_piece;
 		}
-		else {
+		else if (temp_piece->getPieceColor() == "Black" && original->getPieceColor() == "White") {
+			listOfBlackDead_.push_back(temp_piece);
 			listOfBlack_.remove(temp_piece);
-			delete temp_piece;
 		}
 	}
 	int originalPosX = original->getPosX();
