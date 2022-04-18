@@ -45,34 +45,6 @@ void Board::resetBoard() {
 	}
 }
 
-
-void Board::setPieces()
-{
-	//set color
-	Piece* piece;
-	piece = new King;
-	piece->setPieceColor("White");
-	listOfWhite_.push_back(piece);
-	whiteKing_ = dynamic_cast<King*>(piece);
-	/*piece = new Bishop;
-	piece->setPieceColor("White");
-	listOfWhite_.push_back(piece);*/
-	piece = new Rook;
-	piece->setPieceColor("White");
-	listOfWhite_.push_back(piece);
-
-	piece = new King;
-	listOfBlack_.push_back(piece);
-	piece->setPieceColor("Black");
-	blackKing_ = dynamic_cast<King*>(piece);
-	/*piece = new Bishop;
-	listOfBlack_.push_back(piece);
-	piece->setPieceColor("Black");*/
-	piece = new Rook;
-	piece->setPieceColor("Black");
-	listOfBlack_.push_back(piece);
-}
-
 Piece* Board::readLinePosition(string color, string namePiece) 
 {
 	Piece* piece = nullptr;
@@ -173,13 +145,7 @@ bool Board::simulateNextPosition(Piece* piece, int nextPosX, int nextPosY, King*
 	Simulator simulator = Simulator(piece, field_, nextPosX, nextPosY);
 	return checkKing(king);
 }
-void Board::undoNextPosition(Piece* piece)
-{
-	field_[piece->getSavedPosX()][piece->getSavedPosY()]->putPieceOnSquare(piece);
-	field_[piece->getPosX()][piece->getPosY()]->putPieceOnSquare(nullptr);
-	piece->setPosX(piece->getSavedPosX());
-	piece->setPosY(piece->getSavedPosY());
-}
+
 bool Board::isSquareAllyFree(Piece* piece, int movePosX, int movePosY) {
 	if (field_[movePosX][movePosY]->getPiece() == nullptr)
 	{
@@ -427,74 +393,6 @@ bool Board::isCheckmate(string side) {
 	}
 	return true;
 }
-//bool Board::movePiece(Piece* original, int movePosX, int movePosY) {
-//	Piece* temp_piece = nullptr;
-//	if (field_[movePosX][movePosY].get()->getHasPiece())
-//	{
-//		temp_piece = field_[movePosX][movePosY].get()->getPiece();
-//	}
-//	if (!(original->validationMouvement(movePosX, movePosY)))
-//	{
-//		cout << "Mouvement non valide" << endl;
-//		return false;
-//	}
-//	if (original->getPieceColor() == "White")
-//	{
-//		if (!(checkObstacle(original,movePosX,movePosY)))
-//		{
-//			return false;
-//		}
-//		if (!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))) {
-//			return false;
-//		}
-//	}
-//	else
-//	{
-//		if (!(checkObstacle(original,movePosX,movePosY)))
-//		{
-//			return false;
-//		}
-//			if (!(simulateNextPosition(original, movePosX, movePosY, blackKing_))) {
-//				return false;
-//			}
-//	}
-//
-//	//New Bug, check bypass obstacles
-//	if (temp_piece != nullptr) {
-//		if (temp_piece->getPieceColor() == "White" && original->getPieceColor()=="Black") {
-//			listOfWhiteDead_.push_back(temp_piece);
-//			listOfWhite_.remove(temp_piece);
-//		}
-//		else if (temp_piece->getPieceColor() == "Black" && original->getPieceColor() == "White") {
-//			listOfBlackDead_.push_back(temp_piece);
-//			listOfBlack_.remove(temp_piece);
-//		}
-//	}
-//	int originalPosX = original->getPosX();
-//	int originalPosY = original->getPosY();
-//	original->setPosX(movePosX);
-//	original->setPosY(movePosY);
-//	field_[movePosX][movePosY]->putPieceOnSquare(original);
-//	field_[movePosX][movePosY]->setHasPiece(true);
-//	field_[originalPosX][originalPosY]->putPieceOnSquare(nullptr);
-//	field_[originalPosX][originalPosY]->setHasPiece(false);
-//	for (auto&& piece :listOfWhite_)
-//	{
-//		cout << typeid(*piece).name()<< " " <<piece->getPieceColor()<< " " 
-//			<< piece->getPosX() << ", " << piece->getPosY() << endl;
-//	}
-//
-//	for (auto&& piece :listOfBlack_)
-//	{
-//		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
-//			<< piece->getPosX() << ", " << piece->getPosY() << endl;
-//	}
-//
-//	return true;
-//}
-//int getField(int posX) {
-//	return getField(posX);
-//}
 
 
 

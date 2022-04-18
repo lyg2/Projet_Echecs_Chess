@@ -213,12 +213,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Piece.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Rook.cpp" />
     <ClCompile Include="Simulator.cpp" />
     <ClCompile Include="Square.cpp" />
-    <ClCompile Include="TestCalc.cpp" />
+    <ClCompile Include="TestModele.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bishop.hpp" />
@@ -227,7 +226,6 @@
     <ClInclude Include="Queen.h" />
     <ClInclude Include="Rook.hpp" />
     <ClInclude Include="King.hpp" />
-    <ClInclude Include="Player.hpp" />
     <ClInclude Include="Simulator.h" />
     <ClInclude Include="Square.hpp" />
     <ClInclude Include="Board.hpp" />

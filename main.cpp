@@ -45,51 +45,6 @@ int main(int argc, char *argv[])
 	Modele::Game* game = new Modele::Game;
 	Board* board = new Board;
 	game->setBoard(board);
-	//
-	//for (auto&& piece : game->getBoard()->getlistOfWhite())
-	//{
-	//	cout << typeid(*piece).name()<< " " <<piece->getPieceColor()<< " " 
-	//		<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	//}
-
-	//for (auto&& piece : game->getBoard()->getlistOfBlack())
-	//{
-	//	cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
-	//		<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	//}
-	////Only Rook should move
-	//for (auto&& piece : game->getBoard()->getlistOfWhite())
-	//{
-	//	game->getBoard()->movePiece(piece,2,5);
-	//}
-
-	////No change because if King moves, the king is in check
-	//for (auto&& piece : game->getBoard()->getlistOfWhite())
-	//{
-	//	game->getBoard()->movePiece(piece, 0, 1);
-	//}
-	////Only King should move
-	//for (auto&& piece : game->getBoard()->getlistOfWhite())
-	//{
-	//	game->getBoard()->movePiece(piece, 1, 0);
-	//}
-
-	//for (auto&& piece : game->getBoard()->getlistOfWhite())
-	//{
-	//	cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
-	//		<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	//}
-	
-	/*for (auto&& piece : game->getBoard()->getlistOfWhite())
-	{
-		delete piece;
-	}
-	for (auto&& piece : game->getBoard()->getlistOfBlack())
-	{
-		delete piece;
-	}*/
-	//delete board;
-	//game->getBoard()->addPieceOnBoard();
 	QApplication app(argc, argv);
 	initialiserBibliothequeCours(argc, argv);
 	ChessWindow* window= new ChessWindow;

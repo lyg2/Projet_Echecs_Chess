@@ -5,11 +5,12 @@
 //#include "Rook.hpp"
 //#include "King.hpp"
 //#include "Bishop.hpp"
+//#include "Game.hpp"
 //
-//#if __has_include("gtest/gtest.h")
-//#include "gtest/gtest.h"
-//#endif
-//#ifdef TEST
+#if __has_include("gtest/gtest.h")
+#include "gtest/gtest.h"
+#endif
+#ifdef TEST
 //
 //TEST(Rook, simple) {
 //	Rook rook;
@@ -113,4 +114,4 @@
 //	EXPECT_EQ(calc.obtenirValeur(), 143+218);
 //}
 //
-//#endif
+#endif

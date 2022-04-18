@@ -40,10 +40,6 @@ Simulator::Simulator(Piece* piece, shared_ptr<Square> field[8][8], int  tempPosX
 	simulateField[savedPosX_][savedPosY_]->setHasPiece(false);
 }
 Simulator:: ~Simulator() {
-	//field_[piece->getSavedPosX()][piece->getSavedPosY()]->putPieceOnSquare(piece);
-//field_[piece->getPosX()][piece->getPosY()]->putPieceOnSquare(nullptr);
-//piece->setPosX(piece->getSavedPosX());
-//piece->setPosY(piece->getSavedPosY());
 	simulateField[savedPosX_][savedPosY_]->putPieceOnSquare(piece_);
 	simulateField[savedPosX_][savedPosY_]->setHasPiece(true);
 	if (enemyPiece_!=nullptr){

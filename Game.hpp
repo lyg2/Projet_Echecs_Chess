@@ -8,7 +8,6 @@
 #include <QGraphicsScene>
 #include "Board.hpp"
 #include "Piece.hpp"
-#include "Player.hpp"
 #include "Square.hpp"
 #include <memory>
 #include <list>
@@ -19,12 +18,10 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 namespace Modele {
 	class Game {
 	public:
-		//void isPieceDead();
+		Game ()= default;
 		~Game();
-		bool isGameOver();
 		void setBoard(Board* board) { board_ = board; };
 		Board* getBoard() { return board_; };
-		void setPlayer();
 		bool getIsNewGame() { return isNewGame_; };
 		void setIsNewGame(bool isNewGame) { isNewGame_ = isNewGame; };
 		bool getHasSelectedPiece(){ return hasSelectedPiece_; };
@@ -46,11 +43,8 @@ namespace Modele {
 		bool hasSelectedPiece_ = false;
 		Piece* selectedPiece_;
 		Board* board_;
-		unique_ptr<Player> player1_;
-		unique_ptr<Player> player2_;
 		list<Piece*> whiteDead;
 		list<Piece*> blackDead;
-		bool gameOver_;
 	};
 }
 
