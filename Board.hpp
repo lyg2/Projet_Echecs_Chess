@@ -27,10 +27,12 @@ public:
 	void addPieceOnBoard(Piece* piece,int posX, int posY);
 	bool simulateNextPosition(Piece* piece, int nextPosX, int nexPosY, King* king);
 	bool isSquareAllyFree(Piece* piece, int movePosX, int movePosY);
-	bool checkObstacle(Piece* pieceToMove, int movePosX, int movePosY);
-	bool checkKing(King* king);
+	bool isObstacleFree(Piece* pieceToMove, int movePosX, int movePosY);
+	bool isKingSafe(King* king);
 	bool isValidMove(Piece* original, int movePosX, int movePosY);
 	void movePieceOnBoard(Piece* original, int movePosX, int movePosY);
+	bool isImpossibleToMoveKing(string side);
+	bool isStalemate(string side);
 	bool isCheckmate(string side);
 	//bool movePiece(Piece* original, int movePosX, int movePosY);
 

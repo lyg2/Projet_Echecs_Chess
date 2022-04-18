@@ -63,9 +63,6 @@ Piece* Board::readLinePosition(string color, string namePiece)
 	else if (namePiece == "Knight") {
 		piece = new Knight;
 	}
-	/*else if (namePiece == "Pawn") {
-		piece = new Pawn;
-	}*/
 	else {
 		piece = new Rook;
 	}
@@ -143,7 +140,7 @@ void Board::addPieceOnBoard(Piece* piece, int posX, int posY)
 bool Board::simulateNextPosition(Piece* piece, int nextPosX, int nextPosY, King* king)
 {
 	Simulator simulator = Simulator(piece, field_, nextPosX, nextPosY);
-	return checkKing(king);
+	return isKingSafe(king);
 }
 
 bool Board::isSquareAllyFree(Piece* piece, int movePosX, int movePosY) {
@@ -161,7 +158,7 @@ bool Board::isSquareAllyFree(Piece* piece, int movePosX, int movePosY) {
 }
 
 
-bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
+bool Board::isObstacleFree(Piece* pieceToMove, int movePosX, int movePosY) {
 	//if checkObstacle==true, then no obstacle
 	// Must correct bug use field_[ instead of square for the if.
 	//Bug: can't shield itself.
@@ -262,7 +259,7 @@ bool Board::checkObstacle(Piece* pieceToMove, int movePosX, int movePosY) {
 	}
 	return isSquareAllyFree(pieceToMove, movePosX, movePosY);
 }
-bool Board::checkKing(King* king) {
+bool Board::isKingSafe(King* king) {
 	//if checkKing==true, then there's no King in check.
 	//change the function if the piece of who is moved is the king
 	// TODO: Problem, it doesn't take in account that one can move a piece to protect the king.
@@ -272,7 +269,7 @@ bool Board::checkKing(King* king) {
 	{
 		for (auto piece : listOfBlack_)
 		{
-			if (checkObstacle(piece, posX, posY))
+			if (isObstacleFree(piece, posX, posY))
 			{
 				return false;
 			}
@@ -282,7 +279,7 @@ bool Board::checkKing(King* king) {
 	else {
 		for (auto piece : listOfWhite_)
 		{
-			if (checkObstacle(piece, posX, posY))
+			if (isObstacleFree(piece, posX, posY))
 			{
 				return false;
 			}
@@ -299,7 +296,7 @@ bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	}
 	if (original->getPieceColor() == "White")
 	{
-		if (!(checkObstacle(original,
+		if (!(isObstacleFree(original,
 			movePosX,
 			movePosY)))
 		{
@@ -312,7 +309,7 @@ bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	}
 	else
 	{
-		if (!(checkObstacle(original,movePosX,movePosY)))
+		if (!(isObstacleFree(original,movePosX,movePosY)))
 		{
 			return false;
 		}
@@ -360,15 +357,12 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 	}
 }
 
-bool Board::isCheckmate(string side) {
-	//Side: the one who made the last move
-	bool isCheck = false;
+bool Board::isImpossibleToMoveKing(string side) {
 	if (side == "White") {
-		isCheck = !checkKing(blackKing_);
 		for (auto&& piece : listOfBlack_) {
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
-					if(isValidMove(piece, i, j))
+					if (isValidMove(piece, i, j))
 					{
 						return false;
 					}
@@ -376,9 +370,8 @@ bool Board::isCheckmate(string side) {
 			}
 		}
 	}
-	else 
+	else
 	{
-		isCheck = !checkKing(whiteKing_);
 		for (auto&& piece : listOfWhite_) {
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
@@ -392,6 +385,25 @@ bool Board::isCheckmate(string side) {
 
 	}
 	return true;
+}
+
+bool Board::isStalemate(string side) {
+	if (side == "White") {
+		return (isKingSafe(blackKing_) && isImpossibleToMoveKing(side));
+	}
+	else {
+		return (isKingSafe(whiteKing_) && isImpossibleToMoveKing(side));
+	}
+}
+
+bool Board::isCheckmate(string side) {
+	//Side: the one who made the last move
+	if (side == "White") {
+		return (!isKingSafe(blackKing_) && isImpossibleToMoveKing(side));
+	}
+	else {
+		return (!isKingSafe(whiteKing_) && isImpossibleToMoveKing(side));
+	}
 }
 
 
