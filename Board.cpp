@@ -83,23 +83,28 @@ void Board::loadChessGame(string chessGame) {
 	string color, namePiece, posX, posY ;
 	ifstream fichier(chessGame);
 	fichier.exceptions(ios::failbit);
-	while (!fichier.eof()) {
+	while (!fichier.eof()) 
+	{
 		fichier >> quoted(color);
 		fichier >> quoted(namePiece);
 		fichier >> quoted(posX);
 		fichier >> quoted(posY);
 		addPieceOnBoard(readLinePosition(color, namePiece), stoi(posX), stoi(posY));
-	}
-	for (auto&& piece : listOfWhite_) {
-		if (dynamic_cast<King*>(piece) != nullptr) {
-			whiteKing_ = dynamic_cast<King*>(piece);
-			break;
-		}
-	}
-	for (auto&& piece : listOfBlack_) {
-		if (dynamic_cast<King*>(piece) != nullptr) {
-			blackKing_ = dynamic_cast<King*>(piece);
-			break;
+		for (auto&& piece : listOfWhite_) 
+		{
+			if (dynamic_cast<King*>(piece) != nullptr) 
+				{
+				whiteKing_ = dynamic_cast<King*>(piece);
+				break;
+				}
+			}
+		for (auto&& piece : listOfBlack_) 
+		{
+			if (dynamic_cast<King*>(piece) != nullptr) 
+			{
+				blackKing_ = dynamic_cast<King*>(piece);
+				break;
+			}
 		}
 	}
 }
@@ -405,7 +410,3 @@ bool Board::isCheckmate(string side) {
 		return (!isKingSafe(whiteKing_) && isImpossibleToMoveKing(side));
 	}
 }
-
-
-
-

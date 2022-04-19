@@ -237,6 +237,9 @@
   <ItemGroup>
     <QtUic Include="Vue.ui" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="READMETOFACILITATECORRECTION.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />

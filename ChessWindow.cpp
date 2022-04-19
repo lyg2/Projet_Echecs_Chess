@@ -52,8 +52,8 @@ ChessWindow::ChessWindow(QWidget *parent) :
         }
     }
 
-    QPushButton* newGameButton= qobject_cast<QPushButton*>(ui->verticalLayout->itemAt(0)->widget());
-    connect(newGameButton, &QPushButton::clicked, this, &ChessWindow::checkNewgame);
+   /* QPushButton* newGameButton= qobject_cast<QPushButton*>(ui->verticalLayout->itemAt(0)->widget());
+    connect(newGameButton, &QPushButton::clicked, this, &ChessWindow::checkNewgame);*/
     
     //ui->gridLayout->itemAtPosition(1, 1);
 }
@@ -67,10 +67,10 @@ void ChessWindow::checkSquare()
     button_ = qobject_cast<QPushButton*>(sender());
     emit squareClicked(button_, posX_, posY_);
 }
-void ChessWindow::checkNewgame()
-{
-    emit newGameClicked();
-}
+//void ChessWindow::checkNewgame()
+//{
+//    emit newGameClicked();
+//}
 void ChessWindow::drawNewPiece(QString name, int posX, int posY) {
     QLayoutItem* item = ui->gridLayout->itemAtPosition(posY, posX);
     QPushButton* square = qobject_cast<QPushButton*>(item->widget());
@@ -110,14 +110,6 @@ void ChessWindow::invalidMovementWarning() {
 }
 
 void ChessWindow::on_actionPhilidor1777_triggered() {
-    //bool ok;
-    ////Faire un QMessageInformation et donner la liste des jeux
-    //QString nameGame = QInputDialog::getText(this, tr("Name of the ChessGame")
-    //    , tr("Enter the name of the game of chess"),
-    //    QLineEdit::Normal, "", &ok);
-    //if (ok && !nameGame.isEmpty()) {
-    //    emit nameOfTheGameTyped(nameGame);
-    //}
     emit nameOfTheGameTyped("chessgame_files/philidor1777.txt");
 
 }
@@ -140,6 +132,23 @@ void ChessWindow::showWinner(QString side) {
         QApplication::quit();
     }
     else 
+    {
+        QApplication::quit();
+    }
+}
+
+void ChessWindow::warningKing() {
+    QMessageBox::StandardButton msgBox;
+    msgBox=QMessageBox::critical(this, "Instanciation of more than two kings",
+        "The game may not have loaded properly.\n Do you still wish to continue ? ",
+        QMessageBox::Yes | QMessageBox::No);
+    if (msgBox == QMessageBox::Yes)
+    {
+        //reset board
+        //board resetted
+        return;
+    }
+    else
     {
         QApplication::quit();
     }

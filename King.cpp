@@ -22,7 +22,7 @@ int King::count_ = 0;
 
 King:: King() {
 	if (count_ >= 2) {
-		throw logic_error("Imposible to have 3 or more kings");
+		throw logic_error("Trying to instanciate more than two Kings\n");
 	}
 	count_++;
 }

@@ -67,29 +67,33 @@ void Controleur::squareClicker(QPushButton* squareButton, int posX, int posY) {
 	}
 }
 
-void Controleur::newGameClicker() {
-	
-	if (!modele_->getIsNewGame())
-	{
-		
-	modele_->setIsNewGame(true);
-		
-	}
-	else {
-		cout<<"The number of kings is "
-			<< modele_->getBoard()->getWhiteKing_()->getCount()
-			<<endl;
-	}
-}
+//void Controleur::newGameClicker() {
+//	
+//	if (!modele_->getIsNewGame())
+//	{
+//		
+//	modele_->setIsNewGame(true);
+//		
+//	}
+//	else {
+//		cout<<"The number of kings is "
+//			<< modele_->getBoard()->getWhiteKing_()->getCount()
+//			<<endl;
+//	}
+//}
 void Controleur::newGameMenu(QString name) {
 	if (!modele_->getIsNewGame()) {
 		modele_->getBoard()->drawBoard();
+		emit playerTurn(true);
+		modele_->setIsNewGame(true);
 		try{
 			modele_->getBoard()->loadChessGame(name.toStdString());
 			modele_->setIsYourTurn(true);
 		}
 		catch(logic_error& e) {
-			cout << "It is impossible to have more than 2 Kings" << e.what() << endl;
+			cout << "It is impossible to have more than 2 Kings"<<endl;
+			cout << e.what();
+			emit moreThanTwoKings();
 		}
 		for (auto&& piece : modele_->getBoard()->getlistOfWhite()) {
 			drawPiece(piece->getNamePiece(), piece->getPosX(), piece->getPosY());
@@ -97,7 +101,5 @@ void Controleur::newGameMenu(QString name) {
 		for (auto&& piece : modele_->getBoard()->getlistOfBlack()) {
 			drawPiece(piece->getNamePiece(), piece->getPosX(), piece->getPosY());
 		}
-		emit playerTurn(true);
-		modele_->setIsNewGame(true);
 	}
 }

@@ -25,12 +25,12 @@ public:
 
 signals:
 	void squareClicked(QPushButton* button, int posX, int posY);
-	void newGameClicked();
+	//void newGameClicked();
 	void nameOfTheGameTyped(QString name);
 
 private slots:
 	void checkSquare();
-	void checkNewgame();
+	//void checkNewgame();
 	void drawNewPiece(QString name, int posX, int posY);
 	void updateColorSquare(int posX, int posY, bool);
 	void updatePlayerTurn(bool turn);
@@ -39,6 +39,7 @@ private slots:
 	void on_actionTD6_Q2_3_Kings_triggered();
 	void on_actionKnights_Of_The_Round_Table_triggered();;
 	void showWinner(QString side);
+	void warningKing();
 
 private:
 	Ui::ChessWindow* ui;

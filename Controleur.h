@@ -17,9 +17,10 @@ signals:
     void playerTurn(bool);
     void invalidMovement();
     void checkmate(QString side);
+    void moreThanTwoKings();
 public slots:
     void squareClicker(QPushButton* squareButton, int posX, int posY);
-    void newGameClicker();
+    //void newGameClicker();
     void newGameMenu(QString name);
 
 private:

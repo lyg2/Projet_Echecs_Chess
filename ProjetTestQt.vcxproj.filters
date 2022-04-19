@@ -120,4 +120,7 @@
   <ItemGroup>
     <QtUic Include="Vue.ui" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="READMETOFACILITATECORRECTION.md" />
+  </ItemGroup>
 </Project>

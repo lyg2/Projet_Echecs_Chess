@@ -53,13 +53,14 @@ int main(int argc, char *argv[])
 		SIGNAL(squareClicked(QPushButton*, int, int)),
 		&controleur,
 		SLOT(squareClicker(QPushButton*, int , int)));
-	QObject::connect(window, SIGNAL(newGameClicked()), &controleur, SLOT(newGameClicker()));
+	//QObject::connect(window, SIGNAL(newGameClicked()), &controleur, SLOT(newGameClicker()));
 	QObject::connect(&controleur, SIGNAL(drawPiece(QString, int, int)), window, SLOT(drawNewPiece(QString, int, int)));
 	QObject::connect(&controleur, SIGNAL(colorSquare(int, int, bool)), window, SLOT(updateColorSquare(int, int, bool)));
 	QObject::connect(&controleur, SIGNAL(playerTurn(bool)), window, SLOT(updatePlayerTurn(bool)));
 	QObject::connect(&controleur, SIGNAL(invalidMovement()), window, SLOT(invalidMovementWarning()));
 	QObject::connect(window, SIGNAL(nameOfTheGameTyped(QString)), &controleur, SLOT(newGameMenu(QString)));
 	QObject::connect(&controleur, SIGNAL(checkmate(QString)), window, SLOT(showWinner(QString)));
+	QObject::connect(&controleur, SIGNAL(moreThanTwoKings()), window, SLOT(warningKing()));
 	window->show();
 	return app.exec();
 }
