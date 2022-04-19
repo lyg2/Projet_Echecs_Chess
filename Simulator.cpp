@@ -18,10 +18,11 @@
 #include "Simulator.h"
 #pragma pop()
 #include <functional>
-
+const int nColumns = 8;
+const int nRows = 8;
 Simulator::Simulator(Piece* piece, shared_ptr<Square> field[8][8], int  tempPosX, int tempPosY) {
-	for (int i = 0; i < 8; i++) {
-		for (int j = 0; j < 8; j++) {
+	for (int i = 0; i < nColumns; i++) {
+		for (int j = 0; j < nRows; j++) {
 			simulateField[i][j] = field[i][j];
 		}
 	}

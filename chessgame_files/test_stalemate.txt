@@ -1,0 +1,4 @@
+"White"	"King"	0	0
+"Black"	"King"	7	7
+"Black"	"Rook"	1	7
+"Black"	"Rook"	7	1

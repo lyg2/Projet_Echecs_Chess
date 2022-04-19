@@ -28,6 +28,10 @@ void Controleur::squareClicker(QPushButton* squareButton, int posX, int posY) {
 	else {
 		modele_->setColorTurn("Black");
 	}
+	if (modele_->getBoard()->isStalemate(modele_->getColorTurn())) {
+		emit stalemate();
+		return;
+	}
 	if (!modele_->getHasSelectedPiece())
 	{
 		if (modele_->getBoard()->getFieldSquare(posX, posY)->getPiece() != nullptr) 
@@ -99,10 +103,12 @@ void Controleur::newGameMenu(QString name) {
 }
 
 void Controleur::startAnotherGameClicker() {
+	int nColumns = 8;
+	int nRows = 8;
 	modele_->setIsNewGame(false);
 	modele_->getBoard()->resetBoard();
-	for (int i = 0; i < 8; i++) {
-		for (int j = 0; j < 8; j++) {
+	for (int i = 0; i < nColumns; i++) {
+		for (int j = 0; j < nRows; j++) {
 			emit drawPiece("", i, j);
 		}
 	}

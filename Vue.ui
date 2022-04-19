@@ -907,7 +907,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
@@ -921,6 +921,7 @@
      <addaction name="actionPhilidor1777"/>
      <addaction name="actionTD6_Q2_3_Kings"/>
      <addaction name="actionKnights_Of_The_Round_Table"/>
+     <addaction name="actiontest_stalemate"/>
     </widget>
     <addaction name="menuLoad_txt"/>
     <addaction name="actionexit"/>
@@ -961,6 +962,11 @@
   <action name="actionPeople_are_just_pawns">
    <property name="text">
     <string>People_are_just_pawns</string>
+   </property>
+  </action>
+  <action name="actiontest_stalemate">
+   <property name="text">
+    <string>test_stalemate</string>
    </property>
   </action>
  </widget>

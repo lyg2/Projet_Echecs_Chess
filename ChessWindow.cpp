@@ -125,6 +125,10 @@ void ChessWindow::on_actionTD6_Q2_3_Kings_triggered() {
 void ChessWindow ::on_actionKnights_Of_The_Round_Table_triggered() {
     emit nameOfTheGameTyped("chessgame_files/Knights_Of_The_Round_Table.txt");
 }
+
+void ChessWindow::on_actiontest_stalemate_triggered() {
+    emit nameOfTheGameTyped("chessgame_files/test_stalemate.txt");
+}
 void ChessWindow::showWinner(QString side) {
     QMessageBox::StandardButton msgBox;
     msgBox = QMessageBox::question(this, "Checkmate ! Winner is "+ side,
@@ -137,6 +141,23 @@ void ChessWindow::showWinner(QString side) {
         emit startAnotherGameClicked();
     }
     else 
+    {
+        QApplication::quit();
+    }
+}
+
+void ChessWindow::showStalemate() {
+    QMessageBox::StandardButton msgBox;
+    msgBox = QMessageBox::question(this, "Stalemate",
+        "\nDo you want to start a new game or quit ?",
+        QMessageBox::Yes | QMessageBox::No);
+    if (msgBox == QMessageBox::Yes)
+    {
+        //reset board
+        //board resetted
+        emit startAnotherGameClicked();
+    }
+    else
     {
         QApplication::quit();
     }

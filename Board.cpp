@@ -117,9 +117,11 @@ void Board::loadChessGame(string chessGame) {
 
 void Board::drawBoard()
 {
-	for (int i = 0; i < 8; i++)
+	int nColumns = 8;
+	int nRows = 8;
+	for (int i = 0; i < nColumns; i++)
 	{
-		for (int j = 0; j < 8; j++)
+		for (int j = 0; j < nRows; j++)
 		{
 			Square* square = new Square;
 			square->setPositionX(i);
@@ -369,10 +371,12 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 }
 
 bool Board::isImpossibleToMoveKing(string side) {
+	int nRows = 8;
+	int nColumns = 8;
 	if (side == "White") {
 		for (auto&& piece : listOfBlack_) {
-			for (int i = 0; i < 8; i++) {
-				for (int j = 0; j < 8; j++) {
+			for (int i = 0; i < nColumns; i++) {
+				for (int j = 0; j < nRows; j++) {
 					if (isValidMove(piece, i, j))
 					{
 						return false;
@@ -384,8 +388,8 @@ bool Board::isImpossibleToMoveKing(string side) {
 	else
 	{
 		for (auto&& piece : listOfWhite_) {
-			for (int i = 0; i < 8; i++) {
-				for (int j = 0; j < 8; j++) {
+			for (int i = 0; i < nColumns; i++) {
+				for (int j = 0; j < nRows; j++) {
 					if (isValidMove(piece, i, j))
 					{
 						return false;
@@ -400,10 +404,10 @@ bool Board::isImpossibleToMoveKing(string side) {
 
 bool Board::isStalemate(string side) {
 	if (side == "White") {
-		return (isKingSafe(blackKing_) && isImpossibleToMoveKing(side));
+		return (isKingSafe(whiteKing_) && isImpossibleToMoveKing("Black"));
 	}
 	else {
-		return (isKingSafe(whiteKing_) && isImpossibleToMoveKing(side));
+		return (isKingSafe(blackKing_) && isImpossibleToMoveKing(side));
 	}
 }
 

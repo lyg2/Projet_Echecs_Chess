@@ -17,11 +17,12 @@
 #include "Board.hpp"
 #pragma pop()
 #include <functional>
-
+const int maxNumberOfKings = 2;
 int King::count_ = 0;
 
 King:: King() {
-	if (count_ >= 2) {
+	
+	if (count_ >= maxNumberOfKings) {
 		throw logic_error("Trying to instanciate more than two Kings\n");
 	}
 	count_++;
