@@ -1,5 +1,9 @@
-﻿// Les test pour le Modèle pour calculatrice simple.
-// Par Francois-R.Boyer@PolyMtl.ca
+﻿/* Ce fichier est de tester les fonctionnalités de la logique du jeu.
+* @file: TestModele.cpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
+* @date:12 avril 2022
+*/
 
 //#include "Chess.hpp"
 //#include "Rook.hpp"

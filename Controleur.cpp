@@ -1,3 +1,9 @@
+/* Ce fichier est la classe Controleur qui s'occupe du controleur.
+* @file: ChessWindow.cpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
+* @date:12 avril 2022
+*/
 #pragma once
 #include "Controleur.h"
 #include "Rook.hpp"
@@ -24,12 +30,14 @@ void Controleur::squareClicker(QPushButton* squareButton, int posX, int posY) {
 	}
 	if (!modele_->getHasSelectedPiece())
 	{
-		if (modele_->getBoard()->field_[posX][posY]->getPiece() != nullptr) {
-			if (modele_->getBoard()->field_[posX][posY]
-				->getPiece()->getPieceColor()==modele_->getColorTurn()){
+		if (modele_->getBoard()->getFieldSquare(posX, posY)->getPiece() != nullptr) 
+		{
+			if (modele_->getBoard()->getFieldSquare(posX, posY)
+				->getPiece()->getPieceColor()==modele_->getColorTurn())
+			{
 				modele_->setHasSelectedPiece(true);
 				modele_->setSelectedPiece(modele_->getBoard()
-					->field_[posX][posY]->getPiece());
+					->getFieldSquare(posX, posY)->getPiece());
 				emit colorSquare(posX, posY, true);
 			}
 			

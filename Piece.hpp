@@ -1,6 +1,4 @@
 ﻿#pragma once
-// Le Modèle pour calculatrice simple.
-// Par Francois-R.Boyer@PolyMtl.ca
 
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QObject>
@@ -25,18 +23,18 @@ public:
 	int getPosY() const { return posY_; };
 	void setPosX(int posX) { posX_ = posX; };
 	void setPosY(int posY) { posY_ = posY; };
-	int getSavedPosX() { return savedPosX_; };
-	int getSavedPosY() { return savedPosY_; };
+	int getSavedPosX() const { return savedPosX_; };
+	int getSavedPosY() const { return savedPosY_; };
 	void setSavedPosX(int savedPosX) {savedPosX_=savedPosX; };
 	void setSavedPosY(int savedPosY) {savedPosY_ = savedPosY; };
 	string getName() const { return namePiece_; }
 
 	void setPieceColor(string color) { color_ = color; };
-	string getPieceColor() { return color_; };
+	string getPieceColor() const { return color_; };
 
 	//virtual void movePiece(int i, int j) = 0;
 
-private:
+protected:
 	int posX_;
 	int posY_;
 	int savedPosX_;

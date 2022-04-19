@@ -1,8 +1,8 @@
 #pragma once
 /* Ce fichier est la classe Board qui s'occcupe du mouvement des pièces et de l'échéquier.
 * @file: Bishop.cpp
-* @authors: Gia-Sherwin Ly, Fatima Mellata, Maroua Ouhib
-* @matricule: 2137375, 2147725, 2154712
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
 * @date:12 avril 2022
 */
 

@@ -1,5 +1,9 @@
-﻿// La Vue-Controlleur pour calculatrice simple.
-// Par Francois-R.Boyer@PolyMtl.ca
+﻿/* Ce fichier est la classe ChessWindow qui s'occupe de la vue.
+* @file: ChessWindow.cpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
+* @date:12 avril 2022
+*/
 
 #include "ChessWindow.hpp"
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
@@ -17,6 +21,7 @@
 #pragma pop()
 #include <iostream>
 #include <type_traits>
+#include "ChessWindow.hpp"
 #include <cppitertools/range.hpp>
 #include "ui_Vue.h"
 

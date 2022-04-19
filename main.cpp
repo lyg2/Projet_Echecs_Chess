@@ -1,9 +1,10 @@
-/* Ce programme teste des mouvements de pièces
-* @file: main,cpp
-* @authors: Gia-Sherwin Ly, Fatima Mellata, Maroua Ouhib
-* @matricule: 2137375, 2147725, 2154712
+/* Ce programme permet de créer un jeu d'échec pour fin de partie.
+* @file: main.cpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
 * @date:12 avril 2022
 */ 
+
 #include "Game.hpp"
 #include "ui_Vue.h"
 #include "ChessWindow.hpp"
@@ -53,7 +54,6 @@ int main(int argc, char *argv[])
 		SIGNAL(squareClicked(QPushButton*, int, int)),
 		&controleur,
 		SLOT(squareClicker(QPushButton*, int , int)));
-	//QObject::connect(window, SIGNAL(newGameClicked()), &controleur, SLOT(newGameClicker()));
 	QObject::connect(&controleur, SIGNAL(drawPiece(QString, int, int)), window, SLOT(drawNewPiece(QString, int, int)));
 	QObject::connect(&controleur, SIGNAL(colorSquare(int, int, bool)), window, SLOT(updateColorSquare(int, int, bool)));
 	QObject::connect(&controleur, SIGNAL(playerTurn(bool)), window, SLOT(updatePlayerTurn(bool)));
@@ -62,6 +62,9 @@ int main(int argc, char *argv[])
 	QObject::connect(&controleur, SIGNAL(checkmate(QString)), window, SLOT(showWinner(QString)));
 	QObject::connect(&controleur, SIGNAL(moreThanTwoKings()), window, SLOT(warningKing()));
 	QObject::connect(window, SIGNAL(startAnotherGameClicked()), &controleur, SLOT(startAnotherGameClicker()));
+	// operator '&': deprecated between enumerations of different types. 
+	//controleur et window ne sont pas du même type, car controleur est passé en reférence et window en pointeur.
+	//une conversion implicite se fait, ce qui déclenche un warning.
 	window->show();
 	return app.exec();
 }

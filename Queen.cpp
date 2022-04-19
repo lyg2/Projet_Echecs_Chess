@@ -1,8 +1,8 @@
 #pragma once
-/* Ce fichier est la classe King qui hérite de Pièce.
-* @file: Bishop.cpp
-* @authors: Gia-Sherwin Ly, Fatima Mellata, Maroua Ouhib
-* @matricule: 2137375, 2147725, 2154712
+/* Ce fichier est la classe Queen qui hérite de Pièce.
+* @file: Queen.cpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
 * @date:12 avril 2022
 */
 
