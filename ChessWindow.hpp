@@ -27,6 +27,7 @@ signals:
 	void squareClicked(QPushButton* button, int posX, int posY);
 	//void newGameClicked();
 	void nameOfTheGameTyped(QString name);
+	void startAnotherGameClicked();
 
 private slots:
 	void checkSquare();

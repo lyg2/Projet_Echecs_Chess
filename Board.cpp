@@ -43,6 +43,12 @@ void Board::resetBoard() {
 	for (auto&& piece : listOfBlackDead_) {
 		delete piece;
 	}
+	listOfWhite_ = {};
+	listOfBlack_ = {};
+	listOfWhiteDead_ = {};
+	listOfBlackDead_ = {};
+	whiteKing_ = nullptr;
+	blackKing_ = nullptr;
 }
 
 Piece* Board::readLinePosition(string color, string namePiece) 

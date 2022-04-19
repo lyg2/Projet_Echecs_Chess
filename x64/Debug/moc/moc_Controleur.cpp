@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Controleur_t {
-    QByteArrayData data[18];
-    char stringdata0[186];
+    QByteArrayData data[19];
+    char stringdata0[210];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -49,14 +49,16 @@ QT_MOC_LITERAL(13, 117, 16), // "moreThanTwoKings"
 QT_MOC_LITERAL(14, 134, 13), // "squareClicker"
 QT_MOC_LITERAL(15, 148, 12), // "QPushButton*"
 QT_MOC_LITERAL(16, 161, 12), // "squareButton"
-QT_MOC_LITERAL(17, 174, 11) // "newGameMenu"
+QT_MOC_LITERAL(17, 174, 11), // "newGameMenu"
+QT_MOC_LITERAL(18, 186, 23) // "startAnotherGameClicker"
 
     },
     "Controleur\0drawPiece\0\0name\0posX\0posY\0"
     "changeLocation\0colorSquare\0isSelected\0"
     "playerTurn\0invalidMovement\0checkmate\0"
     "side\0moreThanTwoKings\0squareClicker\0"
-    "QPushButton*\0squareButton\0newGameMenu"
+    "QPushButton*\0squareButton\0newGameMenu\0"
+    "startAnotherGameClicker"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,7 +68,7 @@ static const uint qt_meta_data_Controleur[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -74,17 +76,18 @@ static const uint qt_meta_data_Controleur[] = {
        7,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    3,   59,    2, 0x06 /* Public */,
-       6,    2,   66,    2, 0x06 /* Public */,
-       7,    3,   71,    2, 0x06 /* Public */,
-       9,    1,   78,    2, 0x06 /* Public */,
-      10,    0,   81,    2, 0x06 /* Public */,
-      11,    1,   82,    2, 0x06 /* Public */,
-      13,    0,   85,    2, 0x06 /* Public */,
+       1,    3,   64,    2, 0x06 /* Public */,
+       6,    2,   71,    2, 0x06 /* Public */,
+       7,    3,   76,    2, 0x06 /* Public */,
+       9,    1,   83,    2, 0x06 /* Public */,
+      10,    0,   86,    2, 0x06 /* Public */,
+      11,    1,   87,    2, 0x06 /* Public */,
+      13,    0,   90,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      14,    3,   86,    2, 0x0a /* Public */,
-      17,    1,   93,    2, 0x0a /* Public */,
+      14,    3,   91,    2, 0x0a /* Public */,
+      17,    1,   98,    2, 0x0a /* Public */,
+      18,    0,  101,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::Int, QMetaType::Int,    3,    4,    5,
@@ -98,6 +101,7 @@ static const uint qt_meta_data_Controleur[] = {
  // slots: parameters
     QMetaType::Void, 0x80000000 | 15, QMetaType::Int, QMetaType::Int,   16,    4,    5,
     QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -117,6 +121,7 @@ void Controleur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->moreThanTwoKings(); break;
         case 7: _t->squareClicker((*reinterpret_cast< QPushButton*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
         case 8: _t->newGameMenu((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 9: _t->startAnotherGameClicker(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -213,13 +218,13 @@ int Controleur::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

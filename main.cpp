@@ -61,6 +61,7 @@ int main(int argc, char *argv[])
 	QObject::connect(window, SIGNAL(nameOfTheGameTyped(QString)), &controleur, SLOT(newGameMenu(QString)));
 	QObject::connect(&controleur, SIGNAL(checkmate(QString)), window, SLOT(showWinner(QString)));
 	QObject::connect(&controleur, SIGNAL(moreThanTwoKings()), window, SLOT(warningKing()));
+	QObject::connect(window, SIGNAL(startAnotherGameClicked()), &controleur, SLOT(startAnotherGameClicker()));
 	window->show();
 	return app.exec();
 }

@@ -67,20 +67,6 @@ void Controleur::squareClicker(QPushButton* squareButton, int posX, int posY) {
 	}
 }
 
-//void Controleur::newGameClicker() {
-//	
-//	if (!modele_->getIsNewGame())
-//	{
-//		
-//	modele_->setIsNewGame(true);
-//		
-//	}
-//	else {
-//		cout<<"The number of kings is "
-//			<< modele_->getBoard()->getWhiteKing_()->getCount()
-//			<<endl;
-//	}
-//}
 void Controleur::newGameMenu(QString name) {
 	if (!modele_->getIsNewGame()) {
 		modele_->getBoard()->drawBoard();
@@ -100,6 +86,16 @@ void Controleur::newGameMenu(QString name) {
 		}
 		for (auto&& piece : modele_->getBoard()->getlistOfBlack()) {
 			drawPiece(piece->getNamePiece(), piece->getPosX(), piece->getPosY());
+		}
+	}
+}
+
+void Controleur::startAnotherGameClicker() {
+	modele_->setIsNewGame(false);
+	modele_->getBoard()->resetBoard();
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 8; j++) {
+			emit drawPiece("", i, j);
 		}
 	}
 }

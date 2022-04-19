@@ -129,7 +129,7 @@ void ChessWindow::showWinner(QString side) {
     {
         //reset board
         //board resetted
-        QApplication::quit();
+        emit startAnotherGameClicked();
     }
     else 
     {
