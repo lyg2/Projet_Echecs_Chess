@@ -1,7 +1,12 @@
-﻿#pragma once
-// Le Modèle pour calculatrice simple.
-// Par Francois-R.Boyer@PolyMtl.ca
+﻿/* Ce fichier est la classe Game qui s'occupe de la logique du jeu
+* @file: Game.hpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
+* @date:12 avril 2022
+*/
 
+
+#pragma once
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QObject>
 #include <QGraphicsView>

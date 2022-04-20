@@ -1,4 +1,4 @@
-/* Ce fichier est la classe Controleur qui s'occupe du controleur.
+/* Ce fichier est l'implémentation de la classe Controleur
 * @file: ChessWindow.cpp
 * @authors: Gia-Sherwin Ly
 * @matricule: 2137375

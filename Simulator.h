@@ -1,4 +1,10 @@
 #pragma once
+/* Ce fichier est la classe Simulator qui permet de simuler le mouvement d'une pièce et de la remettre à sa position initiale à sa destruction
+* @file: Simulator.cpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
+* @date:12 avril 2022
+*/
 #include "Piece.hpp"
 #include "Board.hpp"
 #include "Square.hpp"

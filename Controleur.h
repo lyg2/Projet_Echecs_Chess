@@ -1,3 +1,9 @@
+/* Ce fichier est la classe Controleur qui s'occupe du controleur.
+* @file: ChessWindow.hpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
+* @date:12 avril 2022
+*/
 #pragma once
 #include <QObject>
 #include <QPushButton>

@@ -1,4 +1,4 @@
-﻿/* Ce fichier est la classe ChessWindow qui s'occupe de la vue.
+﻿/* Ce fichier est l'implémentation de la classe ChessWindow.
 * @file: ChessWindow.cpp
 * @authors: Gia-Sherwin Ly
 * @matricule: 2137375

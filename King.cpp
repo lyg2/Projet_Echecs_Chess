@@ -1,5 +1,5 @@
 #pragma once
-/* Ce fichier est la classe King qui hérite de Pièce.
+/* Ce fichier est l'implémentation de la classe King.
 * @file: King.cpp
 * @authors: Gia-Sherwin Ly
 * @matricule: 2137375

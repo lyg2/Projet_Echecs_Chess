@@ -1,5 +1,5 @@
 #pragma once
-/* Ce fichier est la classe Simulator qui hérite de Pièce.
+/* Ce fichier est l'implémentation de la classe Simulator
 * @file: Simulator.cpp
 * @authors: Gia-Sherwin Ly
 * @matricule: 2137375

@@ -1,5 +1,5 @@
 #pragma once
-/* Ce fichier est la classe Piece.
+/* Ce fichier est la l'implémentation de la classe Piece.
 * @file: Piece.cpp
 * @authors: Gia-Sherwin Ly
 * @matricule: 2137375

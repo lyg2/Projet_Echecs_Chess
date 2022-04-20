@@ -1,5 +1,5 @@
 #pragma once
-/* Ce fichier est la classe Rook qui hérite de Pièce.
+/* Ce fichier est l'implémentation de la classe Rook.
 * @file: Rook.cpp
 * @authors: Gia-Sherwin Ly
 * @matricule: 2137375

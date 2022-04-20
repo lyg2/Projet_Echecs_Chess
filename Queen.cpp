@@ -1,5 +1,5 @@
 #pragma once
-/* Ce fichier est la classe Queen qui hérite de Pièce.
+/* Ce fichier est l'implémentation de la classe Queen
 * @file: Queen.cpp
 * @authors: Gia-Sherwin Ly
 * @matricule: 2137375

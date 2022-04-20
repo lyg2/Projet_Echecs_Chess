@@ -1,9 +1,16 @@
-﻿#pragma once
+﻿/* Ce fichier est la classe Board qui s'occupe du mouvement des pièces.
+* @file: Board.hpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
+* @date:12 avril 2022
+*/
+#pragma once
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QGraphicsRectItem>
 #include "Piece.hpp"
 #include "Square.hpp"
 #include "King.hpp"
+#include "Movement.h"
 #include <list>
 #include <QObject>
 #include <fstream>
@@ -23,6 +30,8 @@ public:
 	void loadChessGame(string chessGame);
 	void addPieceOnBoard(Piece* piece,int posX, int posY);
 	bool simulateNextPosition(Piece* piece, int nextPosX, int nexPosY, King* king);
+	Movement getMovement(int posX, int posY, int movePosX, int movePosY);
+	void treatMovement(int& posX, int& posY, Movement& movement);
 	bool isSquareAllyFree(Piece* piece, int movePosX, int movePosY);
 	bool isObstacleFree(Piece* pieceToMove, int movePosX, int movePosY);
 	bool isKingSafe(King* king);

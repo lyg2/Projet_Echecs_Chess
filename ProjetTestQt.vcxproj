@@ -223,6 +223,7 @@
     <ClInclude Include="Bishop.hpp" />
     <QtMoc Include="Controleur.h" />
     <ClInclude Include="Knight.h" />
+    <ClInclude Include="Movement.h" />
     <ClInclude Include="Queen.h" />
     <ClInclude Include="Rook.hpp" />
     <ClInclude Include="King.hpp" />

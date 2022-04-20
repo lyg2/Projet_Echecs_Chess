@@ -1,11 +1,10 @@
-#pragma once
-/* Ce fichier est la classe Board qui s'occcupe du mouvement des pièces et de l'échéquier.
-* @file: Bishop.cpp
+/* Ce fichier est l'implémentation de la classe Board
+* @file: Board.cpp
 * @authors: Gia-Sherwin Ly
 * @matricule: 2137375
 * @date:12 avril 2022
 */
-
+#pragma once
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QGraphicsRectItem>
 #include <QObject>
@@ -20,6 +19,7 @@
 #include "Rook.hpp"
 #include "Bishop.hpp"
 #include "Simulator.h"
+#include "Movement.h"
 #pragma pop()
 #include <functional>
 
@@ -124,8 +124,8 @@ void Board::drawBoard()
 		for (int j = 0; j < nRows; j++)
 		{
 			Square* square = new Square;
-			square->setPositionX(i);
-			square->setPositionY(j);
+			//square->setPositionX(i);
+			//square->setPositionY(j);
 			square->putPieceOnSquare(nullptr);
 			if ((i + j) % 2 == 0)
 			{
@@ -144,8 +144,8 @@ void Board::addPieceOnBoard(Piece* piece, int posX, int posY)
 {
 	piece->setPosX(posX);
 	piece->setPosY(posY);
-	field_[posX][posY]->setPositionX(posX);
-	field_[posX][posY]->setPositionY(posY);
+	//field_[posX][posY]->setPositionX(posX);
+	//field_[posX][posY]->setPositionY(posY);
 	field_[posX][posY]->putPieceOnSquare(piece);
 	field_[posX][posY]->setHasPiece(true);
 }
@@ -169,7 +169,77 @@ bool Board::isSquareAllyFree(Piece* piece, int movePosX, int movePosY) {
 	return false;
 
 }
+//devrait peut-être dans une class à part, pas dans le board. friend function peut-être ?
+Movement Board::getMovement(int posX, int posY, int movePosX, int movePosY) {
+	if ((movePosX - posX >= 1) && (movePosY == posY))
+	{
+		return Movement::GO_RIGHT;
+	}
+	else if ((movePosX - posX <= -1) && (movePosY == posY))
+	{
+		return Movement::GO_LEFT;
+	}
 
+	else if ((movePosX == posX) && (movePosY - posY >= 1)) {
+		return Movement::GO_DOWN;
+	}
+	else if ((movePosX == posX) && (movePosY - posY >= -1)) {
+		return Movement::GO_UP;
+	}
+
+	else if ((movePosX - posX >= 1) && (movePosY - posY >= 1))
+	{
+		return Movement::GO_DOWN_RIGHT;
+	}
+	else if ((movePosX - posX >= 1) && (movePosY - posY <= -1))
+	{
+		return Movement::GO_UP_RIGHT;
+	}
+
+	else if ((movePosX - posX <= -1) && (movePosY - posY >= 1))
+	{
+		return Movement::GO_DOWN_LEFT;
+	}
+
+	else if ((movePosX - posX <= -1) && (movePosY - posY <= -1))
+	{
+		return Movement::GO_UP_LEFT;
+	}
+	return Movement::GO_UP;
+}
+
+void Board::treatMovement(int& posX, int& posY, Movement& movement) {
+	switch (movement) {
+	case Movement::GO_RIGHT:
+		posX++;
+		break;
+	case Movement::GO_LEFT:
+		posX--;
+		break;
+	case Movement::GO_DOWN:
+		posY++;
+		break;
+	case Movement::GO_UP:
+		posY--;
+		break;
+	case Movement::GO_DOWN_RIGHT:
+		posX++;
+		posY++;
+		break;
+	case Movement::GO_DOWN_LEFT:
+		posX--;
+		posY++;
+		break;
+	case Movement::GO_UP_RIGHT:
+		posX++;
+		posY--;
+		break;
+	case Movement::GO_UP_LEFT:
+		posX--;
+		posY--;
+		break;
+	}
+}
 
 bool Board::isObstacleFree(Piece* pieceToMove, int movePosX, int movePosY) {
 	//if checkObstacle==true, then no obstacle
@@ -184,52 +254,8 @@ bool Board::isObstacleFree(Piece* pieceToMove, int movePosX, int movePosY) {
 	{
 		return isSquareAllyFree(pieceToMove, movePosX, movePosY);
 	}
-	enum class Movement {
-		GO_UP,
-		GO_DOWN,
-		GO_LEFT,
-		GO_RIGHT,
-		GO_UP_RIGHT,
-		GO_UP_LEFT,
-		GO_DOWN_RIGHT,
-		GO_DOWN_LEFT
-	};
-	Movement movement = Movement::GO_UP;
-
-	if ((movePosX - posX >= 1) && (movePosY == posY))
-	{
-		movement = Movement::GO_RIGHT;
-	}
-	else if ((movePosX - posX <= -1) && (movePosY == posY))
-	{
-		movement = Movement::GO_LEFT;
-	}
-
-	else if ((movePosX == posX) && (movePosY - posY >= 1)) {
-		movement = Movement::GO_DOWN;
-	}
-	else if ((movePosX == posX) && (movePosY - posY >= -1)) {
-		movement = Movement::GO_UP;
-	}
-
-	else if ((movePosX - posX >= 1) && (movePosY - posY >= 1))
-	{
-		movement = Movement::GO_DOWN_RIGHT;
-	}
-	else if ((movePosX - posX >= 1) && (movePosY - posY <= -1))
-	{
-		movement = Movement::GO_UP_RIGHT;
-	}
-
-	else if ((movePosX - posX <= -1) && (movePosY - posY >= 1))
-	{
-		movement = Movement::GO_DOWN_LEFT;
-	}
-
-	else if ((movePosX - posX <= -1) && (movePosY - posY <= -1))
-	{
-		movement = Movement::GO_UP_LEFT;
-	}
+	
+	Movement movement = getMovement(posX, posY, movePosX, movePosY);
 
 	while (posX != movePosX || posY != movePosY)
 	{
@@ -239,36 +265,7 @@ bool Board::isObstacleFree(Piece* pieceToMove, int movePosX, int movePosY) {
 		{
 			return false;
 		}
-		switch (movement) {
-		case Movement::GO_RIGHT:
-			posX++;
-			break;
-		case Movement::GO_LEFT:
-			posX--;
-			break;
-		case Movement::GO_DOWN:
-			posY++;
-			break;
-		case Movement::GO_UP:
-			posY--;
-			break;
-		case Movement::GO_DOWN_RIGHT:
-			posX++;
-			posY++;
-			break;
-		case Movement::GO_DOWN_LEFT:
-			posX--;
-			posY++;
-			break;
-		case Movement::GO_UP_RIGHT:
-			posX++;
-			posY--;
-			break;
-		case Movement::GO_UP_LEFT:
-			posX--;
-			posY--;
-			break;
-		}
+		treatMovement(posX, posY, movement);
 	}
 	return isSquareAllyFree(pieceToMove, movePosX, movePosY);
 }
@@ -301,7 +298,7 @@ bool Board::isKingSafe(King* king) {
 	return true;
 
 }
-
+//pourrait mettre isObstacle free et simulate next position avec un ||
 bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	if (!(original->validationMouvement(movePosX, movePosY)))
 	{
@@ -309,24 +306,17 @@ bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	}
 	if (original->getPieceColor() == "White")
 	{
-		if (!(isObstacleFree(original,
-			movePosX,
-			movePosY)))
-		{
-			return false;
-		}
-		if (!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))) 
+		if (!(isObstacleFree(original,movePosX,movePosY)) ||
+			!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))
+			)
 		{
 			return false;
 		}
 	}
 	else
 	{
-		if (!(isObstacleFree(original,movePosX,movePosY)))
-		{
-			return false;
-		}
-		if (!(simulateNextPosition(original, movePosX, movePosY, blackKing_))) 
+		if (!(isObstacleFree(original,movePosX,movePosY)) ||
+			!(simulateNextPosition(original, movePosX, movePosY, blackKing_)))
 		{
 			return false;
 		}

@@ -1,4 +1,10 @@
-﻿#pragma once
+﻿/* Ce fichier est la classe ChessWindow qui s'occupe de la vue.
+* @file: ChessWindow.hpp
+* @authors: Gia-Sherwin Ly
+* @matricule: 2137375
+* @date:12 avril 2022
+*/
+#pragma once
 #pragma warning(push, 0) // Sinon Qt fait des avertissements à /W4.
 #include <QMainWindow>
 #include <QPushButton>
