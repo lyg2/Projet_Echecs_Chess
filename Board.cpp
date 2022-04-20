@@ -31,11 +31,11 @@ Board:: ~Board() {
 void Board::resetBoard() {
 	for (auto&& piece : listOfWhite_) {
 		field_[piece->getPosX()][piece->getPosY()]->setHasPiece(false);
-		delete piece;
+		piece.reset();
 	}
 	for (auto&& piece : listOfBlack_) {
 		field_[piece->getPosX()][piece->getPosY()]->setHasPiece(false);
-		delete piece;
+		piece.reset();
 	}
 	for (auto&& piece : listOfWhiteDead_) {
 		delete piece;
@@ -43,15 +43,15 @@ void Board::resetBoard() {
 	for (auto&& piece : listOfBlackDead_) {
 		delete piece;
 	}
-	listOfWhite_ = {};
-	listOfBlack_ = {};
-	listOfWhiteDead_ = {};
-	listOfBlackDead_ = {};
+	listOfWhite_.clear();
+	listOfBlack_.clear();
+	listOfWhiteDead_.clear();
+	listOfBlackDead_.clear();
 	whiteKing_ = nullptr;
 	blackKing_ = nullptr;
 }
 
-Piece* Board::readLinePosition(string color, string namePiece) 
+Piece* Board::readLinePosition(string color, string namePiece)
 {
 	Piece* piece = nullptr;
 	if (namePiece == "King") {
@@ -73,42 +73,44 @@ Piece* Board::readLinePosition(string color, string namePiece)
 		piece = new Rook;
 	}
 	piece->setPieceColor(color);
-	
+	unique_ptr<Piece> unique_piece = unique_ptr<Piece>(piece);
+
 	if (color == "White")
 	{
-		listOfWhite_.push_back(piece);
-
+		listOfWhite_.emplace_back(move(unique_piece));
+		return listOfWhite_.back().get();
 	}
 	else {
-		listOfBlack_.push_back(piece);
+		listOfBlack_.emplace_back(move(unique_piece));
+		return listOfBlack_.back().get();
 	}
-	return piece;
+	
 }
 
 void Board::loadChessGame(string chessGame) {
-	string color, namePiece, posX, posY ;
+	string color, namePiece, posX, posY;
 	ifstream fichier(chessGame);
 	fichier.exceptions(ios::failbit);
-	while (!fichier.eof()) 
+	while (!fichier.eof())
 	{
 		fichier >> quoted(color);
 		fichier >> quoted(namePiece);
 		fichier >> quoted(posX);
 		fichier >> quoted(posY);
 		addPieceOnBoard(readLinePosition(color, namePiece), stoi(posX), stoi(posY));
-		for (auto&& piece : listOfWhite_) 
+		for (auto&& piece : listOfWhite_)
 		{
-			if (dynamic_cast<King*>(piece) != nullptr) 
-				{
-				whiteKing_ = dynamic_cast<King*>(piece);
-				break;
-				}
-			}
-		for (auto&& piece : listOfBlack_) 
-		{
-			if (dynamic_cast<King*>(piece) != nullptr) 
+			if (dynamic_cast<King*>(piece.get()) != nullptr)
 			{
-				blackKing_ = dynamic_cast<King*>(piece);
+				whiteKing_ = dynamic_cast<King*>(piece.get());
+				break;
+			}
+		}
+		for (auto&& piece : listOfBlack_)
+		{
+			if (dynamic_cast<King*>(piece.get()) != nullptr)
+			{
+				blackKing_ = dynamic_cast<King*>(piece.get());
 				break;
 			}
 		}
@@ -254,14 +256,14 @@ bool Board::isObstacleFree(Piece* pieceToMove, int movePosX, int movePosY) {
 	{
 		return isSquareAllyFree(pieceToMove, movePosX, movePosY);
 	}
-	
+
 	Movement movement = getMovement(posX, posY, movePosX, movePosY);
 
 	while (posX != movePosX || posY != movePosY)
 	{
-		if (field_[posX][posY]->getHasPiece() 
-			&& 
-			(pieceToMove->getPosX()!=posX|| pieceToMove->getPosY()!=posY))
+		if (field_[posX][posY]->getHasPiece()
+			&&
+			(pieceToMove->getPosX() != posX || pieceToMove->getPosY() != posY))
 		{
 			return false;
 		}
@@ -277,9 +279,9 @@ bool Board::isKingSafe(King* king) {
 	int posY = king->getPosY();
 	if (king->getPieceColor() == "White")
 	{
-		for (auto piece : listOfBlack_)
+		for (auto&& piece : listOfBlack_)
 		{
-			if (isObstacleFree(piece, posX, posY))
+			if (isObstacleFree(piece.get(), posX, posY))
 			{
 				return false;
 			}
@@ -287,9 +289,9 @@ bool Board::isKingSafe(King* king) {
 		}
 	}
 	else {
-		for (auto piece : listOfWhite_)
+		for (auto&& piece : listOfWhite_)
 		{
-			if (isObstacleFree(piece, posX, posY))
+			if (isObstacleFree(piece.get(), posX, posY))
 			{
 				return false;
 			}
@@ -306,7 +308,7 @@ bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	}
 	if (original->getPieceColor() == "White")
 	{
-		if (!(isObstacleFree(original,movePosX,movePosY)) ||
+		if (!(isObstacleFree(original, movePosX, movePosY)) ||
 			!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))
 			)
 		{
@@ -315,7 +317,7 @@ bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	}
 	else
 	{
-		if (!(isObstacleFree(original,movePosX,movePosY)) ||
+		if (!(isObstacleFree(original, movePosX, movePosY)) ||
 			!(simulateNextPosition(original, movePosX, movePosY, blackKing_)))
 		{
 			return false;
@@ -332,11 +334,26 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 	if (field_[movePosX][movePosY].get()->getHasPiece()) {
 		if (temp_piece->getPieceColor() == "White" && original->getPieceColor() == "Black") {
 			listOfWhiteDead_.push_back(temp_piece);
-			listOfWhite_.remove(temp_piece);
+			for (auto it = listOfWhite_.begin(); it != listOfWhite_.end(); ++it) {
+				if (it->get() == temp_piece) {
+					auto&& temp = *it;
+					temp.reset();
+					listOfWhite_.erase(it);
+					break;
+				}
+			}
+			
 		}
 		else if (temp_piece->getPieceColor() == "Black" && original->getPieceColor() == "White") {
-			listOfBlackDead_.push_back(temp_piece);
-			listOfBlack_.remove(temp_piece);
+			for (auto it = listOfBlack_.begin(); it != listOfBlack_.end(); ++it) {
+				if (it->get() == temp_piece) {
+					auto&& temp = *it;
+					temp.reset();
+					listOfBlack_.erase(it);
+					break;
+				}
+			}
+			
 		}
 	}
 	int originalPosX = original->getPosX();
@@ -367,7 +384,7 @@ bool Board::isImpossibleToMoveKing(string side) {
 		for (auto&& piece : listOfBlack_) {
 			for (int i = 0; i < nColumns; i++) {
 				for (int j = 0; j < nRows; j++) {
-					if (isValidMove(piece, i, j))
+					if (isValidMove(piece.get(), i, j))
 					{
 						return false;
 					}
@@ -380,7 +397,7 @@ bool Board::isImpossibleToMoveKing(string side) {
 		for (auto&& piece : listOfWhite_) {
 			for (int i = 0; i < nColumns; i++) {
 				for (int j = 0; j < nRows; j++) {
-					if (isValidMove(piece, i, j))
+					if (isValidMove(piece.get(), i, j))
 					{
 						return false;
 					}

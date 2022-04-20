@@ -21,14 +21,14 @@ using namespace std; // Dans ce cours on accepte le using namespace std dans le 
 
 class Board {
 public:
-	Board()=default;
+	Board() = default;
 	~Board();
 	void resetBoard();
 	void drawBoard();
 	shared_ptr<Square> getFieldSquare(int posX, int posY) const { return field_[posX][posY]; };
 	Piece* readLinePosition(string color, string namePiece);
 	void loadChessGame(string chessGame);
-	void addPieceOnBoard(Piece* piece,int posX, int posY);
+	void addPieceOnBoard(Piece* piece, int posX, int posY);
 	bool simulateNextPosition(Piece* piece, int nextPosX, int nexPosY, King* king);
 	Movement getMovement(int posX, int posY, int movePosX, int movePosY);
 	void treatMovement(int& posX, int& posY, Movement& movement);
@@ -42,15 +42,17 @@ public:
 	bool isCheckmate(string side);
 	//bool movePiece(Piece* original, int movePosX, int movePosY);
 
-	list<Piece*> getlistOfWhite() const { return listOfWhite_; };
-	list<Piece*> getlistOfBlack() const { return listOfBlack_; };
+	list <unique_ptr<Piece>>::iterator listOfWhiteBegin()  { return listOfWhite_.begin(); };
+	list <unique_ptr<Piece>>::iterator listOfWhiteEnd() { return listOfWhite_.end(); };
+	list <unique_ptr<Piece>>::iterator listOfBlackBegin() { return listOfBlack_.begin(); };
+	list <unique_ptr<Piece>>::iterator listOfBlackEnd() { return listOfBlack_.end(); };
 	King* getWhiteKing_() const { return whiteKing_; };
 	King* getBlackKing_() const { return blackKing_; };
 
 private:
 	shared_ptr<Square> field_[8][8];
-	list <Piece*> listOfWhite_={};
-	list <Piece*> listOfBlack_ = {};
+	list <unique_ptr<Piece>> listOfWhite_;
+	list <unique_ptr<Piece>> listOfBlack_;
 	list <Piece*> listOfWhiteDead_ = {};
 	list <Piece*> listOfBlackDead_ = {};
 	King* whiteKing_;

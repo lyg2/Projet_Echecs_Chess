@@ -93,11 +93,11 @@ void Controleur::newGameMenu(QString name) {
 			cout << e.what();
 			emit moreThanTwoKings();
 		}
-		for (auto&& piece : modele_->getBoard()->getlistOfWhite()) {
-			drawPiece(piece->getNamePiece(), piece->getPosX(), piece->getPosY());
+		for (auto it = modele_->getBoard()->listOfWhiteBegin(); it != modele_->getBoard()->listOfWhiteEnd(); ++it) {
+			drawPiece(it->get()->getNamePiece(), it->get()->getPosX(), it->get()->getPosY());
 		}
-		for (auto&& piece : modele_->getBoard()->getlistOfBlack()) {
-			drawPiece(piece->getNamePiece(), piece->getPosX(), piece->getPosY());
+		for (auto it = modele_->getBoard()->listOfBlackBegin(); it != modele_->getBoard()->listOfBlackEnd(); ++it) {
+			drawPiece(it->get()->getNamePiece(), it->get()->getPosX(), it->get()->getPosY());
 		}
 	}
 }
