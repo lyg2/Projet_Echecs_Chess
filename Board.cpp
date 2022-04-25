@@ -37,16 +37,16 @@ void Board::resetBoard() {
 		field_[piece->getPosX()][piece->getPosY()]->setHasPiece(false);
 		piece.reset();
 	}
-	for (auto&& piece : listOfWhiteDead_) {
+	/*for (auto&& piece : listOfWhiteDead_) {
 		delete piece;
 	}
 	for (auto&& piece : listOfBlackDead_) {
 		delete piece;
-	}
+	}*/
 	listOfWhite_.clear();
 	listOfBlack_.clear();
-	listOfWhiteDead_.clear();
-	listOfBlackDead_.clear();
+	/*listOfWhiteDead_.clear();
+	listOfBlackDead_.clear();*/
 	whiteKing_ = nullptr;
 	blackKing_ = nullptr;
 }
@@ -333,8 +333,8 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 	}
 	if (field_[movePosX][movePosY].get()->getHasPiece()) {
 		if (temp_piece->getPieceColor() == "White" && original->getPieceColor() == "Black") {
-			listOfWhiteDead_.push_back(temp_piece);
-			for (auto it = listOfWhite_.begin(); it != listOfWhite_.end(); ++it) {
+			//listOfWhiteDead_.push_back(temp_piece);
+			for (auto it = listOfWhiteBegin(); it != listOfWhiteEnd(); ++it) {
 				if (it->get() == temp_piece) {
 					auto&& temp = *it;
 					temp.reset();
@@ -345,7 +345,8 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 			
 		}
 		else if (temp_piece->getPieceColor() == "Black" && original->getPieceColor() == "White") {
-			for (auto it = listOfBlack_.begin(); it != listOfBlack_.end(); ++it) {
+			//listOfBlackDead_.push_back(temp_piece);
+			for (auto it = listOfBlackBegin(); it != listOfBlackEnd(); ++it) {
 				if (it->get() == temp_piece) {
 					auto&& temp = *it;
 					temp.reset();
@@ -364,7 +365,7 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 	field_[movePosX][movePosY]->setHasPiece(true);
 	field_[originalPosX][originalPosY]->putPieceOnSquare(nullptr);
 	field_[originalPosX][originalPosY]->setHasPiece(false);
-	for (auto&& piece : listOfWhite_)
+	/*for (auto&& piece : listOfWhite_)
 	{
 		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
 			<< piece->getPosX() << ", " << piece->getPosY() << endl;
@@ -374,7 +375,7 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 	{
 		cout << typeid(*piece).name() << " " << piece->getPieceColor() << " "
 			<< piece->getPosX() << ", " << piece->getPosY() << endl;
-	}
+	}*/
 }
 
 bool Board::isImpossibleToMoveKing(string side) {
@@ -414,7 +415,7 @@ bool Board::isStalemate(string side) {
 		return (isKingSafe(whiteKing_) && isImpossibleToMoveKing("Black"));
 	}
 	else {
-		return (isKingSafe(blackKing_) && isImpossibleToMoveKing(side));
+		return (isKingSafe(blackKing_) && isImpossibleToMoveKing("White"));
 	}
 }
 

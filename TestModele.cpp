@@ -5,94 +5,98 @@
 * @date:12 avril 2022
 */
 
-//#include "Chess.hpp"
-//#include "Rook.hpp"
-//#include "King.hpp"
-//#include "Bishop.hpp"
-//#include "Game.hpp"
+#include "Bishop.hpp"
+#include "Board.hpp"
+#include "Game.hpp"
+#include "King.hpp"
+#include "Knight.h"
+#include "Movement.h"
+#include "Piece.hpp"
+#include "Queen.h"
+#include "Rook.hpp"
+#include "Simulator.h"
+#include "Square.hpp"
 //
 #if __has_include("gtest/gtest.h")
 #include "gtest/gtest.h"
 #endif
 #ifdef TEST
 //
-//TEST(Rook, simple) {
-//	Rook rook;
-//	rook.setPossibleMoves(-1, 0);
-//	rook.setPossibleMoves(0, -1);
-//	rook.setPossibleMoves(1, 0);
-//	rook.setPossibleMoves(0, 1);
-//	rook.setPossibleMoves(0, 0);
-//	//EXPECT_EQ(calc.obtenirValeur(), 143);
-//	rook.movePiece(-1, 0);
-//	rook.movePiece(0, -1);
-//	rook.movePiece(1, 0);
-//	rook.movePiece(0, 1);
-//	rook.movePiece(0, 0);
-//	//EXPECT_EQ(calc.obtenirValeur(), 218);
-//}
+TEST(Philidor, simple) {
+	Modele::Game modele;
+	Board* board = new Board;
+	modele.setBoard(board);
+	modele.getBoard()->drawBoard();
+	modele.setIsNewGame(false);
+	EXPECT_EQ(modele.getIsNewGame(), false);
+	modele.getBoard()->loadChessGame("chessgame_files/philidor1777.txt");
+	EXPECT_EQ(modele.getBoard()->isStalemate("White"), false);
+	EXPECT_EQ(modele.getBoard()->isStalemate("Black"), false);
+	modele.setIsYourTurn(true);
+	EXPECT_EQ(modele.getIsYourTurn(), true);
+	modele.setColorTurn("White");
+	EXPECT_EQ(modele.getColorTurn(), "White");
+	EXPECT_EQ(modele.getBoard()->getFieldSquare(0, 3)->getPiece()->getNamePiece(), "WhiteQueen");
+	modele.setHasSelectedPiece(true);
+	EXPECT_EQ(modele.getHasSelectedPiece(), true);
+
+	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(0, 3)->getPiece());
+	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(0, 3)->getPiece());
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 1, 2), true);
+	modele.getBoard()->movePieceOnBoard(modele.getSelectedPiece(), 1, 2);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 1);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 2);
+
+	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(1, 0)->getPiece());
+	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(1, 0)->getPiece());
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 0, 0), true);
+	modele.getBoard()->movePieceOnBoard(modele.getSelectedPiece(), 0, 0);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 0);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 0);
+
+	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(1, 2)->getPiece());
+	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(1, 2)->getPiece());
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 1, 1), true);
+	modele.getBoard()->movePieceOnBoard(modele.getSelectedPiece(), 1, 1);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 1);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 1);
+
+	EXPECT_EQ(modele.getBoard()->isCheckmate("White"), true);
+}
 //
-//TEST(King, simple) {
-//	King king;
-//	king.setPossibleMoves(-1, 0);
-//	king.setPossibleMoves(0, -1);
-//	king.setPossibleMoves(1, 0);
-//	king.setPossibleMoves(0, 1);
-//	king.setPossibleMoves(0, 0);
-//	king.setPossibleMoves(-1, -1);
-//	king.setPossibleMoves(-1, 1);
-//	king.setPossibleMoves(1, 1);
-//	king.setPossibleMoves(1, -1);
-//	//EXPECT_EQ(calc.obtenirValeur(), 143);
-//	king.movePiece(-1, 0);
-//	king.movePiece(0, -1);
-//	king.movePiece(1, 0);
-//	king.movePiece(0, 1);
-//	king.movePiece(0, 0);
-//	king.movePiece(-1, -1);
-//	king.movePiece(-1, 1);
-//	king.movePiece(1, 1);
-//	king.movePiece(1, -1);
-//	//EXPECT_EQ(calc.obtenirValeur(), 218);
-//}
+TEST(Stalemate, simple) {
+	Modele::Game modele;
+	Board* board = new Board;
+	modele.setBoard(board);
+	modele.getBoard()->drawBoard();
+	modele.getBoard()->loadChessGame("chessgame_files/test_stalemate.txt");
+	EXPECT_EQ(modele.getBoard()->isStalemate("White"), true);
+	EXPECT_EQ(modele.getBoard()->isStalemate("Black"), false);
+
+}
 //
-//TEST(Bishop, simple) {
-//	Bishop bishop;
-//	bishop.setPossibleMoves(0, 0);
-//	bishop.setPossibleMoves(-1, -1);
-//	bishop.setPossibleMoves(-1, 1);
-//	bishop.setPossibleMoves(1, 1);
-//	bishop.setPossibleMoves(1, -1);
-//	//EXPECT_EQ(calc.obtenirValeur(), 143);
-//	bishop.movePiece(0, 0);
-//	bishop.movePiece(-1, -1);
-//	bishop.movePiece(-1, 1);
-//	bishop.movePiece(1, 1);
-//	bishop.movePiece(1, -1);
-//	//EXPECT_EQ(calc.obtenirValeur(), 218);
-//}
-//
-//TEST(Calc, operations) {
-//	Calc calc;
-//	calc.ajouterChiffre(1);
-//	calc.ajouterChiffre(4);
-//	calc.ajouterChiffre(3);
-//	calc.operationPlus();
-//	calc.ajouterChiffre(2);
-//	calc.ajouterChiffre(1);
-//	calc.ajouterChiffre(8);
-//	calc.operationEgal();
-//	EXPECT_EQ(calc.obtenirValeur(), 143+218);
-//	calc.ajouterChiffre(1);
-//	calc.ajouterChiffre(4);
-//	calc.ajouterChiffre(3);
-//	calc.operationMoins();
-//	calc.ajouterChiffre(2);
-//	calc.ajouterChiffre(1);
-//	calc.ajouterChiffre(8);
-//	calc.operationEgal();
-//	EXPECT_EQ(calc.obtenirValeur(), 143-218);
-//}
+TEST(Knights, simple) {
+	Modele::Game modele;
+	Board* board = new Board;
+	modele.setBoard(board);
+	modele.getBoard()->drawBoard();
+	modele.getBoard()->loadChessGame("chessgame_files/Knights_Of_The_Round_Table.txt");
+
+
+	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(6, 6)->getPiece());
+	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(6, 6)->getPiece());
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 4, 5), true);
+	modele.getBoard()->movePieceOnBoard(modele.getSelectedPiece(), 4, 5);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 4);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 5);
+
+	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(3, 3)->getPiece());
+	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(3, 3)->getPiece());
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 4, 5), true);
+	modele.getBoard()->movePieceOnBoard(modele.getSelectedPiece(), 4, 5);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 4);
+	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 5);
+}
 //
 //TEST(Calc, changement_operation) {
 //	Calc calc;

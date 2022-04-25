@@ -46,15 +46,13 @@ public:
 	list <unique_ptr<Piece>>::iterator listOfWhiteEnd() { return listOfWhite_.end(); };
 	list <unique_ptr<Piece>>::iterator listOfBlackBegin() { return listOfBlack_.begin(); };
 	list <unique_ptr<Piece>>::iterator listOfBlackEnd() { return listOfBlack_.end(); };
-	King* getWhiteKing_() const { return whiteKing_; };
-	King* getBlackKing_() const { return blackKing_; };
 
 private:
 	shared_ptr<Square> field_[8][8];
 	list <unique_ptr<Piece>> listOfWhite_;
 	list <unique_ptr<Piece>> listOfBlack_;
-	list <Piece*> listOfWhiteDead_ = {};
-	list <Piece*> listOfBlackDead_ = {};
+	//list <Piece*> listOfWhiteDead_ = {};
+	//list <Piece*> listOfBlackDead_ = {};
 	King* whiteKing_;
 	King* blackKing_;
 
