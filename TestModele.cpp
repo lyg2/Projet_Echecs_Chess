@@ -131,9 +131,6 @@ TEST(Kings, simple) {
 	}
 	EXPECT_EQ(temp_piece->getCount(), 2);
 	
-	//EXPECT_EQ(modele.getBoard()->getWhiteKing()->getCount(), 2);
-	//EXPECT_EQ(modele.getBoard()->getBlackKing()->getCount(), 2);
-	
 }
 //
 #endif
