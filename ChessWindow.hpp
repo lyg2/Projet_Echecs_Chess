@@ -31,6 +31,7 @@ signals:
 	//void newGameClicked();
 	void nameOfTheGameTyped(QString name);
 	void startAnotherGameClicked();
+	void restartClicked(QString name);
 
 private slots:
 	void checkSquare();
@@ -46,6 +47,7 @@ private slots:
 	void showWinner(QString side);
 	void showStalemate();
 	void warningKing();
+	void showRestart(QString name);
 
 private:
 	Ui::ChessWindow* ui;

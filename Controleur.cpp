@@ -100,6 +100,9 @@ void Controleur::newGameMenu(QString name) {
 			drawPiece(it->get()->getNamePiece(), it->get()->getPosX(), it->get()->getPosY());
 		}
 	}
+	else {
+		emit restart(name);
+	}
 }
 
 void Controleur::startAnotherGameClicker() {
@@ -112,4 +115,9 @@ void Controleur::startAnotherGameClicker() {
 			emit drawPiece("", i, j);
 		}
 	}
+}
+
+void Controleur::restartClicker(QString name) {
+	startAnotherGameClicker();
+	newGameMenu(name);
 }

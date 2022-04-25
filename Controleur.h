@@ -25,10 +25,12 @@ signals:
     void checkmate(QString side);
     void stalemate();
     void moreThanTwoKings();
+    void restart(QString);
 public slots:
     void squareClicker(QPushButton* squareButton, int posX, int posY);
     void newGameMenu(QString name);
     void startAnotherGameClicker();
+    void restartClicker(QString name);
 
 private:
     Modele::Game* modele_;

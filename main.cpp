@@ -63,6 +63,8 @@ int main(int argc, char *argv[])
 	QObject::connect(&controleur, SIGNAL(moreThanTwoKings()), window, SLOT(warningKing()));
 	QObject::connect(&controleur, SIGNAL(stalemate()), window, SLOT(showStalemate()));
 	QObject::connect(window, SIGNAL(startAnotherGameClicked()), &controleur, SLOT(startAnotherGameClicker()));
+	QObject::connect(&controleur, SIGNAL(restart(QString)), window, SLOT(showRestart(QString)));
+	QObject::connect(window, SIGNAL(restartClicked(QString)), &controleur, SLOT(restartClicker(QString)));
 	// operator '&': deprecated between enumerations of different types. 
 	//controleur et window ne sont pas du même type, car controleur est passé en reférence et window en pointeur.
 	//une conversion implicite se fait, ce qui déclenche un warning.

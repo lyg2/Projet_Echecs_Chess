@@ -179,3 +179,17 @@ void ChessWindow::warningKing() {
         QApplication::quit();
     }
 }
+
+void ChessWindow::showRestart(QString name) {
+    QMessageBox::StandardButton msgBox;
+    msgBox = QMessageBox::question(this, "Restart a new game",
+        "\nDo you want to start a new game or not",
+        QMessageBox::Yes | QMessageBox::No);
+
+    if (msgBox == QMessageBox::Yes)
+    {
+        //reset board
+        //board resetted
+        emit restartClicked(name);
+    }
+}
