@@ -143,6 +143,10 @@ void Board::addPieceOnBoard(Piece* piece, int posX, int posY)
 bool Board::simulateNextPosition(Piece* piece, int nextPosX, int nextPosY, King* king)
 {
 	Simulator simulator = Simulator(piece, field_, nextPosX, nextPosY);
+	if (field_[nextPosX][nextPosY]->getHasPiece())
+	{
+		return isKingSafeByEating(king, nextPosX, nextPosY);
+	}
 	return isKingSafe(king);
 }
 
@@ -284,6 +288,40 @@ bool Board::isKingSafe(King* king) {
 	}
 	return true;
 
+}
+
+bool Board::isKingSafeByEating(King* king, int movePosX, int movePosY) {
+	int posX = king->getPosX();
+	int posY = king->getPosY();
+	if (king->getPieceColor() == "White")
+	{
+		for (auto&& piece : listOfBlack_)
+		{
+			if (piece.get()->getPosX() == movePosX && piece.get()->getPosY() == movePosY)
+			{
+				continue;
+			}
+			if (isObstacleFree(piece.get(), posX, posY))
+			{
+				return false;
+			}
+
+		}
+	}
+	else {
+		for (auto&& piece : listOfWhite_)
+		{
+			if (piece.get()->getPosX() == movePosX && piece.get()->getPosY() == movePosY)
+			{
+				continue;
+			}
+			if (isObstacleFree(piece.get(), posX, posY))
+			{
+				return false;
+			}
+		}
+	}
+	return true;
 }
 //pourrait mettre isObstacle free et simulate next position avec un ||
 bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {

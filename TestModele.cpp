@@ -47,6 +47,13 @@ TEST(Philidor, simple) {
 	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 1);
 	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 2);
 
+	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(1, 1)->getPiece());
+	EXPECT_EQ(modele.getSelectedPiece()->getNamePiece(), "BlackRook");
+
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 0, 1), false);
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 2, 1), false);
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 1, 2), true);
+
 	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(1, 0)->getPiece());
 	EXPECT_EQ(modele.getSelectedPiece()->getNamePiece(), "BlackKing");
 	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(1, 0)->getPiece());
@@ -55,7 +62,6 @@ TEST(Philidor, simple) {
 	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 0);
 	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 0);
 
-	EXPECT_EQ(modele.getBoard()->getFieldSquare(1, 1)->getPiece()->getNamePiece(), "BlackRook");
 	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(1, 2)->getPiece());
 	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(1, 2)->getPiece());
 	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 1, 1), true);

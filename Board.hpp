@@ -34,6 +34,7 @@ public:
 	void treatMovement(int& posX, int& posY, Movement& movement);
 	bool isSquareAllyFree(Piece* piece, int movePosX, int movePosY);
 	bool isObstacleFree(Piece* pieceToMove, int movePosX, int movePosY);
+	bool isKingSafeByEating(King* king, int movePosX, int movePosY);
 	bool isKingSafe(King* king);
 	bool isValidMove(Piece* original, int movePosX, int movePosY);
 	void movePieceOnBoard(Piece* original, int movePosX, int movePosY);
