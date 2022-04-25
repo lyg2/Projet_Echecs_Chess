@@ -1,0 +1,4 @@
+"White"	"King"	0	0
+"White"	"Bishop"	7	0
+"Black"	"Bishop"	0	7
+"Black"	"King"	7	7

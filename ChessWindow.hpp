@@ -44,6 +44,7 @@ private slots:
 	void on_actionTD6_Q2_3_Kings_triggered();
 	void on_actionKnights_Of_The_Round_Table_triggered();
 	void on_actiontest_stalemate_triggered();
+	void on_actionBishops_triggered();
 	void showWinner(QString side);
 	void showStalemate();
 	void warningKing();

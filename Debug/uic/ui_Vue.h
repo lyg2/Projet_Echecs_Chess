@@ -35,6 +35,7 @@ public:
     QAction *actionKnights_Of_The_Round_Table;
     QAction *actionPeople_are_just_pawns;
     QAction *actiontest_stalemate;
+    QAction *actionBishops;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QLineEdit *playerTurnView;
@@ -136,6 +137,8 @@ public:
         actionPeople_are_just_pawns->setObjectName(QString::fromUtf8("actionPeople_are_just_pawns"));
         actiontest_stalemate = new QAction(ChessWindow);
         actiontest_stalemate->setObjectName(QString::fromUtf8("actiontest_stalemate"));
+        actionBishops = new QAction(ChessWindow);
+        actionBishops->setObjectName(QString::fromUtf8("actionBishops"));
         centralwidget = new QWidget(ChessWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         sizePolicy.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
@@ -617,7 +620,7 @@ public:
         ChessWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ChessWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1000, 22));
+        menubar->setGeometry(QRect(0, 0, 1000, 21));
         menuMenu = new QMenu(menubar);
         menuMenu->setObjectName(QString::fromUtf8("menuMenu"));
         menuLoad_txt = new QMenu(menuMenu);
@@ -634,6 +637,7 @@ public:
         menuLoad_txt->addAction(actionTD6_Q2_3_Kings);
         menuLoad_txt->addAction(actionKnights_Of_The_Round_Table);
         menuLoad_txt->addAction(actiontest_stalemate);
+        menuLoad_txt->addAction(actionBishops);
 
         retranslateUi(ChessWindow);
 
@@ -651,6 +655,7 @@ public:
         actionKnights_Of_The_Round_Table->setText(QCoreApplication::translate("ChessWindow", "Knights_Of_The_Round_Table", nullptr));
         actionPeople_are_just_pawns->setText(QCoreApplication::translate("ChessWindow", "People_are_just_pawns", nullptr));
         actiontest_stalemate->setText(QCoreApplication::translate("ChessWindow", "test_stalemate", nullptr));
+        actionBishops->setText(QCoreApplication::translate("ChessWindow", "Bishops", nullptr));
         playerTurnView->setText(QString());
         pushButton_33->setText(QString());
         pushButton_36->setText(QString());

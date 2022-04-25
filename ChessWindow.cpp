@@ -129,6 +129,10 @@ void ChessWindow ::on_actionKnights_Of_The_Round_Table_triggered() {
 void ChessWindow::on_actiontest_stalemate_triggered() {
     emit nameOfTheGameTyped("chessgame_files/test_stalemate.txt");
 }
+
+void ChessWindow::on_actionBishops_triggered() {
+    emit nameOfTheGameTyped("chessgame_files/Bishops.txt");
+}
 void ChessWindow::showWinner(QString side) {
     QMessageBox::StandardButton msgBox;
     msgBox = QMessageBox::question(this, "Checkmate ! Winner is "+ side,

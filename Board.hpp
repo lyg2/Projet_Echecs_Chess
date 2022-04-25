@@ -40,7 +40,6 @@ public:
 	bool isImpossibleToMoveKing(string side);
 	bool isStalemate(string side);
 	bool isCheckmate(string side);
-	//bool movePiece(Piece* original, int movePosX, int movePosY);
 
 	list <unique_ptr<Piece>>::iterator listOfWhiteBegin()  { return listOfWhite_.begin(); };
 	list <unique_ptr<Piece>>::iterator listOfWhiteEnd() { return listOfWhite_.end(); };
@@ -51,8 +50,6 @@ private:
 	shared_ptr<Square> field_[8][8];
 	list <unique_ptr<Piece>> listOfWhite_;
 	list <unique_ptr<Piece>> listOfBlack_;
-	//list <Piece*> listOfWhiteDead_ = {};
-	//list <Piece*> listOfBlackDead_ = {};
 	King* whiteKing_;
 	King* blackKing_;
 
