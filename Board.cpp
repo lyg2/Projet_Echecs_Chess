@@ -37,16 +37,8 @@ void Board::resetBoard() {
 		field_[piece->getPosX()][piece->getPosY()]->setHasPiece(false);
 		piece.reset();
 	}
-	/*for (auto&& piece : listOfWhiteDead_) {
-		delete piece;
-	}
-	for (auto&& piece : listOfBlackDead_) {
-		delete piece;
-	}*/
 	listOfWhite_.clear();
 	listOfBlack_.clear();
-	/*listOfWhiteDead_.clear();
-	listOfBlackDead_.clear();*/
 	whiteKing_ = nullptr;
 	blackKing_ = nullptr;
 }
@@ -126,8 +118,6 @@ void Board::drawBoard()
 		for (int j = 0; j < nRows; j++)
 		{
 			Square* square = new Square;
-			//square->setPositionX(i);
-			//square->setPositionY(j);
 			square->putPieceOnSquare(nullptr);
 			if ((i + j) % 2 == 0)
 			{
@@ -146,8 +136,6 @@ void Board::addPieceOnBoard(Piece* piece, int posX, int posY)
 {
 	piece->setPosX(posX);
 	piece->setPosY(posY);
-	//field_[posX][posY]->setPositionX(posX);
-	//field_[posX][posY]->setPositionY(posY);
 	field_[posX][posY]->putPieceOnSquare(piece);
 	field_[posX][posY]->setHasPiece(true);
 }
@@ -171,7 +159,7 @@ bool Board::isSquareAllyFree(Piece* piece, int movePosX, int movePosY) {
 	return false;
 
 }
-//devrait peut-être dans une class à part, pas dans le board. friend function peut-être ?
+
 Movement Board::getMovement(int posX, int posY, int movePosX, int movePosY) {
 	if ((movePosX - posX >= 1) && (movePosY == posY))
 	{
@@ -244,9 +232,6 @@ void Board::treatMovement(int& posX, int& posY, Movement& movement) {
 }
 
 bool Board::isObstacleFree(Piece* pieceToMove, int movePosX, int movePosY) {
-	//if checkObstacle==true, then no obstacle
-	// Must correct bug use field_[ instead of square for the if.
-	//Bug: can't shield itself.
 	if (!(pieceToMove->validationMouvement(movePosX, movePosY))) {
 		return false;
 	}

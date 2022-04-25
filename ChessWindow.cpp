@@ -46,9 +46,7 @@ ChessWindow::ChessWindow(QWidget *parent) :
                     square->setStyleSheet("background-color: gray");
                 }
                 square->move(j, i);
-                //cout << square->x() << " " << square->y() << endl;
-                QString texte = QString::number(square->x()) + " " + QString::number(square->y());
-                square->setText(texte);
+                square->setText("");
                 square->setProperty("PosX", QVariant::fromValue<int>(j));
                 square->setProperty("PosY", QVariant::fromValue<int>(i));
                 
@@ -56,6 +54,7 @@ ChessWindow::ChessWindow(QWidget *parent) :
             }
         }
     }
+    ui->playerTurnView->setText("Go to menu->load_txt and click on one of the games to start a new game");
 
    /* QPushButton* newGameButton= qobject_cast<QPushButton*>(ui->verticalLayout->itemAt(0)->widget());
     connect(newGameButton, &QPushButton::clicked, this, &ChessWindow::checkNewgame);*/
@@ -132,6 +131,19 @@ void ChessWindow::on_actiontest_stalemate_triggered() {
 
 void ChessWindow::on_actionBishops_triggered() {
     emit nameOfTheGameTyped("chessgame_files/Bishops.txt");
+}
+
+void ChessWindow::on_actionexit_triggered() {
+
+    QMessageBox::StandardButton msgBox;
+    msgBox = QMessageBox::question(this, "Exit",
+        "\nDo you want to exit the application ?",
+        QMessageBox::Yes | QMessageBox::No);
+
+    if (msgBox == QMessageBox::Yes)
+    {
+        QApplication::quit();
+    }
 }
 void ChessWindow::showWinner(QString side) {
     QMessageBox::StandardButton msgBox;

@@ -45,6 +45,7 @@ private slots:
 	void on_actionKnights_Of_The_Round_Table_triggered();
 	void on_actiontest_stalemate_triggered();
 	void on_actionBishops_triggered();
+	void on_actionexit_triggered();
 	void showWinner(QString side);
 	void showStalemate();
 	void warningKing();
