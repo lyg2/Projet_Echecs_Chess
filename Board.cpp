@@ -140,7 +140,7 @@ void Board::addPieceOnBoard(Piece* piece, int posX, int posY)
 	field_[posX][posY]->setHasPiece(true);
 }
 
-bool Board::simulateNextPosition(Piece* piece, int nextPosX, int nextPosY, King* king)
+bool Board::isSimulationSucessful(Piece* piece, int nextPosX, int nextPosY, King* king)
 {
 	Simulator simulator = Simulator(piece, field_, nextPosX, nextPosY);
 	if (field_[nextPosX][nextPosY]->getHasPiece())
@@ -332,7 +332,7 @@ bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	if (original->getPieceColor() == "White")
 	{
 		if (!(isObstacleFree(original, movePosX, movePosY)) ||
-			!(simulateNextPosition(original, movePosX, movePosY, whiteKing_))
+			!(isSimulationSucessful(original, movePosX, movePosY, whiteKing_))
 			)
 		{
 			return false;
@@ -341,7 +341,7 @@ bool Board::isValidMove(Piece* original, int movePosX, int movePosY) {
 	else
 	{
 		if (!(isObstacleFree(original, movePosX, movePosY)) ||
-			!(simulateNextPosition(original, movePosX, movePosY, blackKing_)))
+			!(isSimulationSucessful(original, movePosX, movePosY, blackKing_)))
 		{
 			return false;
 		}
@@ -401,7 +401,7 @@ void Board::movePieceOnBoard(Piece* original, int movePosX, int movePosY) {
 	}*/
 }
 
-bool Board::isImpossibleToMoveKing(string side) {
+bool Board::HasNoLegalMove(string side) {
 	int nRows = 8;
 	int nColumns = 8;
 	if (side == "White") {
@@ -435,19 +435,19 @@ bool Board::isImpossibleToMoveKing(string side) {
 
 bool Board::isStalemate(string side) {
 	if (side == "White") {
-		return (isKingSafe(whiteKing_) && isImpossibleToMoveKing("Black"));
+		return (isKingSafe(whiteKing_) && HasNoLegalMove("Black"));
 	}
 	else {
-		return (isKingSafe(blackKing_) && isImpossibleToMoveKing("White"));
+		return (isKingSafe(blackKing_) && HasNoLegalMove("White"));
 	}
 }
 
 bool Board::isCheckmate(string side) {
 	//Side: the one who made the last move
 	if (side == "White") {
-		return (!isKingSafe(blackKing_) && isImpossibleToMoveKing(side));
+		return (!isKingSafe(blackKing_) && HasNoLegalMove(side));
 	}
 	else {
-		return (!isKingSafe(whiteKing_) && isImpossibleToMoveKing(side));
+		return (!isKingSafe(whiteKing_) && HasNoLegalMove(side));
 	}
 }

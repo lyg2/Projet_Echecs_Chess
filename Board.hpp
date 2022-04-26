@@ -29,7 +29,7 @@ public:
 	Piece* readLinePosition(string color, string namePiece);
 	void loadChessGame(string chessGame);
 	void addPieceOnBoard(Piece* piece, int posX, int posY);
-	bool simulateNextPosition(Piece* piece, int nextPosX, int nexPosY, King* king);
+	bool isSimulationSucessful(Piece* piece, int nextPosX, int nexPosY, King* king);
 	Movement getMovement(int posX, int posY, int movePosX, int movePosY);
 	void treatMovement(int& posX, int& posY, Movement& movement);
 	bool isSquareAllyFree(Piece* piece, int movePosX, int movePosY);
@@ -38,7 +38,7 @@ public:
 	bool isKingSafe(King* king);
 	bool isValidMove(Piece* original, int movePosX, int movePosY);
 	void movePieceOnBoard(Piece* original, int movePosX, int movePosY);
-	bool isImpossibleToMoveKing(string side);
+	bool HasNoLegalMove(string side);
 	bool isStalemate(string side);
 	bool isCheckmate(string side);
 
