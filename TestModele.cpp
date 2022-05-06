@@ -16,12 +16,15 @@
 #include "Rook.hpp"
 #include "Simulator.h"
 #include "Square.hpp"
-//
+#include <filesystem>
+
+//On doit changer le répertoire de travail dans google test adapter en $(SolutionDir), sinon les fichiers ne vont pas être trouvés.
 #if __has_include("gtest/gtest.h")
 #include "gtest/gtest.h"
 #endif
 #ifdef TEST
-//
+
+ 
 TEST(Philidor, simple) {
 	Modele::Game modele;
 	Board* board = new Board;
@@ -43,6 +46,7 @@ TEST(Philidor, simple) {
 	EXPECT_EQ(modele.getSelectedPiece()->getNamePiece(), "WhiteQueen");
 	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(0, 3)->getPiece());
 	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 1, 2), true);
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 1, 3), true);
 	modele.getBoard()->movePieceOnBoard(modele.getSelectedPiece(), 1, 2);
 	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 1);
 	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 2);
@@ -52,6 +56,7 @@ TEST(Philidor, simple) {
 
 	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 0, 1), false);
 	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 2, 1), false);
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 1, 3), false);
 	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 1, 2), true);
 
 	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(1, 0)->getPiece());
@@ -65,6 +70,7 @@ TEST(Philidor, simple) {
 	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(1, 2)->getPiece());
 	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(1, 2)->getPiece());
 	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 1, 1), true);
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 2, 2), false);
 	modele.getBoard()->movePieceOnBoard(modele.getSelectedPiece(), 1, 1);
 	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 1);
 	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 1);
@@ -119,6 +125,7 @@ TEST(Bishops, simple) {
 	EXPECT_EQ(modele.getSelectedPiece()->getNamePiece(), "WhiteBishop");
 	EXPECT_EQ(modele.getSelectedPiece(), modele.getBoard()->getFieldSquare(7, 0)->getPiece());
 	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 0, 7), true);
+	EXPECT_EQ(modele.getBoard()->isValidMove(modele.getSelectedPiece(), 3, 3), false);
 	modele.getBoard()->movePieceOnBoard(modele.getSelectedPiece(), 0, 7);
 	EXPECT_EQ(modele.getSelectedPiece()->getPosX(), 0);
 	EXPECT_EQ(modele.getSelectedPiece()->getPosY(), 7);
@@ -138,5 +145,19 @@ TEST(Kings, simple) {
 	EXPECT_EQ(temp_piece->getCount(), 2);
 	
 }
-//
+
+TEST(Check_White_King, simple) {
+	Modele::Game modele;
+	Board* board = new Board;
+	modele.setBoard(board);
+	modele.getBoard()->drawBoard();
+	modele.setIsNewGame(false);
+	EXPECT_EQ(modele.getIsNewGame(), false);
+	modele.getBoard()->loadChessGame("chessgame_files/philidor1777.txt");
+
+	modele.setSelectedPiece(modele.getBoard()->getFieldSquare(1, 1)->getPiece());
+	modele.getBoard()->movePieceOnBoard(modele.getSelectedPiece(), 2, 1);
+	EXPECT_EQ(modele.getBoard()->isCheckmate("Black"), false);
+}
+
 #endif

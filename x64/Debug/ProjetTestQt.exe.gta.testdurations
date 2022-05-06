@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Executable>C:\temp\INF1015_Projet\x64\Debug\ProjetTestQt.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="Board.philidor" Duration="1" />
+    <TestDuration Test="Board.Stalemate" Duration="1" />
+    <TestDuration Test="Board.Knights" Duration="1" />
+    <TestDuration Test="Board.Bishops" Duration="1" />
+    <TestDuration Test="Board.Kings" Duration="1" />
+    <TestDuration Test="Philidor.simple" Duration="1" />
+    <TestDuration Test="Stalemate.simple" Duration="1" />
+    <TestDuration Test="Knights.simple" Duration="1" />
+    <TestDuration Test="Bishops.simple" Duration="1" />
+    <TestDuration Test="Kings.simple" Duration="1" />
+    <TestDuration Test="Check_White_King.simple" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>

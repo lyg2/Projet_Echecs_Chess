@@ -143,11 +143,9 @@ void Board::addPieceOnBoard(Piece* piece, int posX, int posY)
 bool Board::isSimulationSucessful(Piece* piece, int nextPosX, int nextPosY, King* king)
 {
 	Simulator simulator = Simulator(piece, field_, nextPosX, nextPosY);
-	if (field_[nextPosX][nextPosY]->getHasPiece())
-	{
-		return isKingSafeByEating(king, nextPosX, nextPosY);
-	}
-	return isKingSafe(king);
+	
+	return isKingSafeByEating(king, nextPosX, nextPosY);
+	//return isKingSafe(king);
 }
 
 bool Board::isSquareAllyFree(Piece* piece, int movePosX, int movePosY) {
@@ -435,19 +433,19 @@ bool Board::HasNoLegalMove(string side) {
 
 bool Board::isStalemate(string side) {
 	if (side == "White") {
-		return (isKingSafe(whiteKing_) && HasNoLegalMove("Black"));
+		return (HasNoLegalMove("Black") && isKingSafe(whiteKing_));
 	}
 	else {
-		return (isKingSafe(blackKing_) && HasNoLegalMove("White"));
+		return (HasNoLegalMove("White")&& isKingSafe(blackKing_));
 	}
 }
 
 bool Board::isCheckmate(string side) {
 	//Side: the one who made the last move
 	if (side == "White") {
-		return (!isKingSafe(blackKing_) && HasNoLegalMove(side));
+		return (!isKingSafe(blackKing_)&&HasNoLegalMove(side));
 	}
 	else {
-		return (!isKingSafe(whiteKing_) && HasNoLegalMove(side));
+		return (!isKingSafe(whiteKing_)&& HasNoLegalMove(side));
 	}
 }
