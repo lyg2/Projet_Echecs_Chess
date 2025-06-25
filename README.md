@@ -1,5 +1,3 @@
----
-
 ## Description du projet
 
 Ce dépôt contient le code source d'un moteur de jeu d'échecs spécialisé dans les positions de **fin de partie**, développé en **C++** avec **Visual Studio 2019**.
@@ -21,4 +19,3 @@ The project emphasizes evaluation and search algorithms tailored to late-game sc
 
 * C++ implementation compatible with Visual Studio 2019
 * Endgame-oriented strategy
----
